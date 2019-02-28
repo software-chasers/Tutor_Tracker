@@ -22,5 +22,7 @@ public class ExampleInstrumentedTest {
         Context appContext = InstrumentationRegistry.getTargetContext();
 
         assertEquals("com.example.software_chasers.tutor_tracker", appContext.getPackageName());
+
+
     }
 }
