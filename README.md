@@ -8,10 +8,10 @@ Tutor-Tracker is an Android application that is used as a tutor management tool 
 
 
 ## Table of Contents
-* [Tutor-Tracker](https://github.com/Spontaneous2/Tutor-Tracker#tutor-tracker)
-* [Installation](https://github.com/Spontaneous2/Tutor-Tracker#installation)
-* [Usage](https://github.com/Spontaneous2/Tutor-Tracker#usage)
-* [Framework Used](https://github.com/Spontaneous2/Tutor-Tracker#framework-used)
+* [Tutor-Tracker](https://github.com/software-chasers/tutor_tracker#tutor-tracker)
+* [Installation](https://github.com/software-chasers/tutor_tracker#installation)
+* [Usage](https://github.com/software-chasers/tutor_tracker#usage)
+* [Framework Used](https://github.com/software-chasers/tutor_tracker#framework-used)
 
 ## Installation
 On Linux
