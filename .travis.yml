@@ -10,12 +10,16 @@ android:
     - build-tools-26.0.2
 
     # The SDK version used to compile your project
-    - android-26
+    - android-24
 
     # Additional components
     - extra-google-google_play_services
     - extra-google-m2repository
     - extra-android-m2repository
+    licenses:
+    - 'android-sdk-preview-license-52d11cd2'
+    - 'android-sdk-license-.+'
+    - 'google-gdk-license-.+'
 
     # Specify at least one system image,
     # if you need to run emulator(s) during your tests
