@@ -22,7 +22,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".HomePage" />
-        <activity android:name=".Create_profile"></activity>
+        <activity android:name=".Create_profile" />
+        <activity android:name=".Tutor_application"></activity>
     </application>
 
 </manifest>
