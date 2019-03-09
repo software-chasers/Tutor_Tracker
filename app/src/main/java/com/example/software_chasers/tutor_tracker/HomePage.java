@@ -2,18 +2,50 @@ package com.example.software_chasers.tutor_tracker;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class HomePage extends AppCompatActivity {
 
-
+/*
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_page);
+        setContentView(R.layout.activity_example_menu);
+    }*/
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.example_menu, menu);
+        return true;
     }
 
-      /*  @Override
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch ( item.getItemId()){
+            case R.id.subitem1:
+                return true;
+
+            case R.id.subitem2:
+                return true;
+            case R.id.subitem3:
+                return true;
+            case R.id.subitem4:
+                return true;
+
+
+
+default:
+    return super.onOptionsItemSelected(item);
+        }
+
+    }
+}
+
+    /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.example_menu,menu);
@@ -44,5 +76,5 @@ public class HomePage extends AppCompatActivity {
                     return super.onOptionsItemSelected(item);
         }
 
-    }*/
-}
+    }
+}*/
