@@ -11,7 +11,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.withId;
 public class MainActivityUITest {
 
     @Test
-    public void testButon(){
+    public void testButton(){
         onView(withId(R.id.button)).perform(click());
     }
 }
