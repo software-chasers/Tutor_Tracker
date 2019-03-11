@@ -11,15 +11,21 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button button = (Button) findViewById(R.id.button);
-    Button button2 = (Button) findViewById(R.id.button2);
-    EditText editText = (EditText) findViewById(R.id.editText);
-    EditText editText2 = (EditText)findViewById( R.id.editText2 );
+    Button button;
+    Button button2;
+    EditText editText;
+    EditText editText2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main1);
+
+        button = (Button) findViewById(R.id.button);
+        button2 = (Button) findViewById(R.id.button2);
+        editText = (EditText) findViewById(R.id.editText);
+        editText2 = (EditText)findViewById( R.id.editText2 );
+
 
         editText2.addTextChangedListener( loginWatcher );
         editText.addTextChangedListener( loginWatcher );
