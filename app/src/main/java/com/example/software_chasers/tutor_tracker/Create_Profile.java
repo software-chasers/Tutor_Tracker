@@ -57,7 +57,8 @@ public class Create_Profile extends AppCompatActivity {
                             if(chkemail){
                                 boolean insert = db.insert(s3,s4);
                                 if(insert){
-
+                                    Intent intent = new Intent(Create_Profile.this, MainActivity.class);
+                                    startActivity(intent);
                                     Toast.makeText(getApplicationContext(),"Sign up successfully",Toast.LENGTH_SHORT).show();
                                 }
                                 else{
