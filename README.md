@@ -21,6 +21,8 @@ $ cd Tutor-Tracker
 ```
 ## Usage
 TO-DO: Outline how different users can interact with the app, include screenshots and gifs
+Tutors can register to be users and/or login to the app as existing users.
+![Login Page](https://github.com/KhanyileBN/dummy-repo/blob/master/tutor-land.jpg)
 
 ## Framework Used
 <b>Built with</b> 
