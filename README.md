@@ -20,13 +20,7 @@ $ git clone https://github.com/Spontaneous2/Tutor-Tracker
 $ cd Tutor-Tracker
 ```
 ## Usage
-Students can register to be users and/or login to the app as existing users.
-
-![Login Page](https://github.com/KhanyileBN/dummy-repo/blob/master/tutor-land.jpg)
-
-If students would like to sign up they are taken to the signup page.
-
-![Login Page](https://github.com/KhanyileBN/dummy-repo/blob/master/tutor-reg.jpg)
+TO-DO: Outline how different users can interact with the app, include screenshots and gifs
 
 ## Framework Used
 <b>Built with</b> 
