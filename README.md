@@ -16,7 +16,7 @@ Tutor-Tracker is an Android application that is used as a tutor management tool 
 ## Installation
 On Linux
 ```bash
-$ git clone https://github.com/Spontaneous2/Tutor-Tracker
+$ git clone https://github.com/software-chasers/Tutor_Tracker.git
 $ cd Tutor-Tracker
 ```
 ## Usage
