@@ -11,7 +11,7 @@ android:
   # The BuildTools version used by your project
   - build-tools-27.0.3
   - tools
-
+  sudo: false
 
   before_install:
     - mkdir "$ANDROID_HOME/licenses" || true
