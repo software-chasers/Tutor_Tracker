@@ -1,5 +1,7 @@
 language: android
 android:
+  sudo: false
+
   components:
   # Uncomment the lines below if you want to
   # use the latest revision of Android SDK Tools
@@ -11,7 +13,6 @@ android:
   # The BuildTools version used by your project
   - build-tools-27.0.3
   - tools
-  sudo: true
 
   before_install:
     - mkdir "$ANDROID_HOME/licenses" || true
@@ -21,7 +22,7 @@ android:
   #Emulator Management: Create, Start and Wait
   before_script:
     - echo no | android create avd --force -n test -t android-22 --abi armeabi-v7a
-    - emulator -avd test -no-audio -no-window -skin 768x1280 &
+    - emulator -avd test -no-audio -no-window -no-skin -no-window &
     - android-wait-for-emulator
     - adb shell settings put global window_animation_scale 0 &
     - adb shell settings put global transition_animation_scale 0 &
