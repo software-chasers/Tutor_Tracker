@@ -1,5 +1,10 @@
 sudo: false
 language: android
+jdk: oraclejdk8
+env:
+  global:
+  - ANDROID_TARGET=android-22
+  - ANDROID_ABI=armeabi-v7a
 android:
   components:
   # Uncomment the lines below if you want to
@@ -11,6 +16,8 @@ android:
     - tools
     - add-on
     - extra
+    - $ANDROID_TARGET
+    - sys-img-${ANDROID_ABI}-${ANDROID_TARGET}
   licenses:
   - 'android-sdk-preview-license-52d11cd2'
   - 'android-sdk-license-.+'
@@ -19,15 +26,24 @@ android:
 #  - mkdir "$ANDROID_HOME/licenses" || true
 #  - echo -e "\n8933bad161af4178b1185d1a37fbf41ea5269c55" > "$ANDROID_HOME/licenses/android-sdk-license"
 #  - echo -e "\n84831b9409646a918e30573bab4c9c91346d8abd" > "$ANDROID_HOME/licenses/android-sdk-preview-license"
-  before_script:
-  - echo no | android create avd --force -n test -t android-22 --abi armeabi-v7a
-  - emulator -avd test -no-audio -no-window -no-skin -no-window &
-  - android-wait-for-emulator
-  - adb shell settings put global window_animation_scale 0 &
-  - adb shell settings put global transition_animation_scale 0 &
-  - adb shell settings put global animator_duration_scale 0 &
-  - adb shell input keyevent 82 &
-  script: "./gradlew build"
+#  before_script:
+#  - echo no | android create avd --force -n test -t android-22 --abi armeabi-v7a
+#  - emulator -avd test -no-audio -no-window -no-skin -no-window &
+#  - android-wait-for-emulator
+#  - adb shell settings put global window_animation_scale 0 &
+#  - adb shell settings put global transition_animation_scale 0 &
+#  - adb shell settings put global animator_duration_scale 0 &
+#  - adb shell input keyevent 82 &
+  script:
+    - ./gradlew build jacocoTestReport assembleAndroidTest
+    - echo no | android create avd --force -n test -t $ANDROID_TARGET --abi $ANDROID_ABI
+    - emulator -avd test -no-skin -no-audio -no-window &
+    - android-wait-for-emulator
+    - adb shell setprop dalvik.vm.dexopt-flags v=n,o=v
+    - ./gradlew connectedCheck
+  after_success:
+    -bash <(cur1 -s https://codecov.io/bash)
+
 
     #
   #  #Emulator Management: Create, Start and Wait
