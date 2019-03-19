@@ -1,25 +1,21 @@
+sudo: false
 language: android
 android:
-  sudo: false
-
   components:
   # Uncomment the lines below if you want to
   # use the latest revision of Android SDK Tools
-  - tools
-#  - android-23
-  - android-27
-  - platform-tools
-
-  # The BuildTools version used by your project
-  - build-tools-27.0.3
-  - tools
-  -add-on
-  -extra
+    - tools
+    - android-27
+    - platform-tools
+    - build-tools-27.0.3
+    - tools
+    - add-on
+    - extra
   licenses:
   - 'android-sdk-preview-license-52d11cd2'
   - 'android-sdk-license-.+'
   - 'google-gdk-license-.+'
-  script:"./gradlew build"
+  script: "./gradlew build"
 
 #  before_install:
 #    - mkdir "$ANDROID_HOME/licenses" || true
