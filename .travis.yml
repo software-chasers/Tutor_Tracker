@@ -3,34 +3,34 @@ language: android
 jdk: oraclejdk8
 env:
   global:
-  - ANDROID_TARGET=android-22
-  - ANDROID_ABI=armeabi-v7a
+    - ANDROID_TARGET=android-22
+    - ANDROID_ABI=armeabi-v7a
 android:
   components:
   # Uncomment the lines below if you want to
   # use the latest revision of Android SDK Tools
-    - tools
-    - android-27
-    - platform-tools
-    - build-tools-27.0.3
-    - tools
-    - add-on
-    - extra
-    - $ANDROID_TARGET
-    - sys-img-${ANDROID_ABI}-${ANDROID_TARGET}
-  licenses:
-  - 'android-sdk-preview-license-52d11cd2'
-  - 'android-sdk-license-.+'
-  - 'google-gdk-license-.+'
-  script:
-    - echo no | android create avd --force -n test -t $ANDROID_TARGET --abi $ANDROID_ABI
-    - emulator -avd test -no-skin -no-audio -no-window &
-    - android-wait-for-emulator
-    - adb shell setprop dalvik.vm.dexopt-flags v=n,o=v
-    - ./gradlew build jacocoTestReport assembleAndroidTest
-    - ./gradlew connectedCheck jacocoTestReport
-  after_success:
-    - bash <(cur1 -s https://codecov.io/bash)
+  - tools
+  - android-27
+  - platform-tools
+  - build-tools-27.0.3
+  - tools
+  - add-on
+  - extra
+  - $ANDROID_TARGET
+  - sys-img-${ANDROID_ABI}-${ANDROID_TARGET}
+licenses:
+- 'android-sdk-preview-license-52d11cd2'
+- 'android-sdk-license-.+'
+- 'google-gdk-license-.+'
+script:
+- echo no | android create avd --force -n test -t $ANDROID_TARGET --abi $ANDROID_ABI
+- emulator -avd test -no-skin -no-audio -no-window &
+- android-wait-for-emulator
+- adb shell setprop dalvik.vm.dexopt-flags v=n,o=v
+- ./gradlew build jacocoTestReport assembleAndroidTest
+- ./gradlew connectedCheck jacocoTestReport
+after_success:
+- bash <(cur1 -s https://codecov.io/bash)
 
 
     #  before_install:
