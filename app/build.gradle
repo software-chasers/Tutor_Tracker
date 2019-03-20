@@ -59,7 +59,7 @@ android.testOptions {
         }
     }
 }
-task jacocoTestReport(type: JacocoReport,dependsOn: ['testDebugUnitTesr','createDebugCoverageReport']){
+task jacocoTestReport(type: JacocoReport,dependsOn: ['testDebugUnitTest','createDebugCoverageReport']){
     reports {
         xml.enabled = true
         html.enabled = true
