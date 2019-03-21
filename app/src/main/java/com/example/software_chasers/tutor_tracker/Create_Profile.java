@@ -31,6 +31,7 @@ public class Create_Profile extends AppCompatActivity {
         Submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 //Intent intent = new Intent(Create_Profile.this, MainActivity.class);
                 //startActivity(intent);
                 String s1 = FullNames.getText().toString();
@@ -57,7 +58,14 @@ public class Create_Profile extends AppCompatActivity {
                             if(chkemail){
                                 boolean insert = db.insert(s3,s4);
                                 if(insert){
-                                    Intent intent = new Intent(Create_Profile.this, MainActivity.class);
+
+                                    Intent intent = new Intent(Create_Profile.this, View_profile.class);
+                                    intent.putExtra("full_names",s1);
+                                    intent.putExtra("username",s2);
+                                    intent.putExtra("email",s3);
+                                    intent.putExtra("phone_number",s6);
+                                    intent.putExtra("degree",s7);
+                                    intent.putExtra("yos",s8);
                                     startActivity(intent);
                                     Toast.makeText(getApplicationContext(),"Sign up successfully",Toast.LENGTH_SHORT).show();
                                 }
