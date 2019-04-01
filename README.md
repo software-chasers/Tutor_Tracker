@@ -7,6 +7,8 @@ Tutor-Tracker is an Android application that is used as a tutor management tool 
 |Master |[![Build Status](https://travis-ci.org/software-chasers/Tutor_Tracker.svg?branch=master)](https://travis-ci.org/software-chasers/Tutor_Tracker)|
 
 
+[![codecov](https://codecov.io/gh/software-chasers/Tutor_Tracker/branch/master/graph/badge.svg)](https://codecov.io/gh/software-chasers/Tutor_Tracker)
+
 ## Table of Contents
 * [Tutor-Tracker](https://github.com/software-chasers/tutor_tracker#tutor-tracker)
 * [Installation](https://github.com/software-chasers/tutor_tracker#installation)
@@ -16,7 +18,7 @@ Tutor-Tracker is an Android application that is used as a tutor management tool 
 ## Installation
 On Linux
 ```bash
-$ git clone https://github.com/Spontaneous2/Tutor-Tracker
+$ git clone https://github.com/software-chasers/Tutor_Tracker.git
 $ cd Tutor-Tracker
 ```
 ## Usage
@@ -28,4 +30,3 @@ If students would like to sign up they are taken to the signup page.
 
 ## Framework Used
 <b>Built with</b> 
-- [Android Studio](https://developer.android.com/studio)
