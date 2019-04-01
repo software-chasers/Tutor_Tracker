@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
-    public final static String EXTRA_MESSAGE = "tutor_tracker.MESSAGE";
 
     Button button;
     Button button2;
@@ -25,8 +24,8 @@ public class MainActivity extends AppCompatActivity {
         button = (Button) findViewById(R.id.button);
         button2 = (Button) findViewById(R.id.button2);
         editText = (EditText) findViewById(R.id.editText);
-       editText2  = (EditText)findViewById( R.id.editText2 );
-        final String username  = editText2.getText().toString();
+        editText2 = (EditText)findViewById( R.id.editText2 );
+
 
         editText2.addTextChangedListener( loginWatcher );
         editText.addTextChangedListener( loginWatcher );
@@ -34,16 +33,8 @@ public class MainActivity extends AppCompatActivity {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 Intent intent = new Intent(MainActivity.this, HomePage.class);
-
-             //  EditText editText = (EditText) findViewById(R.id.etqr);
-               // String message = editText.getText().toString();
-              //  intent.putExtra("Username", username);
                 startActivity(intent);
-
-               //Intent intent = new Intent
-             // startActivity(intent);
             }
         });
 
@@ -51,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, Create_Profile.class);
-
                 startActivity(intent);
             }
         });
