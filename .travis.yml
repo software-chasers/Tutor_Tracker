@@ -30,7 +30,7 @@ script:
 - ./gradlew build jacocoTestReport assembleAndroidTest
 - ./gradlew connectedCheck jacocoTestReport
 after_success:
-- bash <(cur1 -s https://codecov.io/bash)
+- bash <(curl -s https://codecov.io/bash)
 
 
     #  before_install:
