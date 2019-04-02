@@ -59,7 +59,7 @@ public class Create_Profile extends AppCompatActivity {
                                 boolean insert = db.insert(s3,s4);
                                 if(insert){
 
-                                    Intent intent = new Intent(Create_Profile.this, View_profile.class);
+                                    Intent intent = new Intent(Create_Profile.this, HomePage.class);
                                     intent.putExtra("full_names",s1);
                                     intent.putExtra("username",s2);
                                     intent.putExtra("email",s3);
