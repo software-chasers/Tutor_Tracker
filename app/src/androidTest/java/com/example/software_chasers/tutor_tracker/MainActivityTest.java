@@ -42,9 +42,9 @@ public class MainActivityTest/* extends ActivityInstrumentationTestCase2<MainAct
 //        button.check(doesNotExist());
         ViewInteraction image = onView(withId(R.id.imageView));
         image.check(matches(isDisplayed()));
-        ViewInteraction userName = onView(withId(R.id.editText2));
+        ViewInteraction userName = onView(withId(R.id.edituserid));
         userName.check(matches(isDisplayed()));
-        ViewInteraction Password = onView(withId(R.id.editText));
+        ViewInteraction Password = onView(withId(R.id.editpassword));
         Password.check(matches(isDisplayed()));
         ViewInteraction checkbox = onView( withId( R.id.checkBox ) );
         checkbox.perform( click() );
