@@ -45,10 +45,13 @@ public class MainActivity extends AppCompatActivity {
                 @SuppressLint("StaticFieldLeak") AsyncHTTPPost asyncHTTPPost = new AsyncHTTPPost("http://lamp.ms.wits.ac.za/~s1741606/login.php",params) {
                     @Override
                     protected void onPostExecute(String output) {
-                    if(output.equals("login Successful")) {
+                    if(output.equals("Student")) {
                         Intent intent = new Intent(MainActivity.this, HomePage.class);
                         startActivity(intent);
-                        String s = "hi";
+                        Toast.makeText(getApplicationContext(), "Sign in successfully", Toast.LENGTH_SHORT).show();
+                    }else if(output.equals("Lecturer")) {
+                        Intent intent = new Intent(MainActivity.this,LecturerMainActivity.class);
+                        startActivity(intent);
                         Toast.makeText(getApplicationContext(), "Sign in successfully", Toast.LENGTH_SHORT).show();
                     }
                     else {

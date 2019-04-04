@@ -35,6 +35,7 @@
         <activity android:name=".HomePage" />
         <activity android:name=".Tutor_application" />
         <activity android:name=".Create_Profile" />
+        <activity android:name=".LecturerMainActivity"/>
     </application>
 
 </manifest>

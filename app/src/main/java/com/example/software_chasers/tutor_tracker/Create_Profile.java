@@ -40,8 +40,8 @@ public class Create_Profile extends AppCompatActivity {
         Email=(EditText)findViewById(R.id.email) ;
         PhoneNumber=(EditText)findViewById(R.id.phonenumber) ;
         Submit=(Button)findViewById(R.id.submit);
-        radioGroup = findViewById(R.id.user_type);
         radioButton1 = findViewById(R.id.radiobutton);
+        radioGroup = findViewById(R.id.user_type);
         final  int id1 = radioButton1.getId();
         radioButton2 = findViewById(R.id.radiobutton2);
         final int id2 = radioButton2.getId();
@@ -61,7 +61,8 @@ public class Create_Profile extends AppCompatActivity {
                     String password = Password.getText().toString();
                     String password2 = ConfirmPassword.getText().toString();
                     String phoneNo = PhoneNumber.getText().toString();
-                 final  int id = radioGroup.getCheckedRadioButtonId();
+
+                    final  int id = radioGroup.getCheckedRadioButtonId();
                     if (fname.equals("") || userid.equals("") || email.equals("") || password.equals("") || password2.equals("")
                             || phoneNo.equals("")) {
                         FName.setError("Fill all fields");
@@ -73,8 +74,6 @@ public class Create_Profile extends AppCompatActivity {
                         }
 
                     }
-
-
                     ContentValues params = new ContentValues();
                     params.put("userfname", fname);
                     params.put("userlname", lname);
@@ -82,21 +81,27 @@ public class Create_Profile extends AppCompatActivity {
                     params.put("email", email);
                     params.put("password", password2);
                     params.put("phonNo", phoneNo);
+                    if(id == -1){
+                        Toast.makeText(getApplicationContext(), "Please select user type", Toast.LENGTH_SHORT).show();
+                    } else if (id == id1) {
+                        Toast.makeText(getApplicationContext(), "you are a lecturer", Toast.LENGTH_SHORT).show();
+                        params.put("usertype","Lecturer");
+
+                    }else{
+                        if (id == id2) {
+                            Toast.makeText(getApplicationContext(), "you are a student", Toast.LENGTH_SHORT).show();
+                            params.put("usertype", "Student");
+                        }
+                    }
+
+
                     @SuppressLint("StaticFieldLeak") AsyncHTTPPost asyncHTTPPost = new AsyncHTTPPost("http://lamp.ms.wits.ac.za/~s1741606/signUp.php", params) {
                         @Override
                         protected void onPostExecute(String output) {
                             if (output.contains("true")) {
-                                if(id == -1){
-                                    Toast.makeText(getApplicationContext(), "Please select user type", Toast.LENGTH_SHORT).show();
-                            }else if (id == id1) {
-                                    Toast.makeText(getApplicationContext(), "you are a lecturer", Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(Create_Profile.this, LecturerMainActivity.class);
-                                    startActivity(intent);
-                                } else if (id == id2) {
-                                    Intent i = new Intent(Create_Profile.this, MainActivity.class);
-                                    startActivity(i);
-                                    Toast.makeText(getApplicationContext(), "you are a student", Toast.LENGTH_SHORT).show();
-                                }
+                                Intent intent = new Intent(Create_Profile.this, MainActivity.class);
+                                startActivity(intent);
+
                                 Toast.makeText(getApplicationContext(), "Sign up successfully", Toast.LENGTH_SHORT).show();
                             }
                         }
