@@ -25,7 +25,6 @@
             android:name=".Main2Activity"
             android:label="@string/title_activity_main2"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".Scan_QR_Code2" />
         <activity android:name=".Scan_QR_Code" />
         <activity android:name=".View_profile" />
         <activity android:name=".Genarate_form" />
