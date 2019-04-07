@@ -87,20 +87,35 @@ public class Create_Profile extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "you are a lecturer", Toast.LENGTH_SHORT).show();
                         params.put("usertype","Lecturer");
 
-                    }else{
+                    }else
+                    {
                         if (id == id2) {
                             Toast.makeText(getApplicationContext(), "you are a student", Toast.LENGTH_SHORT).show();
                             params.put("usertype", "Student");
                         }
                     }
 
-
                     @SuppressLint("StaticFieldLeak") AsyncHTTPPost asyncHTTPPost = new AsyncHTTPPost("http://lamp.ms.wits.ac.za/~s1741606/signUp.php", params) {
                         @Override
                         protected void onPostExecute(String output) {
                             if (output.contains("true")) {
-                                Intent intent = new Intent(Create_Profile.this, MainActivity.class);
-                                startActivity(intent);
+//                                Intent intent = new Intent(Create_Profile.this, MainActivity.class);
+//                                startActivity(intent);
+
+                                if(id == -1){
+                                    Toast.makeText(getApplicationContext(), "Please select user type", Toast.LENGTH_SHORT).show();
+                                } else if (id == id1) {
+                                    Toast.makeText(getApplicationContext(), "you are a lecturer", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(Create_Profile.this, LecturerMainActivity.class);
+                                    startActivity(intent);
+
+                                    // params.put("usertype","Lecturer");
+
+                                }else
+                                {
+                                    Intent intent = new Intent(Create_Profile.this, HomePage.class);
+                                    startActivity(intent);
+                                }
 
                                 Toast.makeText(getApplicationContext(), "Sign up successfully", Toast.LENGTH_SHORT).show();
                             }

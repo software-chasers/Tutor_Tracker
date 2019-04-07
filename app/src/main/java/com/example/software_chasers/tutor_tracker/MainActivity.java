@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(intent);
                         Toast.makeText(getApplicationContext(), "Sign in successfully", Toast.LENGTH_SHORT).show();
                     }else if(output.equals("Lecturer")) {
-                        Intent intent = new Intent(MainActivity.this,LecturerMainActivity.class);
+                        Intent intent = new Intent(MainActivity.this,Main2Activity.class);
                         startActivity(intent);
                         Toast.makeText(getApplicationContext(), "Sign in successfully", Toast.LENGTH_SHORT).show();
                     }
