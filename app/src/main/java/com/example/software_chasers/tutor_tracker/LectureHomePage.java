@@ -14,26 +14,25 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class Main2Activity extends AppCompatActivity
+public class LectureHomePage extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-        String userid;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.activity_lecture_home_page);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-         final String user = getIntent().getStringExtra("UserId");
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent = new Intent(LectureHomePage.this, AddCourses.class);
+                startActivity(intent);
             }
         });
-        userid = user;
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -57,7 +56,7 @@ public class Main2Activity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main2, menu);
+        getMenuInflater().inflate(R.menu.lecture_home_page, menu);
         return true;
     }
 
@@ -69,12 +68,10 @@ public class Main2Activity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_sign_out) {
-            Intent intent = new Intent(Main2Activity.this, MainActivity.class);
+        if (id == R.id.out) {
+            Intent intent = new Intent(LectureHomePage.this, MainActivity.class);
             startActivity(intent);
-
             return true;
-
         }
 
         return super.onOptionsItemSelected(item);
@@ -86,25 +83,14 @@ public class Main2Activity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.generate_form) {
-            Intent intent = new Intent(Main2Activity.this, Genarate_form.class);
-            intent.putExtra("UserId",userid);
+        if (id == R.id.profile) {
+            Intent intent = new Intent(LectureHomePage.this, View_profile.class);
             startActivity(intent);
-            return true;
+            // Handle the camera action
+        } else if (id == R.id.scan) {
+            Intent intent = new Intent(LectureHomePage.this, Scan_QR_Code.class);
+            startActivity(intent);
 
-        } else if (id == R.id.generate_qr_code) {
-            Intent intent = new Intent(Main2Activity.this, QR_Code.class);
-            intent.putExtra("UserId",userid);
-            startActivity(intent);
-            return true;
-        } else if (id == R.id.view_profile) {
-            Intent intent = new Intent(Main2Activity.this, View_profile.class);
-            startActivity(intent);
-            return true;
-        } else if (id == R.id.apply_to_be_a_tutor) {
-            Intent intent = new Intent(Main2Activity.this, Tutor_application.class);
-            startActivity(intent);
-            return true;
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

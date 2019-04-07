@@ -21,12 +21,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Scan_QR_Code2"></activity>
+        <activity android:name=".AddCourses"></activity>
+        <activity
+            android:name=".LectureHomePage"
+            android:label="@string/title_activity_lecture_home_page"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Main2Activity"
             android:label="@string/title_activity_main2"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Scan_QR_Code" />
+        <activity android:name=".Scan_QR_Code2"/>
         <activity android:name=".View_profile" />
         <activity android:name=".Genarate_form" />
         <activity android:name=".QR_Code" />
@@ -37,10 +42,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HomePage" />
         <activity android:name=".Tutor_application" />
         <activity android:name=".Create_Profile" />
-        <activity android:name=".LecturerMainActivity" />
     </application>
 
 </manifest>

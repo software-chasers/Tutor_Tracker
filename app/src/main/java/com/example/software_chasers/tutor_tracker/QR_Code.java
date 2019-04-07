@@ -1,9 +1,11 @@
 package com.example.software_chasers.tutor_tracker;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.media.MediaScannerConnection;
 import android.os.Environment;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,6 +37,9 @@ public class QR_Code extends AppCompatActivity {
     private ImageView imag;
     private Button btn;
     String userid;
+    ProgressBar progressBar;
+    private int progressStatus;
+    private Handler handler = new Handler();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +59,7 @@ public class QR_Code extends AppCompatActivity {
         etqr = (EditText) findViewById(R.id.etqr);
         etqr.setText(userid);
         btn = (Button) findViewById(R.id.btn);
+        progressBar = findViewById(R.id.progressBar);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,11 +69,46 @@ public class QR_Code extends AppCompatActivity {
 //                }else {
 //
 //                }
+              /*  ProgressDialog progress;
+
+                progress = new ProgressDialog(QR_Code.this);
+                progress.setTitle("Please Wait!!");
+                progress.setMessage("Wait!!");
+                progress.setCancelable(true);
+                progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+                progress.show();*/
                 try {
                     bitmap = TextToImageEncode("kaira");
+                    /*progressStatus=0;
+                    progressBar.setVisibility(View.VISIBLE);
+                    new Thread(new Runnable() {
+                        public void run() {
+                            while (progressStatus < 100) {
+                                progressStatus += 1;
+                                // Update the progress bar and display the
+                                //current value in the text view
+                                handler.post(new Runnable() {
+                                    public void run() {
+                                        progressBar.setProgress(progressStatus);
+                                    }
+                                });
+                                try {
+                                    // Sleep for 200 milliseconds.
+                                    Thread.sleep(200);
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        }
+                    }).start();*/
                     imag.setImageBitmap(bitmap);
-                    String path = saveImage(bitmap);  //give read write permission
-                    Toast.makeText(QR_Code.this, "QRCode Saved "+path, Toast.LENGTH_SHORT).show();
+
+
+
+                   // String path = saveImage(bitmap);  //give read write permission
+                  //  Toast.makeText(QR_Code.this, "QRCode Saved "+path, Toast.LENGTH_SHORT).show();
+
+
                 } catch (WriterException e) {
                     e.printStackTrace();
                 }
@@ -80,7 +122,7 @@ public class QR_Code extends AppCompatActivity {
 
 
 //the following method is responsible for saving the generated qr code image into the device
-    public String saveImage(Bitmap myBitmap) {
+   /* public String saveImage(Bitmap myBitmap) {
         ByteArrayOutputStream bytes = new ByteArrayOutputStream();
         myBitmap.compress(Bitmap.CompressFormat.JPEG, 90, bytes);
         File wallpaperDirectory = new File(
@@ -110,7 +152,7 @@ public class QR_Code extends AppCompatActivity {
         }
         return "";
 
-    }
+    }*/
     //the following method is responsible for QR Code generation from the given string
     private Bitmap TextToImageEncode(String Value) throws WriterException {
         BitMatrix bitMatrix;
