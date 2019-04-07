@@ -1,24 +1,23 @@
 package com.example.software_chasers.tutor_tracker;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
+import android.view.Menu;
+import android.view.MenuInflater;
 
 public class LecturerMainActivity extends AppCompatActivity {
-   Button button2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lecturer_main);
     }
-        //@Override
-        public void goScanQR(View view){
-            Intent intent = new Intent(LecturerMainActivity.this,Scan_QR_Code.class);
-            startActivity(intent);
+        @Override
+        public boolean onCreateOptionsMenu(Menu menu) {
+            MenuInflater inflater = getMenuInflater();
+            inflater.inflate(R.menu.lecturermenu, menu);
+            return true;
 
-        }
+    }
 
 }

@@ -40,7 +40,7 @@ public class QR_Code extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qr__code);
         //Intent intent = getIntent();
-        //String message = intent.getStringExtra("EXTRA_MESSAGE");
+        userid = getIntent().getStringExtra("UserId");
 
         //Create the text View
        // TextView textView = new EditText(this);
@@ -63,7 +63,7 @@ public class QR_Code extends AppCompatActivity {
 //
 //                }
                 try {
-                    bitmap = TextToImageEncode(userid);
+                    bitmap = TextToImageEncode("kaira");
                     imag.setImageBitmap(bitmap);
                     String path = saveImage(bitmap);  //give read write permission
                     Toast.makeText(QR_Code.this, "QRCode Saved "+path, Toast.LENGTH_SHORT).show();

@@ -56,7 +56,7 @@ public class Create_Profile extends AppCompatActivity {
                 if (isNetworkAvailable()) {
                     String fname = FName.getText().toString();
                     String lname = LName.getText().toString();
-                    String userid = UserID.getText().toString();
+                    final String userid = UserID.getText().toString();
                     String email = Email.getText().toString();
                     String password = Password.getText().toString();
                     String password2 = ConfirmPassword.getText().toString();
@@ -87,38 +87,31 @@ public class Create_Profile extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "you are a lecturer", Toast.LENGTH_SHORT).show();
                         params.put("usertype","Lecturer");
 
-                    }else
-                    {
+                    }else{
                         if (id == id2) {
                             Toast.makeText(getApplicationContext(), "you are a student", Toast.LENGTH_SHORT).show();
                             params.put("usertype", "Student");
                         }
                     }
 
+
                     @SuppressLint("StaticFieldLeak") AsyncHTTPPost asyncHTTPPost = new AsyncHTTPPost("http://lamp.ms.wits.ac.za/~s1741606/signUp.php", params) {
                         @Override
                         protected void onPostExecute(String output) {
                             if (output.contains("true")) {
-//                                Intent intent = new Intent(Create_Profile.this, MainActivity.class);
-//                                startActivity(intent);
-
-                                if(id == -1){
-                                    Toast.makeText(getApplicationContext(), "Please select user type", Toast.LENGTH_SHORT).show();
-                                } else if (id == id1) {
-                                    Toast.makeText(getApplicationContext(), "you are a lecturer", Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(Create_Profile.this, LecturerMainActivity.class);
+                                if (id == id2) {
+                                    Intent intent = new Intent(Create_Profile.this, StudentSignUp.class);
+                                    intent.putExtra("userId", userid);
+                                    startActivity(intent);
+                                } else {
+                                    Intent intent = new Intent(Create_Profile.this, MainActivity.class);
+                                    intent.putExtra("userId", userid);
                                     startActivity(intent);
 
-                                    // params.put("usertype","Lecturer");
-
-                                }else
-                                {
-                                    Intent intent = new Intent(Create_Profile.this, HomePage.class);
-                                    startActivity(intent);
+                                    Toast.makeText(getApplicationContext(), "Sign up successfully", Toast.LENGTH_SHORT).show();
                                 }
-
-                                Toast.makeText(getApplicationContext(), "Sign up successfully", Toast.LENGTH_SHORT).show();
                             }
+                            else Toast.makeText(getApplicationContext(),"could register you", Toast.LENGTH_SHORT).show();
                         }
                     };
                     asyncHTTPPost.execute();

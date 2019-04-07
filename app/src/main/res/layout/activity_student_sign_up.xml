@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_backround"
+    tools:context=".StudentSignUp">
+
+    <EditText
+        android:id="@+id/faculty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="27dp"
+        android:layout_marginLeft="27dp"
+        android:layout_marginTop="75dp"
+        android:ems="10"
+        android:hint="Faculty"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/yos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/faculty"
+        android:layout_alignEnd="@+id/faculty"
+        android:layout_alignRight="@+id/faculty"
+        android:layout_marginTop="33dp"
+        android:ems="10"
+        android:hint="Year of Study"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/degree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/yos"
+        android:layout_alignStart="@+id/yos"
+        android:layout_below="@+id/yos"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:hint="Degree"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/proceed"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:text="Proceed" />
+</RelativeLayout>

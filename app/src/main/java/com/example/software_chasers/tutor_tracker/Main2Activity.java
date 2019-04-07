@@ -16,13 +16,14 @@ import android.view.MenuItem;
 
 public class Main2Activity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
+        String userid;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+         final String user = getIntent().getStringExtra("UserId");
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -32,7 +33,7 @@ public class Main2Activity extends AppCompatActivity
                         .setAction("Action", null).show();
             }
         });
-
+        userid = user;
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -89,6 +90,7 @@ public class Main2Activity extends AppCompatActivity
 
         } else if (id == R.id.generate_qr_code) {
             Intent intent = new Intent(Main2Activity.this, QR_Code.class);
+            intent.putExtra("UserId",userid);
             startActivity(intent);
             return true;
         } else if (id == R.id.view_profile) {
