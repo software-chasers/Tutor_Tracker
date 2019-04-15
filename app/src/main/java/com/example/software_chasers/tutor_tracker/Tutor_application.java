@@ -9,5 +9,7 @@ public class Tutor_application extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tutor_application);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled( true );
     }
 }

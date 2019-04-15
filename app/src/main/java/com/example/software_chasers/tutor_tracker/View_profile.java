@@ -13,6 +13,9 @@ TextView t1,t2,t3,t6,t7,t8;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled( true );
+
         setContentView(R.layout.activity_view_profile);
         t1 =(TextView) findViewById(R.id.textView3);
         t2 =(TextView) findViewById(R.id.textView4);

@@ -1,5 +1,9 @@
 package com.example.software_chasers.tutor_tracker;
 
+import android.app.Activity;
+import android.app.Instrumentation;
+import android.content.Intent;
+
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,21 +15,21 @@ import androidx.test.rule.ActivityTestRule;
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
+import static androidx.test.espresso.matcher.ViewMatchers.isClickable;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static androidx.test.espresso.matcher.ViewMatchers.isEnabled;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 
 @RunWith(AndroidJUnit4.class)
-public class MainActivityTest/* extends ActivityInstrumentationTestCase2<MainActivity> */{
+public class MainActivityTest{
 
-//    MainActivity activity;
-//    public  MainActivityTest(){
-//        super(MainActivity.class);
-//    }
-//
-//    @Override
-//    protected void setUp() throws Exception{
-//        super.setUp();
-//        activity = getActivity();
+//    @Test
+//    public void testsignUpbutton(){
+//        //Intents.init();
+//        Intent resultData = new Intent(  );
+//        Instrumentation.ActivityResult result = new Instrumentation.ActivityResult( Activity.RESULT_OK,resultData );
+//        intending(toPackage("com.example.software_chasers.tutor_tracker")).repondWith(result);
+//        onView( withId( R.id.signup ) ).perform( click() );
 //    }
 
     @Rule
@@ -34,12 +38,11 @@ public class MainActivityTest/* extends ActivityInstrumentationTestCase2<MainAct
     @Test
     public void Visibility(){
 
-//        ViewInteraction button2 = onView(withId(R.id.button2));
-//        button2.perform( click() );
-//        button2.check(doesNotExist());
-//        ViewInteraction button = onView(withId(R.id.button));
-//        button.perform( click() );
-//        button.check(doesNotExist());
+        ViewInteraction button2 = onView(withId(R.id.signup));
+        button2.check(matches( isDisplayed() ));
+        ViewInteraction button = onView(withId(R.id.signIn));
+        button.check(matches( isDisplayed() ));
+//        button.check(matches( isEnabled() ) );
         ViewInteraction image = onView(withId(R.id.imageView));
         image.check(matches(isDisplayed()));
         ViewInteraction userName = onView(withId(R.id.edituserid));
@@ -50,6 +53,9 @@ public class MainActivityTest/* extends ActivityInstrumentationTestCase2<MainAct
         checkbox.perform( click() );
         checkbox.check( matches( isDisplayed() ) );
     }
+//
+//    @Rule
+//    public IntentsTestRule<MainActivity> intentsTestRule = new IntentsTestRule<>(MainActivity.class);
 //    private String user,pass;
 //
 //    @Rule

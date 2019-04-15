@@ -45,6 +45,9 @@ public class QR_Code extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qr__code);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled( true );
+
         //Intent intent = getIntent();
         userid = getIntent().getStringExtra("UserId");
 
