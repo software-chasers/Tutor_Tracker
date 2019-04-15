@@ -31,7 +31,7 @@ public class Create_ProfileTest {
     public ActivityTestRule<Create_Profile> activityTestRule = new ActivityTestRule<>( Create_Profile.class );
 
     @Test
-    public void visibity(){
+    public void visibility(){
         ViewInteraction text = onView(withId(R.id.creatprofile));
         text.check( matches(isDisplayed()) );
         ViewInteraction Fnames = onView( withId(R.id.fname ) );

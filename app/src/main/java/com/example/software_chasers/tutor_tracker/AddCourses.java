@@ -24,22 +24,23 @@ public class AddCourses extends AppCompatActivity {
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            //case R.id.profile:
-            //    Intent intent = new Intent(this,LectureProfile.class);
-            //    this.startActivity(intent);
-            //    return true;
-            //case R.id.scan:
-            //    Intent intent1 = new Intent(this,ScanActivity.class);
-            //   this.startActivity(intent1);
-            //   return true;
-            case R.id.signout:
-                Intent intent2 = new Intent( this, MainActivity.class );
-                this.startActivity( intent2 );
-                return true;
-            default:
-                return super.onOptionsItemSelected( item );
-
-        }
+//        switch (item.getItemId()) {
+//            //case R.id.profile:
+//            //    Intent intent = new Intent(this,LectureProfile.class);
+//            //    this.startActivity(intent);
+//            //    return true;
+//            //case R.id.scan:
+//            //    Intent intent1 = new Intent(this,ScanActivity.class);
+//            //   this.startActivity(intent1);
+//            //   return true;
+//            case R.id.signout:
+//                Intent intent2 = new Intent( this, MainActivity.class );
+//                this.startActivity( intent2 );
+//                return true;
+//            default:
+//                return super.onOptionsItemSelected( item );
+//
+//        }
+        return true;//added default return statement
     }
 }
