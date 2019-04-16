@@ -94,4 +94,9 @@ public class MainActivity extends AppCompatActivity {
 
         }
     };
+
+    public void goHomeLecturer(View view) {
+        Intent i = new Intent(getApplicationContext(), LectureHomePage.class);
+        startActivity(i);
+    }
 }
