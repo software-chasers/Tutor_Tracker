@@ -1,5 +1,7 @@
 package com.example.software_chasers.tutor_tracker;
 
+import android.view.View;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
@@ -23,10 +25,12 @@ public class LectureHomePageTest {
     @Test
     public void lectureHomePageLaunched()
     {
-
+        View view = lectureHomePage.findViewById(R.id.nav_view);
+        assertNotNull(view);
     }
 
     @After
     public void tearDown() throws Exception {
+        lectureHomePage = null;
     }
 }
