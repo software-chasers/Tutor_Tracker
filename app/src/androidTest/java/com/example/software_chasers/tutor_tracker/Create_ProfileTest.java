@@ -53,30 +53,6 @@ public class Create_ProfileTest {
         assertNotNull(rbutton2);
         View submits = create_profile.findViewById(R.id.submit);
         assertNotNull(submits);
-
-//        ViewInteraction text = onView(withId(R.id.creatprofile));
-//        text.check( matches(isDisplayed()) );
-//        ViewInteraction Fnames = onView( withId(R.id.fname ) );
-//        Fnames.check( matches( isDisplayed() ) );
-//        ViewInteraction Lnames = onView( withId( R.id.lname ) );
-//        Lnames.check( matches( isDisplayed() ) );
-//        ViewInteraction userid = onView( withId( R.id.userid ) );
-//        userid.check( matches( isDisplayed() ) );
-//        ViewInteraction email = onView( withId( R.id.email ) );
-//        email.check( matches( isDisplayed() ) );
-//        ViewInteraction password = onView( withId( R.id.password ) );
-//        password.check( matches( isDisplayed() ) );
-//        ViewInteraction c_password =  onView( withId( R.id.confirmpassword ) );
-//        c_password.check( matches( isDisplayed() ) );
-//        ViewInteraction phone_no = onView( withId( R.id.phonenumber ) );
-//        phone_no.check( matches( isDisplayed() ) );
-//        ViewInteraction lecture = onView( withId( R.id.radiobutton) );
-//        lecture.check( matches( isDisplayed() ) );
-//        ViewInteraction student = onView( withId( R.id.radiobutton2 ) );
-//        student.check( matches( isDisplayed() ) );
-//        ViewInteraction submit = onView( withId( R.id.submit ) );
-//        submit.check( matches( isDisplayed() ) );
-
     }
 
     @After
