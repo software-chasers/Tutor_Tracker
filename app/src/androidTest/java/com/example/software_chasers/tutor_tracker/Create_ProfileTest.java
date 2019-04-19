@@ -60,6 +60,4 @@ public class Create_ProfileTest {
         create_profile = null;
     }
 
-
-
 }
