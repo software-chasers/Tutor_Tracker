@@ -111,7 +111,7 @@ public class Create_Profile extends AppCompatActivity {
                                     Toast.makeText(getApplicationContext(), "Sign up successfully", Toast.LENGTH_SHORT).show();
                                 }
                             }
-                            else Toast.makeText(getApplicationContext(),"could register you", Toast.LENGTH_SHORT).show();
+                            else Toast.makeText(getApplicationContext(),"could not register you", Toast.LENGTH_SHORT).show();
                         }
                     };
                     asyncHTTPPost.execute();
