@@ -45,12 +45,12 @@ public class MainActivity extends AppCompatActivity {
                 @SuppressLint("StaticFieldLeak") AsyncHTTPPost asyncHTTPPost = new AsyncHTTPPost("http://lamp.ms.wits.ac.za/~s1741606/loginfirst.php",params) {
                     @Override
                     protected void onPostExecute(String output) {
-                    if(output.equals("Student")) {
+                    if(strcmp(output,"Student") ) {
                         Intent intent = new Intent(MainActivity.this, Main2Activity.class);
                         intent.putExtra("UserId",Userid);
                         startActivity(intent);
                         Toast.makeText(getApplicationContext(), "Sign in successfully", Toast.LENGTH_SHORT).show();
-                    }else if(output.equals("Lecturer")) {
+                    }else if(strcmp(output,"Lecturer") ) {
                         Intent intent = new Intent(MainActivity.this,LectureHomePage.class);
                         intent.putExtra("UserId",Userid);
                         startActivity(intent);
@@ -73,6 +73,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+    private boolean strcmp(String key1, String key2){
+        boolean answ = false;
+        if(key1.equals( key2 )){
+            answ = true;
+        }else if(!key1.equals( key2 )){
+            answ = false;
+        }
+        return answ;
     }
 
     private TextWatcher loginWatcher = new TextWatcher() {

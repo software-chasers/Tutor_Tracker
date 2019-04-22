@@ -15,7 +15,7 @@ public class QR_CodeTest {
 
     @Rule
     public ActivityTestRule<QR_Code> activityTestRule = new ActivityTestRule<QR_Code>(QR_Code.class);
-    public QR_Code qr_code = null;
+    private QR_Code qr_code = null;
 
     @Before
     public void setUp() throws Exception {
