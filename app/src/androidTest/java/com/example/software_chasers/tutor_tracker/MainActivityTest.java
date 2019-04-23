@@ -48,7 +48,10 @@ public class MainActivityTest {
 
     @Test
     public void stringcheck(){
-        //assertEquals( false,mainActivity.strcmp );
+        assertFalse(mainActivity.strcmp("someString" ,null ));
+//        assertFalse( mainActivity.strcmp(null ,null ));
+        assertTrue(mainActivity.strcmp("someString" ,"someString"));
+        assertFalse( mainActivity.strcmp( "","someString"  )  );
     }
     @After
     public void tearDown() throws Exception {
