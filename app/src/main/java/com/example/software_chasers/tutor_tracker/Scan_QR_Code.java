@@ -24,7 +24,7 @@ public class Scan_QR_Code extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Scan_QR_Code.this, Main2Activity.class);
+                Intent intent = new Intent(Scan_QR_Code.this, Tutor.class);
                 startActivity(intent);
 
             }

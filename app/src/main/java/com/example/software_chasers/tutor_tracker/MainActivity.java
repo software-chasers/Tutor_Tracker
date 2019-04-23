@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     protected void onPostExecute(String output) {
                     if(output.equals("Student")) {
-                        Intent intent = new Intent(MainActivity.this, Main2Activity.class);
+                        Intent intent = new Intent(MainActivity.this, Tutor.class);
                         intent.putExtra("UserId",Userid);
                         startActivity(intent);
                         Toast.makeText(getApplicationContext(), "Sign in successfully", Toast.LENGTH_SHORT).show();
