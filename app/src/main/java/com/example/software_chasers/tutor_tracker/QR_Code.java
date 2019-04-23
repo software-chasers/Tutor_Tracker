@@ -33,41 +33,44 @@ public class QR_Code extends AppCompatActivity {
     private EditText etqr;
     private ImageView imag;
     private Button btn;
+    String userid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qr__code);
         //Intent intent = getIntent();
-        //String message = intent.getStringExtra("EXTRA_MESSAGE");
+        userid = getIntent().getStringExtra("UserId");
 
         //Create the text View
        // TextView textView = new EditText(this);
       //  textView.setTextSize(40);
         //textView.setText(message);
         //setContentView(textView);
-
+        userid = getIntent().getStringExtra("userid");
 
         imag = (ImageView) findViewById(R.id.imag);
         etqr = (EditText) findViewById(R.id.etqr);
+        etqr.setText(userid);
         btn = (Button) findViewById(R.id.btn);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(etqr.getText().toString().trim().length() == 0){
-                    Toast.makeText(QR_Code.this, "Enter Text!", Toast.LENGTH_SHORT).show();
-                }else {
-                    try {
-                        bitmap = TextToImageEncode(etqr.getText().toString());
-                        imag.setImageBitmap(bitmap);
-                        String path = saveImage(bitmap);  //give read write permission
-                        Toast.makeText(QR_Code.this, "QRCode Saved "+path, Toast.LENGTH_SHORT).show();
-                    } catch (WriterException e) {
-                        e.printStackTrace();
-                    }
-
+//                if(etqr.getText().toString().trim().length() == 0){
+//                    Toast.makeText(QR_Code.this, "Enter Text!", Toast.LENGTH_SHORT).show();
+//                }else {
+//
+//                }
+                try {
+                    bitmap = TextToImageEncode("kaira");
+                    imag.setImageBitmap(bitmap);
+                    String path = saveImage(bitmap);  //give read write permission
+                    Toast.makeText(QR_Code.this, "QRCode Saved "+path, Toast.LENGTH_SHORT).show();
+                } catch (WriterException e) {
+                    e.printStackTrace();
                 }
+
             }
         });
 
@@ -75,6 +78,8 @@ public class QR_Code extends AppCompatActivity {
 
     }
 
+
+//the following method is responsible for saving the generated qr code image into the device
     public String saveImage(Bitmap myBitmap) {
         ByteArrayOutputStream bytes = new ByteArrayOutputStream();
         myBitmap.compress(Bitmap.CompressFormat.JPEG, 90, bytes);
@@ -106,6 +111,7 @@ public class QR_Code extends AppCompatActivity {
         return "";
 
     }
+    //the following method is responsible for QR Code generation from the given string
     private Bitmap TextToImageEncode(String Value) throws WriterException {
         BitMatrix bitMatrix;
         try {
@@ -114,6 +120,7 @@ public class QR_Code extends AppCompatActivity {
                     BarcodeFormat.DATA_MATRIX.QR_CODE,
                     QRcodeWidth, QRcodeWidth, null
             );
+
 
         } catch (IllegalArgumentException Illegalargumentexception) {
 

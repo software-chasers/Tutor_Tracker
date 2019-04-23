@@ -1,87 +1,128 @@
 package com.example.software_chasers.tutor_tracker;
 
+import android.annotation.SuppressLint;
+import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 public class Create_Profile extends AppCompatActivity {
-    EditText FullNames, Username, Email, Password, ConfirmPassword, PhoneNumber, Degree, YOS;
+    EditText FName,LName, UserID, Email, Password, ConfirmPassword, PhoneNumber;
     Button Submit;
+    RadioButton radioButton1,radioButton2;
+    RadioGroup radioGroup;
     DatabaseHelper db;
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create__profile);
-        FullNames=(EditText)findViewById(R.id.fullnames) ;
-        Username=(EditText)findViewById(R.id.username) ;
+        setContentView(R.layout.activity_create__profile);;
+        FName=(EditText)findViewById(R.id.fname) ;
+        LName=(EditText)findViewById(R.id.lname) ;
+        UserID=(EditText)findViewById(R.id.userid) ;
         Password=(EditText)findViewById(R.id.password) ;
         ConfirmPassword=(EditText)findViewById(R.id.confirmpassword) ;
         Email=(EditText)findViewById(R.id.email) ;
         PhoneNumber=(EditText)findViewById(R.id.phonenumber) ;
-        Degree=(EditText)findViewById(R.id.degree) ;
-        YOS=(EditText)findViewById(R.id.yos) ;
         Submit=(Button)findViewById(R.id.submit);
+        radioButton1 = findViewById(R.id.radiobutton);
+        radioGroup = findViewById(R.id.user_type);
+        final  int id1 = radioButton1.getId();
+        radioButton2 = findViewById(R.id.radiobutton2);
+        final int id2 = radioButton2.getId();
+
 
         db = new DatabaseHelper(this);
         Submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 //Intent intent = new Intent(Create_Profile.this, MainActivity.class);
                 //startActivity(intent);
-                String s1 = FullNames.getText().toString();
-                String s2 = Username.getText().toString();
-                String s3 = Email.getText().toString();
-                String s4 = Password.getText().toString();
-                String s5 = ConfirmPassword.getText().toString();
-                String s6 = PhoneNumber.getText().toString();
-                String s7 = Degree.getText().toString();
-                String s8 = YOS.getText().toString();
-                if(s1.equals("")||s2.equals("")||s3.equals("")||s4.equals("")||s5.equals("")||s6.equals("")||s7.equals("")||s8.equals("")){
-                   // Toast.makeText(getApplicationContext(), "Some fields are empty", Toast.LENGTH_SHORT).show();
-                    FullNames.setError("Fill all fields");
-                }
-                else{
-                    if(!(s4.equals(s5))){
-                        Password.setError("Passwords don't match");
+                if (isNetworkAvailable()) {
+                    String fname = FName.getText().toString();
+                    String lname = LName.getText().toString();
+                    final String userid = UserID.getText().toString();
+                    String email = Email.getText().toString();
+                    String password = Password.getText().toString();
+                    String password2 = ConfirmPassword.getText().toString();
+                    String phoneNo = PhoneNumber.getText().toString();
 
-                        //Toast.makeText(getApplicationContext(),"PasswordS do not match",Toast.LENGTH_SHORT).show();
+                    final  int id = radioGroup.getCheckedRadioButtonId();
+                    if (fname.equals("") || userid.equals("") || email.equals("") || password.equals("") || password2.equals("")
+                            || phoneNo.equals("")) {
+                        FName.setError("Fill all fields");
+                    } else {
+                        if (!(password.equals(password2))) {
+                            Password.setError("Passwords don't match");
+
+                            //Toast.makeText(getApplicationContext(),"PasswordS do not match",Toast.LENGTH_SHORT).show();
+                        }
+
                     }
-                    else {
-                        //if(s4.equals(s5)){
-                            boolean chkemail = db.chkemail(s3);
-                            if(chkemail){
-                                boolean insert = db.insert(s3,s4);
-                                if(insert){
+                    ContentValues params = new ContentValues();
+                    params.put("userfname", fname);
+                    params.put("userlname", lname);
+                    params.put("userid", userid);
+                    params.put("email", email);
+                    params.put("password", password2);
+                    params.put("phonNo", phoneNo);
+                    if(id == -1){
+                        Toast.makeText(getApplicationContext(), "Please select user type", Toast.LENGTH_SHORT).show();
+                    } else if (id == id1) {
+                        Toast.makeText(getApplicationContext(), "you are a lecturer", Toast.LENGTH_SHORT).show();
+                        params.put("usertype","Lecturer");
 
-                                    Intent intent = new Intent(Create_Profile.this, HomePage.class);
-                                    intent.putExtra("full_names",s1);
-                                    intent.putExtra("username",s2);
-                                    intent.putExtra("email",s3);
-                                    intent.putExtra("phone_number",s6);
-                                    intent.putExtra("degree",s7);
-                                    intent.putExtra("yos",s8);
+                    }else{
+                        if (id == id2) {
+                            Toast.makeText(getApplicationContext(), "you are a student", Toast.LENGTH_SHORT).show();
+                            params.put("usertype", "Student");
+                        }
+                    }
+
+
+                    @SuppressLint("StaticFieldLeak") AsyncHTTPPost asyncHTTPPost = new AsyncHTTPPost("http://lamp.ms.wits.ac.za/~s1741606/signUp.php", params) {
+                        @Override
+                        protected void onPostExecute(String output) {
+                            if (output.contains("true")) {
+                                if (id == id2) {
+                                    Intent intent = new Intent(Create_Profile.this, StudentSignUp.class);
+                                    intent.putExtra("userId", userid);
                                     startActivity(intent);
-                                    Toast.makeText(getApplicationContext(),"Sign up successfully",Toast.LENGTH_SHORT).show();
-                                }
-                                else{
-//                                   // Toast.makeText(getApplicationContext(),"Email already exists",Toast.LENGTH_SHORT).show();
-                                    Email.setError("Email Already exists");
+                                } else {
+                                    Intent intent = new Intent(Create_Profile.this, MainActivity.class);
+                                    intent.putExtra("userId", userid);
+                                    startActivity(intent);
+
+                                    Toast.makeText(getApplicationContext(), "Sign up successfully", Toast.LENGTH_SHORT).show();
                                 }
                             }
-
-                        //}
-
-                    }
+                            else Toast.makeText(getApplicationContext(),"could register you", Toast.LENGTH_SHORT).show();
+                        }
+                    };
+                    asyncHTTPPost.execute();
 
                 }
-
+                else {
+                    Toast.makeText(getApplicationContext(), "You are not connected to the internet", Toast.LENGTH_SHORT).show();
+                }
             }
+
         });
     }
+
 }

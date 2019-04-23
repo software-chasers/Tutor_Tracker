@@ -12,18 +12,24 @@ import android.widget.Toast;
 
 public class HomePage extends AppCompatActivity {
  //String item[] = new String[]{"subitem1", "subitem2", "subitem3", "subitem4"};
-
 /*
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_example_menu);
     }*/
+   String Userid;
+   String u  = "kaia";
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.example_menu, menu);
+        Bundle extras = getIntent().getExtras();
+        if(extras!=null) {
+            Userid = extras.getString("userid");
+        }
         return true;
+
     }
 
     @Override
@@ -43,6 +49,7 @@ public class HomePage extends AppCompatActivity {
         switch ( item.getItemId()) {
             case R.id.subitem3:
                 Intent intent = new Intent(HomePage.this, QR_Code.class);
+                intent.putExtra("userid",u);
                 startActivity(intent);
                 return true;
         }
