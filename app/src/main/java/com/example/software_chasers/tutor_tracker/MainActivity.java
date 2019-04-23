@@ -74,11 +74,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-    private boolean strcmp(String key1, String key2){
+
+    public boolean strcmp(String key1, String key2){
         boolean answ = false;
         if(key1.equals( key2 )){
             answ = true;
-        }else if(!key1.equals( key2 )){
+        }else if(!key1.equals( key2 )) {
             answ = false;
         }
         return answ;
