@@ -49,7 +49,7 @@ public class MainActivityTest {
     @Test
     public void stringcheck(){
         assertFalse(mainActivity.strcmp("someString" ,null ));
-//        assertFalse( mainActivity.strcmp(null ,null ));
+        assertFalse( mainActivity.strcmp(null ,null ));
         assertTrue(mainActivity.strcmp("someString" ,"someString"));
         assertFalse( mainActivity.strcmp( "","someString"  )  );
     }

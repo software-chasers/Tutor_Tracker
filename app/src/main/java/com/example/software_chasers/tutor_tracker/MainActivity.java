@@ -77,7 +77,9 @@ public class MainActivity extends AppCompatActivity {
 
     public boolean strcmp(String key1, String key2){
         boolean answ = false;
-        if(key1.equals( key2 )){
+        if(key1==null || key2 == null){
+            answ = false;
+        } else if(key1.equals( key2 )){
             answ = true;
         }else if(!key1.equals( key2 )) {
             answ = false;
