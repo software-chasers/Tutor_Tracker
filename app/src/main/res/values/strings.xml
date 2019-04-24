@@ -37,15 +37,20 @@
     <string name="title_activity_lecture_home_page">LectureHomePage</string>
     <string name="country_prompt">Choose a country</string>
 
-    <string-array name="country_arrays">
-        <item>Malaysia</item>
-        <item>United States</item>
-        <item>Indonesia</item>
-        <item>France</item>
-        <item>Italy</item>
-        <item>Singapore</item>
-        <item>New Zealand</item>
-        <item>India</item>
+    <string-array name="courses">
+        <item>COMS1015</item>
+        <item>COMS1016</item>
+        <item>COMS1017</item>
+        <item>COMS1018</item>
+        <item>COMS2002</item>
+        <item>COMS2013</item>
+        <item>COMS2014</item>
+        <item>COMS2015</item>
+        <item>COMS3003</item>
+        <item>COMS3005</item>
+        <item>COMS3007</item>
+        <item>COMS3009</item>
+        <item>COMS3010</item>
     </string-array>
 
 
