@@ -3,6 +3,8 @@ package com.example.software_chasers.tutor_tracker;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -14,10 +16,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class LectureHomePage extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     Button b;
+    RecyclerView recyclerView;
+    InformationAdapter informationAdapter;
+    List<Course> courses;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +34,17 @@ public class LectureHomePage extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         b =findViewById(R.id.addcourse);
+        courses = new ArrayList<Course>();
+        recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
+        //recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        courses.add(new Course("COMS3003","MONDAY","NO LABS",
+                "MSL004","NONE","12:30-13:15","TUTORIAL"));
+        courses.add(new Course("COMS2014","WEDNESDAY","NO LABS",
+                "MSL004","NONE","12:30-13:15","TUTORIAL"));
+        informationAdapter = new InformationAdapter(this,courses);
+        recyclerView.setAdapter(informationAdapter);
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
