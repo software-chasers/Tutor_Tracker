@@ -30,7 +30,7 @@ public class Create_ProfileTest {
     }
 
     @Test
-    public void visibility(){
+    public void Create_ProfileLaunched(){
         View creat = create_profile.findViewById(R.id.creatprofile);
         assertNotNull(creat);
         View names = create_profile.findViewById(R.id.fname);
@@ -53,6 +53,13 @@ public class Create_ProfileTest {
         assertNotNull(rbutton2);
         View submits = create_profile.findViewById(R.id.submit);
         assertNotNull(submits);
+    }
+
+    @Test
+    public void checkEmail(){
+        assertFalse( create_profile.isValidEmail( null ) );
+        assertFalse( create_profile.isValidEmail( "" ) );
+        assertTrue(create_profile.isValidEmail( "1661233@students.wits.ac.za" )  );
     }
 
     @After
