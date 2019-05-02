@@ -40,9 +40,9 @@ public class LectureHomePage extends AppCompatActivity
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         courses.add(new Course("COMS3003","MONDAY","NO LABS",
-                "MSL004","NONE","12:30-13:15","TUTORIAL"));
+                "MSL004","NONE","12:30-13:15","12:30-13:15"));
         courses.add(new Course("COMS2014","WEDNESDAY","NO LABS",
-                "MSL004","NONE","12:30-13:15","TUTORIAL"));
+                "MSL004","NONE","12:30-13:15","12:30-13:15"));
         informationAdapter = new InformationAdapter(this,courses);
         recyclerView.setAdapter(informationAdapter);
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);

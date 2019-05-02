@@ -1,9 +1,13 @@
 package com.example.software_chasers.tutor_tracker;
 
+import android.annotation.SuppressLint;
+import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -14,9 +18,18 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main2Activity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
         String userid;
+        RecyclerView recyclerView;
+        InformationAdapter informationAdapter;
+    List<Course> courses;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +37,23 @@ public class Main2Activity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
          final String user = getIntent().getStringExtra("UserId");
+         courses = new ArrayList<Course>();
+         ContentValues params = new ContentValues();
+         params.put("code","COMS2003");
+
+         @SuppressLint("StaticFieldLeak") AsyncHTTPPost asyncHTTPPost = new AsyncHTTPPost("http://lamp.ms.wits.ac.za/~s1741606/getCourse.php",params) {
+             @Override
+             protected void onPostExecute(String output) {
+                 processCourses(output);
+             }
+         };
+        asyncHTTPPost.execute(); 
+
+        recyclerView = (RecyclerView) findViewById(R.id.upcomingacts);
+        //recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        informationAdapter = new InformationAdapter(this,courses);
+        recyclerView.setAdapter(informationAdapter);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -44,6 +74,49 @@ public class Main2Activity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
     }
 
+    private void processCourses(String output) {
+
+        try {
+            JSONArray ja = new JSONArray(output);
+            for (int i=0; i<ja.length(); i++){
+                JSONObject jo = (JSONObject)ja.get(i);
+                Course course = new Course(jo.getString("CourseCode"),jo.getString("TutDay"),
+                        jo.getString("LabDay"),jo.getString("TutVenue"), jo.getString("LabVenue"),
+                        jo.getString("TutTime"),jo.getString("LabTime"));
+                    modType(output,course);
+
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    private void modType(String output,Course c) {
+        String s = c.getType();
+        if (s.equals("BOTH")) {
+            try {
+                JSONArray ja = new JSONArray(output);
+                for (int i = 0; i < ja.length(); i++) {
+                    JSONObject jo = (JSONObject) ja.get(i);
+                    Course c1 = new Course(jo.getString("CourseCode"), jo.getString("TutDay"),
+                            "None", jo.getString("TutVenue"), jo.getString("LabVenue"),
+                            jo.getString("TutTime"), jo.getString("LabTime"));
+                    Course c2 =new Course(jo.getString("CourseCode"),"None",
+                            jo.getString("LabDay"), jo.getString("TutVenue"), jo.getString("LabVenue"),
+                            jo.getString("TutTime"), jo.getString("LabTime"));
+
+                    courses.add(c1);
+                    courses.add(c2);
+                }
+            }catch (Exception e){
+                e.getStackTrace();
+            }
+        }
+        else {
+            courses.add(c);
+        }
+
+    }
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

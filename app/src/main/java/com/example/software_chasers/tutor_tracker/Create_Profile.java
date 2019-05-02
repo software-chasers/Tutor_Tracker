@@ -92,7 +92,8 @@ public class Create_Profile extends AppCompatActivity {
                     }else  if (id == id2){
                             params.put("usertype", "Student");
 
-                    } else{
+                    }
+                    else{
                         if (id == id3) {
 
                             params.put("usertype", "Admin");
@@ -116,15 +117,13 @@ public class Create_Profile extends AppCompatActivity {
                                     startActivity(intent);
 
                                     Toast.makeText(getApplicationContext(), "Sign up successfully", Toast.LENGTH_SHORT).show();
+                                }else if (id == id3) {
+                                    Toast.makeText(getApplicationContext(), "you are an admin", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(Create_Profile.this, MainActivity.class);
+                                    intent.putExtra("userId", userid);
+                                    startActivity(intent);
                                 }
-                               else {
-                                    if (id == id3) {
-                                        Toast.makeText(getApplicationContext(), "you are an admin", Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(Create_Profile.this, MainActivity.class);
-                                        intent.putExtra("userId", userid);
-                                        startActivity(intent);
-                                    }
-                                }
+
                             }
                             else Toast.makeText(getApplicationContext(),"could register you", Toast.LENGTH_SHORT).show();
                         }
