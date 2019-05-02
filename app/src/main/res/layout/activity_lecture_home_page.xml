@@ -4,7 +4,7 @@
     android:layout_height="match_parent">
 
 
-    <Button
+<!--    <Button
         android:id="@+id/addcourse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -15,7 +15,7 @@
         android:layout_marginRight="9dp"
         android:layout_marginBottom="94dp"
         android:onClick="OnClikAdd"
-        android:text="addcourse" />
+        android:text="addcourse" />-->
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerview"

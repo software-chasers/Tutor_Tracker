@@ -49,6 +49,7 @@
         </activity>
         <activity android:name=".Tutor_application" />
         <activity android:name=".Create_Profile" />
+        <activity android:name=".StudentSignUp" />
 
         <meta-data
             android:name="preloaded_fonts"

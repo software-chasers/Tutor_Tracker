@@ -33,7 +33,7 @@ public class LectureHomePage extends AppCompatActivity
         setContentView(R.layout.activity_lecture_home_page);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        b =findViewById(R.id.addcourse);
+        //b =findViewById(R.id.addcourse);
         courses = new ArrayList<Course>();
         recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
         //recyclerView.setHasFixedSize(true);
@@ -49,7 +49,7 @@ public class LectureHomePage extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(LectureHomePage.this, AddAssessment.class);
+                Intent intent = new Intent(LectureHomePage.this, Addcourse.class);
                 startActivity(intent);
             }
         });

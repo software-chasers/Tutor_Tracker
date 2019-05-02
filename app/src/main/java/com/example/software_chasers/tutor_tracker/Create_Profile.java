@@ -46,7 +46,7 @@ public class Create_Profile extends AppCompatActivity {
         radioButton2 = findViewById(R.id.radiobutton2);
         final int id2 = radioButton2.getId();
         radioButton3 = findViewById(R.id.radioButton);
-        final int id3 = radioButton2.getId();
+        final int id3 = radioButton3.getId();
 
 
 
@@ -87,17 +87,14 @@ public class Create_Profile extends AppCompatActivity {
                     if(id == -1){
                         Toast.makeText(getApplicationContext(), "Please select user type", Toast.LENGTH_SHORT).show();
                     } else if (id == id1) {
-                        Toast.makeText(getApplicationContext(), "you are a lecturer", Toast.LENGTH_SHORT).show();
                         params.put("usertype","Lecturer");
 
                     }else  if (id == id2){
-
-                            Toast.makeText(getApplicationContext(), "you are a student", Toast.LENGTH_SHORT).show();
                             params.put("usertype", "Student");
 
                     } else{
                         if (id == id3) {
-                            Toast.makeText(getApplicationContext(), "you are an admin", Toast.LENGTH_SHORT).show();
+
                             params.put("usertype", "Admin");
                         }
                     }
@@ -108,10 +105,12 @@ public class Create_Profile extends AppCompatActivity {
                         protected void onPostExecute(String output) {
                             if (output.contains("true")) {
                                 if (id == id2) {
+                                    Toast.makeText(getApplicationContext(), "you are a student", Toast.LENGTH_SHORT).show();
                                     Intent intent = new Intent(Create_Profile.this, StudentSignUp.class);
                                     intent.putExtra("userId", userid);
                                     startActivity(intent);
                                 } else if(id == id1) {
+                                    Toast.makeText(getApplicationContext(), "you are a lecturer", Toast.LENGTH_SHORT).show();
                                     Intent intent = new Intent(Create_Profile.this, MainActivity.class);
                                     intent.putExtra("userId", userid);
                                     startActivity(intent);
@@ -120,6 +119,7 @@ public class Create_Profile extends AppCompatActivity {
                                 }
                                else {
                                     if (id == id3) {
+                                        Toast.makeText(getApplicationContext(), "you are an admin", Toast.LENGTH_SHORT).show();
                                         Intent intent = new Intent(Create_Profile.this, MainActivity.class);
                                         intent.putExtra("userId", userid);
                                         startActivity(intent);
