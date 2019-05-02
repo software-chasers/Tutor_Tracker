@@ -32,15 +32,30 @@ public class InformationAdapter extends RecyclerView.Adapter<InformationAdapter.
     @Override
     public void onBindViewHolder(InformationViewHolder holder, int position) {
     Course course = courses.get(position);
+    String s = course.getType();
+        switch (s) {
+            case "TUTORIAL":
+                holder.code.setText(course.getId());
+                holder.type.setText(course.getType());
+                holder.day.setText(course.getTutorial_day());
+                holder.time.setText(course.gettTime());
+                holder.venue.setText(course.getT_venue());
+                break;
+            case "LAB":
+                holder.code.setText(course.getId());
+                holder.type.setText(course.getType());
+                holder.day.setText(course.getLab_day());
+                holder.time.setText(course.getLTime());
+                holder.venue.setText(course.getLvenue());
+                break;
+            default:
 
-    holder.code.setText(course.getId());
-    holder.type.setText(course.getType());
-    holder.day.setText(course.getTutorial_day());
-    holder.time.setText(course.gettTime());
-    holder.venue.setText(course.getT_venue());
+                break;
+        }
 
 
     }
+
 
     @Override
     public int getItemCount() {

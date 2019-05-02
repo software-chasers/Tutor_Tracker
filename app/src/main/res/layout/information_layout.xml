@@ -20,7 +20,9 @@
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
+            android:layout_height="fill_parent"
+            tools:layout_editor_absoluteX="10dp"
+            tools:layout_editor_absoluteY="10dp">
 
             <TextView
                 android:id="@+id/aCode"
@@ -99,12 +101,12 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginStart="32dp"
-                android:layout_marginLeft="32dp"
+                android:layout_marginStart="200dp"
+                android:layout_marginTop="24dp"
                 android:fontFamily="@font/volkhov_bold_italic"
                 android:hint="MSL006"
                 android:textSize="18sp"
-                card_view:layout_constraintStart_toEndOf="@id/aTime"
+                card_view:layout_constraintStart_toStartOf="parent"
                 card_view:layout_constraintTop_toBottomOf="@id/aCode" />
 
         </android.support.constraint.ConstraintLayout>

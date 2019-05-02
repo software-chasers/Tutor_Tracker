@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content">
+<android.support.constraint.ConstraintLayout
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,20 +12,48 @@
     tools:showIn="@layout/app_bar_main2">
 
     <TextView
-        android:id="@+id/textView6"
-        android:layout_width="241dp"
-        android:layout_height="41dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
+        android:id="@+id/completed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="28dp"
+        android:fontFamily="@font/volkhov_bold"
         android:text="Completed Activities"
-        android:textSize="24sp"
+        android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@id/upcoming"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/upcoming"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/volkhov_bold"
+        android:text="UpComing Activities"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/completed"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.205" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/upcomingacts"
+        android:layout_width="395dp"
+        android:layout_height="519dp"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="148dp"
+        app:layout_constraintStart_toStartOf="@id/upcoming"
+        app:layout_constraintTop_toBottomOf="@id/upcoming"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/completedacts"
+        android:layout_width="14dp"
+        android:layout_height="21dp"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="106dp"
+        app:layout_constraintTop_toBottomOf="@id/completed"
+        app:layout_constraintStart_toStartOf="@id/completed"/>
 
 </android.support.constraint.ConstraintLayout>
+</ScrollView>
