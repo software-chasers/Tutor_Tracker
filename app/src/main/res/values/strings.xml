@@ -37,6 +37,7 @@
     <string name="title_activity_lecture_home_page">LectureHomePage</string>
     <string name="country_prompt">Choose a country</string>
 
+
     <string-array name="courses">
         <item>COMS1015</item>
         <item>COMS1016</item>
@@ -52,6 +53,7 @@
         <item>COMS3009</item>
         <item>COMS3010</item>
     </string-array>
+    <string name="title_activity_admin_home_page">AdminHomePage</string>
 
 
 </resources>

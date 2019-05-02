@@ -95,8 +95,7 @@ public class Create_Profile extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), "you are a student", Toast.LENGTH_SHORT).show();
                             params.put("usertype", "Student");
 
-                    }
-                    else{
+                    } else{
                         if (id == id3) {
                             Toast.makeText(getApplicationContext(), "you are an admin", Toast.LENGTH_SHORT).show();
                             params.put("usertype", "Admin");
@@ -119,7 +118,7 @@ public class Create_Profile extends AppCompatActivity {
 
                                     Toast.makeText(getApplicationContext(), "Sign up successfully", Toast.LENGTH_SHORT).show();
                                 }
-                                else {
+                               else {
                                     if (id == id3) {
                                         Intent intent = new Intent(Create_Profile.this, MainActivity.class);
                                         intent.putExtra("userId", userid);

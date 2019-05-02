@@ -42,10 +42,8 @@ public class MainActivity extends AppCompatActivity {
                 ContentValues params = new ContentValues();
                 params.put("userid", Userid);
                 params.put("password", Pass);
-                Intent intent = new Intent(MainActivity.this,LectureHomePage.class);
-                intent.putExtra("UserId",Userid);
-                startActivity(intent);
-                /*@SuppressLint("StaticFieldLeak") AsyncHTTPPost asyncHTTPPost = new AsyncHTTPPost("http://lamp.ms.wits.ac.za/~s1741606/loginfirst.php",params) {
+
+                @SuppressLint("StaticFieldLeak") AsyncHTTPPost asyncHTTPPost = new AsyncHTTPPost("http://lamp.ms.wits.ac.za/~s1741606/loginfirst.php",params) {
                     @Override
                     protected void onPostExecute(String output) {
                     if(output.equals("Student")) {
@@ -65,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
                     }
                 };
-               asyncHTTPPost.execute();*/
+               asyncHTTPPost.execute();
             }
         });
 
