@@ -1,7 +1,9 @@
 package com.example.software_chasers.tutor_tracker;
 
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.ContentValues;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,6 +12,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import java.util.Calendar;
 
@@ -17,7 +20,8 @@ public class AddAssessment extends AppCompatActivity implements View.OnClickList
 
 
     Button btnDatePicker, btnTimePicker,done;
-    EditText txtDate, txtTime;
+    EditText txtDate, txtTime,duration,code,Atype;
+    String cCode,date,time,dur,type;
     private int mYear, mMonth, mDay, mHour, mMinute;
 
     @Override
@@ -29,9 +33,44 @@ public class AddAssessment extends AppCompatActivity implements View.OnClickList
         done = findViewById(R.id.done);
         txtDate=(EditText)findViewById(R.id.in_date);
         txtTime=(EditText)findViewById(R.id.in_time);
+        duration = findViewById(R.id.duration);
+        code = findViewById(R.id.course);
+        Atype = findViewById(R.id.asstype);
 
         btnDatePicker.setOnClickListener(this);
         btnTimePicker.setOnClickListener(this);
+
+        done.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               cCode = code.getText().toString();
+               date = txtDate.getText().toString();
+               time= txtTime.getText().toString();
+               dur = duration.getText().toString();
+               type = Atype.getText().toString();
+
+                ContentValues params = new  ContentValues();
+                params.put("code",cCode);
+                params.put("date",date);
+                params.put("time",time);
+                params.put("duration",dur);
+                params.put("type",type);
+
+                @SuppressLint("StaticFieldLeak") AsyncHTTPPost asyncHTTPPost = new AsyncHTTPPost("http://lamp.ms.wits.ac.za/~s1741606/insertAssessment.php",params) {
+                    @Override
+                    protected void onPostExecute(String output) {
+                        if (output.contains("true")) {
+                            Toast.makeText(getApplicationContext(), "ADDED CORSE!!", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(getApplicationContext(), "UNSUCCESSFUL", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                };
+                asyncHTTPPost.execute();
+
+            }
+        });
+
     }
 
     @Override
@@ -53,7 +92,7 @@ public class AddAssessment extends AppCompatActivity implements View.OnClickList
                         public void onDateSet(DatePicker view, int year,
                                               int monthOfYear, int dayOfMonth) {
 
-                            txtDate.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
+                            txtDate.setText( year + "-" + (monthOfYear + 1) + "-" + dayOfMonth);
 
                         }
                     }, mYear, mMonth, mDay);

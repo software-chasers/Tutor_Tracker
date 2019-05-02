@@ -15,7 +15,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="82dp"
+        android:layout_marginTop="50dp"
         android:hint="COURSE CODE"
         android:inputType="textCapCharacters" />
 
@@ -25,9 +25,11 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/course"
-        android:layout_marginStart="-124dp"
-        android:layout_marginLeft="-124dp"
-        android:layout_marginBottom="-70dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="-142dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="-107dp"
         android:layout_toEndOf="@+id/course"
         android:layout_toRightOf="@+id/course" />
 
@@ -36,11 +38,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/in_date"
-        android:layout_marginStart="41dp"
-        android:layout_marginLeft="41dp"
-        android:layout_marginBottom="1dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="-3dp"
         android:layout_toEndOf="@+id/in_date"
-        android:layout_toRightOf="@+id/in_date"
         android:text="SELECT DATE" />
 
     <EditText
@@ -49,17 +50,15 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/in_date"
         android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
         android:layout_marginStart="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="126dp" />
+        android:layout_marginTop="168dp" />
 
     <EditText
         android:id="@+id/duration"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/in_time"
-        android:layout_marginBottom="-67dp"
+        android:layout_marginBottom="-143dp"
         android:hint="DURATION HRS"
         android:inputType="number" />
 
@@ -70,10 +69,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/btn_date"
         android:layout_alignStart="@+id/btn_date"
-        android:layout_alignLeft="@+id/btn_date"
-        android:layout_marginStart="2dp"
-        android:layout_marginLeft="2dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="59dp"
         android:text="SELECT TIME" />
 
     <Button
@@ -82,11 +79,23 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="433dp"
-        android:layout_marginEnd="54dp"
-        android:layout_marginRight="54dp"
+        android:layout_marginTop="525dp"
+        android:layout_marginEnd="26dp"
         android:onClick="goHomeLecturer"
         android:text="Done" />
+
+    <EditText
+        android:id="@+id/asstype"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="195dp"
+        android:layout_marginBottom="326dp"
+        android:ems="10"
+        android:hint="ASSESSMENT TYPE"
+        android:inputType="text" />
 
 </RelativeLayout>
