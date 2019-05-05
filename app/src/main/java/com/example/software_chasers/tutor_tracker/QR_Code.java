@@ -1,42 +1,34 @@
 package com.example.software_chasers.tutor_tracker;
 
-import android.app.ProgressDialog;
-import android.content.Intent;
 import android.graphics.Bitmap;
-import android.media.MediaScannerConnection;
-import android.os.Environment;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.Calendar;
-
 public class QR_Code extends AppCompatActivity {
 
     public final static int QRcodeWidth = 500 ;
-    private static final String IMAGE_DIRECTORY = "/QRcodeDemonuts";
+    //private static final String IMAGE_DIRECTORY = "";
     Bitmap bitmap ;
-    private EditText etqr;
+    private TextView etqr;
+    //private  EditText etqr2;
+    //private  EditText etqr3;
     private ImageView imag;
     private Button btn;
     String userid;
+    String completed;
     ProgressBar progressBar;
     private int progressStatus;
     private Handler handler = new Handler();
@@ -47,17 +39,21 @@ public class QR_Code extends AppCompatActivity {
         setContentView(R.layout.activity_qr__code);
         //Intent intent = getIntent();
         userid = getIntent().getStringExtra("UserId");
+        completed = getIntent().getStringExtra("Completed");
 
         //Create the text View
        // TextView textView = new EditText(this);
       //  textView.setTextSize(40);
         //textView.setText(message);
         //setContentView(textView);
-        userid = getIntent().getStringExtra("userid");
+        //userid = getIntent().getStringExtra("userid");
 
         imag = (ImageView) findViewById(R.id.imag);
-        etqr = (EditText) findViewById(R.id.etqr);
-        etqr.setText(userid);
+
+        etqr = (TextView) findViewById(R.id.etqr);
+       // etqr2 = (EditText) findViewById(R.id.etqr);
+        etqr.setText("UserId: "+userid);
+        //etqr3.setText(completed);
         btn = (Button) findViewById(R.id.btn);
         progressBar = findViewById(R.id.progressBar);
 
@@ -78,7 +74,8 @@ public class QR_Code extends AppCompatActivity {
                 progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
                 progress.show();*/
                 try {
-                    bitmap = TextToImageEncode("kaira");
+                    bitmap = TextToImageEncode(userid);
+                   //bitmap = TextToImageEncode();
                     /*progressStatus=0;
                     progressBar.setVisibility(View.VISIBLE);
                     new Thread(new Runnable() {

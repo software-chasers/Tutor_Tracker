@@ -8,8 +8,9 @@
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
 
+
     <include
-        layout="@layout/content_admin_home_page"
+        layout="@layout/app_bar_admin_home_page"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
