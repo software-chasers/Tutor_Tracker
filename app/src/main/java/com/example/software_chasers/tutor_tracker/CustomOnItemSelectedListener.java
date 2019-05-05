@@ -1,6 +1,8 @@
 package com.example.software_chasers.tutor_tracker;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
+import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.view.View;
 import android.widget.AdapterView;
@@ -21,9 +23,22 @@ public class CustomOnItemSelectedListener implements OnItemSelectedListener {
             alertDialogBuilder.setPositiveButton("yes", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
-                    Toast.makeText(parent.getContext(),
-                            "OnItemSelectedListener : " + parent.getItemAtPosition(pos).toString(),
-                            Toast.LENGTH_SHORT).show();
+                    final String cCode = parent.getItemAtPosition(pos).toString();
+
+                    ContentValues params = new ContentValues();
+                    params.put("code",cCode);
+                    params.put("userid","11");
+                    @SuppressLint("StaticFieldLeak") AsyncHTTPPost asyncHTTPPost = new AsyncHTTPPost("http://lamp.ms.wits.ac.za/~s1741606/insertCourseLecturer.php",params) {
+                        @Override
+                        protected void onPostExecute(String output) {
+                            if(output.contains("true")){
+                                Toast.makeText(parent.getContext(),
+                                        "Successfully added : " + cCode,
+                                        Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    };
+                    asyncHTTPPost.execute();
                 }
             });
             alertDialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {

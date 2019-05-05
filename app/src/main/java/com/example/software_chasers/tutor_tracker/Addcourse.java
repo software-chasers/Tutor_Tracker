@@ -3,6 +3,7 @@ package com.example.software_chasers.tutor_tracker;
 import java.util.ArrayList;
 import java.util.List;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -51,9 +52,10 @@ public class Addcourse extends Activity {
             public void onClick(View v) {
 
                 Toast.makeText(Addcourse.this,
-                        "OnClickListener : " +
-                                "\nSpinner 1 : "+ String.valueOf(spinner1.getSelectedItem()),
+                        "Added all Courses  ",
                         Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplicationContext(), LectureHomePage.class);
+                startActivity(intent);
             }
 
         });
