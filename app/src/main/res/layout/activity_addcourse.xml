@@ -13,7 +13,6 @@
         android:layout_marginBottom="480dp"
         android:entries="@array/courses"
         android:prompt="@string/country_prompt" />
-
     <Button
         android:id="@+id/btnSubmit"
         android:layout_width="wrap_content"
