@@ -1,5 +1,8 @@
 package com.example.software_chasers.tutor_tracker;
 
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
@@ -13,13 +16,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.Display;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.File;
@@ -28,7 +28,7 @@ import java.io.IOException;
 
 public class Genarate_form extends AppCompatActivity {
 
-    private Button btn, btnScroll;
+    private Button btn ;//btnScroll;
     private LinearLayout llPdf;
     private Bitmap bitmap;
 
@@ -38,9 +38,10 @@ public class Genarate_form extends AppCompatActivity {
         setContentView(R.layout.activity_genarate_form);
 
         btn = findViewById(R.id.btn);
-        btnScroll = findViewById(R.id.btnScroll);
+        //btnScroll = findViewById(R.id.btnScroll);
         llPdf = findViewById(R.id.llPdf);
 
+/*
         btnScroll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,6 +49,7 @@ public class Genarate_form extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+*/
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,7 +99,7 @@ public class Genarate_form extends AppCompatActivity {
         document.finishPage(page);
 
         // write the document content
-        String targetPdf = "content://downloads/public_downloads";
+        String targetPdf = "/sdcard/tutorform.pdf";
         File filePath;
         filePath = new File(targetPdf);
         try {
@@ -110,14 +112,14 @@ public class Genarate_form extends AppCompatActivity {
 
         // close the document
         document.close();
-        Toast.makeText(this, "PDF is created!!!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "PDF Saved As 'tutorform.pdf' In The Internal Storage", Toast.LENGTH_SHORT).show();
 
         openGeneratedPDF();
 
     }
 
     private void openGeneratedPDF(){
-        File file = new File("content://downloads/public_downloads");
+        File file = new File("/sdcard/tutorform.pdf");
         if (file.exists())
         {
             Intent intent=new Intent(Intent.ACTION_VIEW);
@@ -131,7 +133,7 @@ public class Genarate_form extends AppCompatActivity {
             }
             catch(ActivityNotFoundException e)
             {
-                Toast.makeText(Genarate_form.this, "No Application available to view pdf", Toast.LENGTH_LONG).show();
+                Toast.makeText(Genarate_form.this, "No Application available to view pdf ", Toast.LENGTH_LONG).show();
             }
         }
     }
