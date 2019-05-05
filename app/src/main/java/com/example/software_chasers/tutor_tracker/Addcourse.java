@@ -21,15 +21,23 @@ public class Addcourse extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addcourse);
-
-        addListenerOnButton();
-        addListenerOnSpinnerItemSelection();
-    }
-
-    public void addListenerOnSpinnerItemSelection() {
         spinner1 = (Spinner) findViewById(R.id.spinner1);
-        spinner1.setOnItemSelectedListener(new CustomOnItemSelectedListener());
+        addListenerOnButton();
+
+/*        spinner1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+               // addListenerOnSpinnerItemSelection(spinner1);
+            }
+        });*/
+       addListenerOnSpinnerItemSelection(spinner1);
     }
+
+    public void addListenerOnSpinnerItemSelection(Spinner spinner) {
+        spinner.setOnItemSelectedListener(new CustomOnItemSelectedListener());
+    }
+
+
 
     // get the selected dropdown list value
     public void addListenerOnButton() {
