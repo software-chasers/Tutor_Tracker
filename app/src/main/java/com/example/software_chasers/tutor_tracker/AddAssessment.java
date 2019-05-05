@@ -53,7 +53,7 @@ public class AddAssessment extends AppCompatActivity implements View.OnClickList
                 params.put("code",cCode);
                 params.put("date",date);
                 params.put("time",time);
-                params.put("duration",dur);
+                params.put("dur",dur);
                 params.put("type",type);
 
                 @SuppressLint("StaticFieldLeak") AsyncHTTPPost asyncHTTPPost = new AsyncHTTPPost("http://lamp.ms.wits.ac.za/~s1741606/insertAssessment.php",params) {
