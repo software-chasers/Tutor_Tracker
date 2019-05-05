@@ -1,5 +1,7 @@
 package com.example.software_chasers.tutor_tracker;
 
+import android.annotation.SuppressLint;
+import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -33,18 +35,29 @@ public class LectureHomePage extends AppCompatActivity
         setContentView(R.layout.activity_lecture_home_page);
         Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
-        //b =findViewById(R.id.addcourse);
         courses = new ArrayList<Course>();
+        ContentValues params = new ContentValues();
+        params.put("id","123");
+
+        @SuppressLint("StaticFieldLeak") AsyncHTTPPost asyncHTTPPost = new AsyncHTTPPost("http://lamp.ms.wits.ac.za/~s1741606/getCourseLecturer.php",params) {
+            @Override
+            protected void onPostExecute(String output) {
+                Main2Activity.processCourses(output,courses);
+            }
+        };
+        asyncHTTPPost.execute();
+
+
         recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
-        //recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        informationAdapter = new InformationAdapter(this,courses);
+        recyclerView.setAdapter(informationAdapter);
 
         courses.add(new Course("COMS3003","MONDAY","NO LABS",
                 "MSL004","NONE","12:30-13:15","12:30-13:15"));
         courses.add(new Course("COMS2014","WEDNESDAY","NO LABS",
                 "MSL004","NONE","12:30-13:15","12:30-13:15"));
-        informationAdapter = new InformationAdapter(this,courses);
-        recyclerView.setAdapter(informationAdapter);
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,8 +77,8 @@ public class LectureHomePage extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
     }
 
-    public void OnClikAdd(View view){
-        Intent intent = new Intent(getApplicationContext(), Addcourse.class);
+    public void OnSubmit(View view){
+        Intent intent = new Intent(getApplicationContext(), LectureHomePage.class);
         startActivity(intent);
     }
 

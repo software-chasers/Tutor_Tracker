@@ -49,7 +49,7 @@ public class Main2Activity extends AppCompatActivity
          @SuppressLint("StaticFieldLeak") AsyncHTTPPost asyncHTTPPost = new AsyncHTTPPost("http://lamp.ms.wits.ac.za/~s1741606/getCourse.php",params) {
              @Override
              protected void onPostExecute(String output) {
-                 processCourses(output);
+                 processCourses(output,courses);
              }
          };
         asyncHTTPPost.execute(); 
@@ -86,7 +86,7 @@ public void showPopUp(View v){
     popupMenu.show();
 }
 
-    private void processCourses(String output) {
+    public  static  void processCourses(String output,List<Course> courses2) {
 
         try {
             JSONArray ja = new JSONArray(output);
@@ -95,7 +95,8 @@ public void showPopUp(View v){
                 Course course = new Course(jo.getString("CourseCode"),jo.getString("TutDay"),
                         jo.getString("LabDay"),jo.getString("TutVenue"), jo.getString("LabVenue"),
                         jo.getString("TutTime"),jo.getString("LabTime"));
-                    modType(output,course);
+                    modType(output,course,courses2);
+                courses2.add(course);
 
             }
         }catch (Exception e){
@@ -103,7 +104,7 @@ public void showPopUp(View v){
         }
     }
 
-    private void modType(String output,Course c) {
+    public static  void modType(String output,Course c,List<Course> courses1) {
         String s = c.getType();
         if (s.equals("BOTH")) {
             try {
@@ -117,15 +118,15 @@ public void showPopUp(View v){
                             jo.getString("LabDay"), jo.getString("TutVenue"), jo.getString("LabVenue"),
                             jo.getString("TutTime"), jo.getString("LabTime"));
 
-                    courses.add(c1);
-                    courses.add(c2);
+                    courses1.add(c1);
+                    courses1.add(c2);
                 }
             }catch (Exception e){
                 e.getStackTrace();
             }
         }
         else {
-            courses.add(c);
+            courses1.add(c);
         }
 
     }

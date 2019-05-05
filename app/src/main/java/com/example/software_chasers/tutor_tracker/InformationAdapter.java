@@ -3,10 +3,15 @@ package com.example.software_chasers.tutor_tracker;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.PopupMenu;
+import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 import java.util.zip.Inflater;
@@ -30,9 +35,28 @@ public class InformationAdapter extends RecyclerView.Adapter<InformationAdapter.
     }
 
     @Override
-    public void onBindViewHolder(InformationViewHolder holder, int position) {
+    public void onBindViewHolder(final InformationViewHolder holder, int position) {
     Course course = courses.get(position);
     String s = course.getType();
+    holder.popmenu.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            PopupMenu popupMenu = new PopupMenu(context, holder.popmenu);
+            popupMenu.inflate(R.menu.pop_up);
+            popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                @Override
+                public boolean onMenuItemClick(MenuItem menuItem) {
+                    switch(menuItem.getItemId()){
+                        case R.id.gen:
+                            Toast.makeText(context,"Generate QR Code",Toast.LENGTH_SHORT).show();
+                            break;
+                    }
+                    return false;
+                }
+            });
+            popupMenu.show();
+        }
+    });
         switch (s) {
             case "TUTORIAL":
                 holder.code.setText(course.getId());
@@ -65,6 +89,7 @@ public class InformationAdapter extends RecyclerView.Adapter<InformationAdapter.
     class InformationViewHolder extends RecyclerView.ViewHolder{
 
         TextView type,day,time,venue,code;
+        ImageView popmenu;
 
         public InformationViewHolder(View itemView) {
             super(itemView);
@@ -73,6 +98,7 @@ public class InformationAdapter extends RecyclerView.Adapter<InformationAdapter.
             day =itemView.findViewById(R.id.aDay);
             time =itemView.findViewById(R.id.aTime);
             venue =itemView.findViewById(R.id.aVenue);
+            popmenu = itemView.findViewById(R.id.iv_menu);
         }
     }
 }
