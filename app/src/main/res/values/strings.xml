@@ -145,6 +145,12 @@
         "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
         "when a user tries to pick up one of cards.\n\n"
     </string>
+    <string name="course_code">COURSE CODE</string>
+    <string name="select_date">SELECT DATE</string>
+    <string name="duration_hrs">DURATION HRS</string>
+    <string name="select_time">SELECT TIME</string>
+    <string name="done">Done</string>
+    <string name="assessment_type">ASSESSMENT TYPE</string>
 
 
 </resources>
