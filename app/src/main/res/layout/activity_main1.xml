@@ -72,7 +72,7 @@
 
         android:drawableLeft="@drawable/ic_action_name"
         android:ems="10"
-        android:hint="Username"
+        android:hint="UserId"
         android:inputType="number"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

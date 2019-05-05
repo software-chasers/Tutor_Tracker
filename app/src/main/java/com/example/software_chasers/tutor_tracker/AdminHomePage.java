@@ -13,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
 import android.widget.TextView;
 
 
@@ -21,17 +22,24 @@ import android.widget.TextView;
 public class AdminHomePage extends AppCompatActivity
 
         implements NavigationView.OnNavigationItemSelectedListener {
-    TextView textview,textview1,textview2,textview3,textview4,textview5,textview6,textview7,textview8,textview9,textview10,textview11,textview12
+   // private TextView admin11;
+    String userid;
+    TextView textView,textview1,textview2,textview3,textview4,textview5,textview6,textview7,textview8,textview9,textview10,textview11,textview12
             ,textview13,textview14,textview15,textview16,textview17,textview18,textview19,textview20,textview21,textview22,textview23,textview24,textview25,
             textview26,textview27,textview28,textview29,textview30,textview31,textview32,textview33;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_home_page);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar2);
         setSupportActionBar(toolbar);
-        textview = (TextView) findViewById(R.id.textView15);
-        textview1 = (TextView) findViewById(R.id.textView18);
+
+       // userid = getIntent().getStringExtra("UserId");
+        //admin11 = (TextView) findViewById(R.id.admin);
+        //admin11.setText("UserId: "+userid);
+
+         textView = (TextView) findViewById(R.id.textView15);
+       textview1 = (TextView) findViewById(R.id.textView18);
         textview2 = (TextView) findViewById(R.id.textView19);
         textview3 = (TextView) findViewById(R.id.textView20);
         textview4 = (TextView) findViewById(R.id.textView17);
@@ -66,10 +74,10 @@ public class AdminHomePage extends AppCompatActivity
         textview33 = (TextView) findViewById(R.id.textView49);
 
 
-        textview.setOnClickListener(new View.OnClickListener() {
+        textView.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View view) {
-        int id = textview.getId();
+        int id = textView.getId();
         if (id == R.id.textView15) {
             Intent intent = new Intent(AdminHomePage.this, View_Application.class);
             startActivity(intent);
@@ -79,7 +87,7 @@ public class AdminHomePage extends AppCompatActivity
 
     }
 });
-        textview1.setOnClickListener(new View.OnClickListener() {
+       textview1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 int id1 = textview1.getId();

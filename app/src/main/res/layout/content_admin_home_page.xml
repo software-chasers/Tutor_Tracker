@@ -8,6 +8,7 @@
     tools:context=".AdminHomePage"
     tools:showIn="@layout/app_bar_admin_home_page">
 
+
     <TextView
         android:id="@+id/textView33"
         android:layout_width="175dp"
@@ -407,13 +408,14 @@
         android:layout_width="170dp"
         android:layout_height="43dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="56dp"
         android:layout_marginEnd="8dp"
         android:text="Tutors Applications"
         android:textColor="@color/colorAccent"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -423,7 +425,7 @@
         android:layout_height="34dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:text="Application 1"
+        android:text="@string/application_1"
         android:textAppearance="@style/TextAppearance.AppCompat.SearchResult.Subtitle"
         android:textColor="@color/colorPrimary"
         app:layout_constraintEnd_toStartOf="@+id/textView34"

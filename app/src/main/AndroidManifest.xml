@@ -21,10 +21,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ScrollActivity"></activity>
+        <activity android:name=".View_Application" />
         <activity
             android:name=".AdminHomePage"
             android:label="@string/title_activity_admin_home_page"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Addcourse" />
         <activity android:name=".AddAssessment" />
         <activity
@@ -50,7 +52,7 @@
         <activity android:name=".Tutor_application" />
         <activity android:name=".Create_Profile" />
         <activity android:name=".StudentSignUp" />
-        <activity android:name=".Admin" />
+
 
         <meta-data
             android:name="preloaded_fonts"

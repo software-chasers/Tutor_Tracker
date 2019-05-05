@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
                                 break;
                             }
                             case "Admin": {
-                                Intent intent = new Intent(MainActivity.this, Admin.class);
+                                Intent intent = new Intent(MainActivity.this, AdminHomePage.class);
                                 intent.putExtra("UserId", Userid);
                                 startActivity(intent);
 //                                Toast.makeText(getApplicationContext(), "Sign in successfully", Toast.LENGTH_SHORT).show();
