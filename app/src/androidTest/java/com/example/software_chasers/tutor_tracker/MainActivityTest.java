@@ -48,13 +48,13 @@ public class MainActivityTest {
         assertNotNull( checkbox );
     }
 
-    @Test
-    public void stringcheck(){
-        assertFalse(mainActivity.strcmp("someString" ,null ));
-        assertFalse( mainActivity.strcmp(null ,null ));
-        assertTrue(mainActivity.strcmp("someString" ,"someString"));
-        assertFalse( mainActivity.strcmp( "","someString"  )  );
-    }
+//    @Test
+//    public void stringcheck(){
+//        assertFalse(mainActivity.strcmp("someString" ,null ));
+//        assertFalse( mainActivity.strcmp(null ,null ));
+//        assertTrue(mainActivity.strcmp("someString" ,"someString"));
+//        assertFalse( mainActivity.strcmp( "","someString"  )  );
+//    }
 
     @Test
     public void Sudent_login(){
