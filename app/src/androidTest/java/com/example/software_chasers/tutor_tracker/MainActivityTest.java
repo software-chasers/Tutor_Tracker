@@ -76,6 +76,16 @@ public class MainActivityTest {
         button.perform( click() );
     }
 
+    @Test
+    public void Admin_login(){
+        ViewInteraction userid = onView( withId( R.id.edituserid ) );
+        userid.perform( ViewActions.typeText( "33" ) ,closeSoftKeyboard());
+        ViewInteraction Pass = onView( withId( R.id.editpassword ) );
+        Pass.perform( ViewActions.typeText( "33" ) ,closeSoftKeyboard());
+        ViewInteraction button = onView( withId( R.id.signIn ) );
+        button.perform( click() );
+    }
+
 
     @After
     public void tearDown() throws Exception {

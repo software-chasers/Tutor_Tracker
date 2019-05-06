@@ -13,13 +13,12 @@
         android:layout_height="match_parent"
         android:background="#fff"
         android:orientation="vertical">
-
+        <!--android:background="@color/cardview_light_background"-->
 
         <Button
             android:id="@+id/btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/cardview_light_background"
             android:text="Generate form into pdf"
             android:textColor="#000"
             app:layout_constraintEnd_toEndOf="parent"

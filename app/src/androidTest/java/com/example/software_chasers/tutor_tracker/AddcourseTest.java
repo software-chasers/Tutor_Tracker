@@ -14,22 +14,22 @@ import static org.junit.Assert.*;
 public class AddcourseTest {
 
     @Rule
-    public ActivityTestRule<Addcourse> addcourseActivityTestRule = new ActivityTestRule<>( Addcourse.class );
+    public ActivityTestRule<Addcourse> activityTestRule = new ActivityTestRule<>( Addcourse.class );
     private Addcourse addcourse = null;
 
     @Before
     public void setUp() throws Exception {
-        addcourse = addcourseActivityTestRule.getActivity();
+        addcourse = activityTestRule.getActivity();
     }
 
     @Test
     public void AddcourseLaunched(){
+        View spinner = addcourse.findViewById( R.id.spinner1 );
+        assertNotNull( spinner );
         View button = addcourse.findViewById( R.id.btnSubmit );
         assertNotNull( button );
         View text = addcourse.findViewById( R.id.textView9 );
         assertNotNull( text );
-        View spinner = addcourse.findViewById( R.id.spinner1 );
-        assertNotNull( spinner );
     }
 
     @After
