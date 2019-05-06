@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               final String Userid = editText2.getText().toString();
+                final String Userid = editText2.getText().toString();
                 String Pass = editText.getText().toString();
                 ContentValues params = new ContentValues();
                 params.put("userid", Userid);
@@ -45,24 +45,24 @@ public class MainActivity extends AppCompatActivity {
                 @SuppressLint("StaticFieldLeak") AsyncHTTPPost asyncHTTPPost = new AsyncHTTPPost("http://lamp.ms.wits.ac.za/~s1741606/loginfirst.php",params) {
                     @Override
                     protected void onPostExecute(String output) {
-                    if(strcmp(output,"Student") ) {
-                        Intent intent = new Intent(MainActivity.this, Main2Activity.class);
-                        intent.putExtra("UserId",Userid);
-                        startActivity(intent);
-                        Toast.makeText(getApplicationContext(), "Sign in successfully", Toast.LENGTH_SHORT).show();
-                    }else if(strcmp(output,"Lecturer") ) {
-                        Intent intent = new Intent(MainActivity.this,LectureHomePage.class);
-                        intent.putExtra("UserId",Userid);
-                        startActivity(intent);
-                        Toast.makeText(getApplicationContext(), "Sign in successfully", Toast.LENGTH_SHORT).show();
-                    }
-                    else {
-                        Toast.makeText(getApplicationContext(), "Sign in Unsuccessful", Toast.LENGTH_SHORT).show();
-                    }
+                        if(strcmp(output,"Student") ) {
+                            Intent intent = new Intent(MainActivity.this, Main2Activity.class);
+                            intent.putExtra("UserId",Userid);
+                            startActivity(intent);
+                            Toast.makeText(getApplicationContext(), "Sign in successfully", Toast.LENGTH_SHORT).show();
+                        }else if(strcmp(output,"Lecturer") ) {
+                            Intent intent = new Intent(MainActivity.this,LectureHomePage.class);
+                            intent.putExtra("UserId",Userid);
+                            startActivity(intent);
+                            Toast.makeText(getApplicationContext(), "Sign in successfully", Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            Toast.makeText(getApplicationContext(), "Sign in Unsuccessful", Toast.LENGTH_SHORT).show();
+                        }
 
                     }
                 };
-               asyncHTTPPost.execute();
+                asyncHTTPPost.execute();
             }
         });
 

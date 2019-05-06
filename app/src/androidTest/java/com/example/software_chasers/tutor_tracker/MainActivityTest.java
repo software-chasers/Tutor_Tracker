@@ -57,16 +57,26 @@ public class MainActivityTest {
     }
 
     @Test
-    public void login(){
+    public void Sudent_login(){
         ViewInteraction userid = onView( withId( R.id.edituserid ) );
         userid.perform( ViewActions.typeText( "456" ) ,closeSoftKeyboard());
         ViewInteraction Pass = onView( withId( R.id.editpassword ) );
         Pass.perform( ViewActions.typeText( "0000" ) ,closeSoftKeyboard());
         ViewInteraction button = onView( withId( R.id.signIn ) );
         button.perform( click() );
-
-
     }
+
+    @Test
+    public void Lecture_login(){
+        ViewInteraction userid = onView( withId( R.id.edituserid ) );
+        userid.perform( ViewActions.typeText( "11" ) ,closeSoftKeyboard());
+        ViewInteraction Pass = onView( withId( R.id.editpassword ) );
+        Pass.perform( ViewActions.typeText( "1111" ) ,closeSoftKeyboard());
+        ViewInteraction button = onView( withId( R.id.signIn ) );
+        button.perform( click() );
+    }
+
+
     @After
     public void tearDown() throws Exception {
         mainActivity = null;
