@@ -10,10 +10,12 @@ import org.junit.Test;
 import java.nio.channels.AcceptPendingException;
 
 import androidx.test.espresso.ViewInteraction;
+import androidx.test.espresso.action.ViewActions;
 import androidx.test.rule.ActivityTestRule;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
@@ -52,6 +54,18 @@ public class MainActivityTest {
         assertFalse( mainActivity.strcmp(null ,null ));
         assertTrue(mainActivity.strcmp("someString" ,"someString"));
         assertFalse( mainActivity.strcmp( "","someString"  )  );
+    }
+
+    @Test
+    public void login(){
+        ViewInteraction userid = onView( withId( R.id.edituserid ) );
+        userid.perform( ViewActions.typeText( "456" ) ,closeSoftKeyboard());
+        ViewInteraction Pass = onView( withId( R.id.editpassword ) );
+        Pass.perform( ViewActions.typeText( "0000" ) ,closeSoftKeyboard());
+        ViewInteraction button = onView( withId( R.id.signIn ) );
+        button.perform( click() );
+
+
     }
     @After
     public void tearDown() throws Exception {

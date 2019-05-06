@@ -2,6 +2,7 @@ package com.example.software_chasers.tutor_tracker;
 
 import android.app.Activity;
 import android.app.Instrumentation;
+import android.content.Intent;
 
 import org.junit.After;
 import org.junit.Before;
@@ -12,6 +13,7 @@ import androidx.test.platform.app.InstrumentationRegistry;
 import androidx.test.rule.ActivityTestRule;
 
 import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
 import static org.junit.Assert.*;
@@ -20,7 +22,6 @@ public class MainActivityLaunchTest {
 //    @Rule
 //    public ActivityTestRule<MainActivity> mainActivityTestRule = new ActivityTestRule<MainActivity>(MainActivity.class);
 //    private MainActivity mActivity = null;
-//    Instrumentation.ActivityMonitor monitor = getInstrumentation().addMonitor(Create_Profile.class.getName(),null,false);
 //
 //    @Before
 //    public void setUp() throws Exception {
@@ -31,10 +32,17 @@ public class MainActivityLaunchTest {
 //    public void activitylaunchtest()
 //    {
 //        assertNotNull(mActivity.findViewById(R.id.signup));
-//        onView(withId(R.id.signup));
-//        Activity Create_Profile =  getInstrumentation().waitForMonitorWithTimeout(monitor,5000);
+//        onView(withId(R.id.signup)).perform( click() );
+//        Instrumentation.ActivityResult  result = new Instrumentation.ActivityResult( Activity.RESULT_OK,null );
+//        assertNotNull( result );
+//        Instrumentation.ActivityMonitor monitor =  getInstrumentation().addMonitor(Create_Profile.class.getName(),result,true);
+//        assertNotNull( monitor );
+//        Activity Create_Profile =  getInstrumentation().waitForMonitorWithTimeout(monitor,10000);
 //        assertNotNull(Create_Profile);
 //        Create_Profile.finish();
+//
+////        intending(hasComponent(Create_Profile.class.getName())).respondWith(new Instrumentation.ActivityResult(Activity.RESULT_OK, null));
+////        rule.getActivity().startActivityForResult(new Intent(context,Create_Profile.class));
 //    }
 //
 //    @After

@@ -17,41 +17,42 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 public class Create_Profile extends AppCompatActivity {
-    EditText FName, LName, UserID, Email, Password, ConfirmPassword, PhoneNumber;
+    EditText FName,LName, UserID, Email, Password, ConfirmPassword, PhoneNumber;
     Button Submit;
-    RadioButton radioButton1, radioButton2;
+    RadioButton radioButton1,radioButton2,radioButton3;
     RadioGroup radioGroup;
     DatabaseHelper db;
-
     private boolean isNetworkAvailable() {
         ConnectivityManager connectivityManager
-                = (ConnectivityManager) getSystemService( Context.CONNECTIVITY_SERVICE );
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate( savedInstanceState );
-        setContentView( R.layout.activity_create__profile );
-        ;
-        FName = (EditText) findViewById( R.id.fname );
-        LName = (EditText) findViewById( R.id.lname );
-        UserID = (EditText) findViewById( R.id.userid );
-        Password = (EditText) findViewById( R.id.password );
-        ConfirmPassword = (EditText) findViewById( R.id.confirmpassword );
-        Email = (EditText) findViewById( R.id.email );
-        PhoneNumber = (EditText) findViewById( R.id.phonenumber );
-        Submit = (Button) findViewById( R.id.submit );
-        radioButton1 = findViewById( R.id.radiobutton );
-        radioGroup = findViewById( R.id.user_type );
-        final int id1 = radioButton1.getId();
-        radioButton2 = findViewById( R.id.radiobutton2 );
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_create__profile);;
+        FName=(EditText)findViewById(R.id.fname) ;
+        LName=(EditText)findViewById(R.id.lname) ;
+        UserID=(EditText)findViewById(R.id.userid) ;
+        Password=(EditText)findViewById(R.id.password) ;
+        ConfirmPassword=(EditText)findViewById(R.id.confirmpassword) ;
+        Email=(EditText)findViewById(R.id.email) ;
+        PhoneNumber=(EditText)findViewById(R.id.phonenumber) ;
+        Submit=(Button)findViewById(R.id.submit);
+        radioButton1 = findViewById(R.id.radiobutton);
+        radioGroup = findViewById(R.id.user_type);
+        final  int id1 = radioButton1.getId();
+        radioButton2 = findViewById(R.id.radiobutton2);
         final int id2 = radioButton2.getId();
+        radioButton3 = findViewById(R.id.radioButton);
+        final int id3 = radioButton3.getId();
 
 
-        db = new DatabaseHelper( this );
-        Submit.setOnClickListener( new View.OnClickListener() {
+
+        db = new DatabaseHelper(this);
+        Submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Intent intent = new Intent(Create_Profile.this, MainActivity.class);
@@ -65,69 +66,78 @@ public class Create_Profile extends AppCompatActivity {
                     String password2 = ConfirmPassword.getText().toString();
                     String phoneNo = PhoneNumber.getText().toString();
 
-                    final int id = radioGroup.getCheckedRadioButtonId();
-                    if (strcmp(fname,"" ) || strcmp(userid,"" ) || strcmp(email,"" )|| strcmp(password,"" ) || strcmp(password2,"" )
-                            || strcmp(phoneNo,"" )) {
-                        FName.setError( "Fill all fields" );
+                    final  int id = radioGroup.getCheckedRadioButtonId();
+                    if (fname.equals("") || userid.equals("") || email.equals("") || password.equals("") || password2.equals("")
+                            || phoneNo.equals("")) {
+                        FName.setError("Fill all fields");
                     } else {
-                        if (!strcmp(password,password2)) {
-                            Password.setError( "Passwords don't match" );
+                        if (!(password.equals(password2))) {
+                            Password.setError("Passwords don't match");
 
                             //Toast.makeText(getApplicationContext(),"PasswordS do not match",Toast.LENGTH_SHORT).show();
-                        }
-                        if (!isValidEmail( email.trim() )){
-                            Email.setError( "Please enter a valid email address" );
                         }
 
                     }
                     ContentValues params = new ContentValues();
-                    params.put( "userfname", fname );
-                    params.put( "userlname", lname );
-                    params.put( "userid", userid );
-                    params.put( "email", email );
-                    params.put( "password", password2 );
-                    params.put( "phonNo", phoneNo );
-                    if (id == -1) {
-                        Toast.makeText( getApplicationContext(), "Please select user type", Toast.LENGTH_SHORT ).show();
+                    params.put("userfname", fname);
+                    params.put("userlname", lname);
+                    params.put("userid", userid);
+                    params.put("email", email);
+                    params.put("password", password2);
+                    params.put("phonNo", phoneNo);
+                    if(id == -1){
+                        Toast.makeText(getApplicationContext(), "Please select user type", Toast.LENGTH_SHORT).show();
                     } else if (id == id1) {
-                        Toast.makeText( getApplicationContext(), "you are a lecturer", Toast.LENGTH_SHORT ).show();
-                        params.put( "usertype", "Lecturer" );
+                        params.put("usertype","Lecturer");
 
-                    } else {
-                        if (id == id2) {
-                            Toast.makeText( getApplicationContext(), "you are a student", Toast.LENGTH_SHORT ).show();
-                            params.put( "usertype", "Student" );
+                    }else  if (id == id2){
+                        params.put("usertype", "Student");
+
+                    }
+                    else{
+                        if (id == id3) {
+
+                            params.put("usertype", "Admin");
                         }
                     }
 
 
-                    @SuppressLint("StaticFieldLeak") AsyncHTTPPost asyncHTTPPost = new AsyncHTTPPost( "http://lamp.ms.wits.ac.za/~s1741606/signUp.php", params ) {
+                    @SuppressLint("StaticFieldLeak") AsyncHTTPPost asyncHTTPPost = new AsyncHTTPPost("http://lamp.ms.wits.ac.za/~s1741606/signUp.php", params) {
                         @Override
                         protected void onPostExecute(String output) {
-                            if (output.contains( "true" )) {
+                            if (output.contains("true")) {
                                 if (id == id2) {
-                                    Intent intent = new Intent( Create_Profile.this, StudentSignUp.class );
-                                    intent.putExtra( "userId", userid );
-                                    startActivity( intent );
-                                } else {
-                                    Intent intent = new Intent( Create_Profile.this, MainActivity.class );
-                                    intent.putExtra( "userId", userid );
-                                    startActivity( intent );
+                                    Toast.makeText(getApplicationContext(), "you are a student", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(Create_Profile.this, StudentSignUp.class);
+                                    intent.putExtra("userId", userid);
+                                    startActivity(intent);
+                                } else if(id == id1) {
+                                    Toast.makeText(getApplicationContext(), "you are a lecturer", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(Create_Profile.this, MainActivity.class);
+                                    intent.putExtra("userId", userid);
+                                    startActivity(intent);
 
-                                    Toast.makeText( getApplicationContext(), "Sign up successfully", Toast.LENGTH_SHORT ).show();
+                                    Toast.makeText(getApplicationContext(), "Sign up successfully", Toast.LENGTH_SHORT).show();
+                                }else if (id == id3) {
+                                    Toast.makeText(getApplicationContext(), "you are an admin", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(Create_Profile.this, MainActivity.class);
+                                    intent.putExtra("userId", userid);
+                                    startActivity(intent);
                                 }
-                            } else
-                                Toast.makeText( getApplicationContext(), "could not register you", Toast.LENGTH_SHORT ).show();
+
+                            }
+                            else Toast.makeText(getApplicationContext(),"could register you", Toast.LENGTH_SHORT).show();
                         }
                     };
                     asyncHTTPPost.execute();
 
-                } else {
-                    Toast.makeText( getApplicationContext(), "You are not connected to the internet", Toast.LENGTH_SHORT ).show();
+                }
+                else {
+                    Toast.makeText(getApplicationContext(), "You are not connected to the internet", Toast.LENGTH_SHORT).show();
                 }
             }
 
-        } );
+        });
     }
 
     public boolean isValidEmail(String email) {
@@ -139,30 +149,5 @@ public class Create_Profile extends AppCompatActivity {
             return true;
         }
     }
-
-
-    public boolean strcmp(String key1, String key2){
-        boolean answ = false;
-        if(key1==null || key2 == null){
-            answ = false;
-        } else if(key1.equals( key2 )){
-            answ = true;
-        }else if(!key1.equals( key2 )) {
-            answ = false;
-        }
-        return answ;
-    }
-
-//    public boolean isValidPhoneNumber(String number) {
-//        if (number == null) {
-//            return false;
-//        } else if (number.length() == 10 && number.charAt( 0 ) == '0' ) {
-//            return true;
-//        } else if (number.length() == 12 && number.charAt( 0 ) == '+'){
-//            return true;
-//        }else {
-//            return false;
-//        }
-//    }
 
 }
