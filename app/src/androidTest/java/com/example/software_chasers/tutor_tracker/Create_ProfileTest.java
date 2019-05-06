@@ -9,9 +9,12 @@ import org.junit.Rule;
 import org.junit.Test;
 
 import androidx.test.espresso.ViewInteraction;
+import androidx.test.espresso.action.ViewActions;
 import androidx.test.rule.ActivityTestRule;
 
 import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
@@ -60,6 +63,29 @@ public class Create_ProfileTest {
         assertFalse( create_profile.isValidEmail( null ) );
         assertFalse( create_profile.isValidEmail( "" ) );
         assertTrue(create_profile.isValidEmail( "1661233@students.wits.ac.za" )  );
+    }
+
+    @Test
+    public void createUser()
+    {
+        ViewInteraction userid = onView( withId( R.id.fname ) );
+        userid.perform( ViewActions.typeText( "Maccauley" ) ,closeSoftKeyboard());
+        ViewInteraction Lname = onView( withId( R.id.lname ) );
+        Lname.perform( ViewActions.typeText( "Marota" ) ,closeSoftKeyboard());
+        ViewInteraction Userid = onView( withId( R.id.userid ) );
+        Userid.perform( ViewActions.typeText( "123" ) ,closeSoftKeyboard());
+        ViewInteraction Email = onView( withId( R.id.email ) );
+        Email.perform( ViewActions.typeText( "maccauleymakgonye@gmail.com" ) ,closeSoftKeyboard());
+        ViewInteraction Pass = onView( withId( R.id.password ) );
+        Pass.perform( ViewActions.typeText( "mmmm" ) ,closeSoftKeyboard());
+        ViewInteraction ConPass = onView( withId( R.id.confirmpassword ) );
+        ConPass.perform( ViewActions.typeText( "mmmm" ) ,closeSoftKeyboard());
+        ViewInteraction Phone = onView( withId( R.id.phonenumber ) );
+        Phone.perform( ViewActions.typeText( "0794511580" ) ,closeSoftKeyboard());
+        ViewInteraction Radiobutton = onView( withId( R.id.radiobutton ) );
+        Radiobutton.perform( click() );
+        ViewInteraction button = onView( withId( R.id.submit ) );
+        button.perform( click() );
     }
 
     @After
