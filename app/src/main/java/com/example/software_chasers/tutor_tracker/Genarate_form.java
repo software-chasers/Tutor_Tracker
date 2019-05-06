@@ -54,6 +54,7 @@ public class Genarate_form extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                btn.setText("TUTOR FORM");
                 Log.d("size"," "+llPdf.getWidth() +"  "+llPdf.getWidth());
                 bitmap = loadBitmapFromView(llPdf, llPdf.getWidth(), llPdf.getHeight());
                 createPdf();

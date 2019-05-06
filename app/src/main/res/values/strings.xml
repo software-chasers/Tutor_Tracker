@@ -24,6 +24,7 @@
     <string name="username">Username</string>
     <string name="create_profile">Create Profile</string>
     <string name="full_names">Full Names</string>
+    <string name="submit">Submit</string>
     <string name="sign_in">Sign in</string>
     <string name="sign_up">Sign up</string>
     <string name="title_activity_main2">Main2Activity</string>
@@ -144,7 +145,12 @@
         "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
         "when a user tries to pick up one of cards.\n\n"
     </string>
-    <string name="select_date">Select Date</string>
+    <string name="course_code">COURSE CODE</string>
+    <string name="select_date">SELECT DATE</string>
+    <string name="duration_hrs">DURATION HRS</string>
+    <string name="select_time">SELECT TIME</string>
+    <string name="done">Done</string>
+    <string name="assessment_type">ASSESSMENT TYPE</string>
 
 
 </resources>

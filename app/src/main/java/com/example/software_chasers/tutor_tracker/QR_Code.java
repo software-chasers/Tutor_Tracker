@@ -1,6 +1,7 @@
 package com.example.software_chasers.tutor_tracker;
 
 import android.graphics.Bitmap;
+import android.opengl.Visibility;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,6 +18,8 @@ import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 
+import static android.view.View.VISIBLE;
+
 public class QR_Code extends AppCompatActivity {
 
     public final static int QRcodeWidth = 500 ;
@@ -29,7 +32,7 @@ public class QR_Code extends AppCompatActivity {
     private Button btn;
     String userid;
     String completed;
-    ProgressBar progressBar;
+    ProgressBar proBar;
     private int progressStatus;
     private Handler handler = new Handler();
 
@@ -55,11 +58,12 @@ public class QR_Code extends AppCompatActivity {
         etqr.setText("UserId: "+userid);
         //etqr3.setText(completed);
         btn = (Button) findViewById(R.id.btn);
-        progressBar = findViewById(R.id.progressBar);
+        proBar = findViewById(R.id.progressBar);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
 //                if(etqr.getText().toString().trim().length() == 0){
 //                    Toast.makeText(QR_Code.this, "Enter Text!", Toast.LENGTH_SHORT).show();
 //                }else {
@@ -74,6 +78,7 @@ public class QR_Code extends AppCompatActivity {
                 progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
                 progress.show();*/
                 try {
+                    proBar.setVisibility(ProgressBar.VISIBLE);
                     bitmap = TextToImageEncode(userid);
                    //bitmap = TextToImageEncode();
                     /*progressStatus=0;
@@ -109,7 +114,7 @@ public class QR_Code extends AppCompatActivity {
                 } catch (WriterException e) {
                     e.printStackTrace();
                 }
-
+                proBar.setVisibility(ProgressBar.INVISIBLE);
             }
         });
 
