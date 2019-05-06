@@ -8,7 +8,6 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -91,7 +90,7 @@ public class Create_Profile extends AppCompatActivity {
                         params.put("usertype","Lecturer");
 
                     }else  if (id == id2){
-                        params.put("usertype", "Student");
+                            params.put("usertype", "Student");
 
                     }
                     else{
@@ -138,16 +137,6 @@ public class Create_Profile extends AppCompatActivity {
             }
 
         });
-    }
-
-    public boolean isValidEmail(String email) {
-        if (email == null || email.isEmpty()) {
-            return false;
-        } else if (!Patterns.EMAIL_ADDRESS.matcher( email ).matches()) {
-            return false;
-        } else {
-            return true;
-        }
     }
 
 }

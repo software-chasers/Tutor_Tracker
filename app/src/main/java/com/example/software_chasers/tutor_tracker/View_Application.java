@@ -7,11 +7,11 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-public class AddCourses extends AppCompatActivity {
+public class View_Application extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_courses);
+        setContentView(R.layout.activity_view__application);
     }
 }

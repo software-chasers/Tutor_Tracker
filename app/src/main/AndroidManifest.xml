@@ -21,7 +21,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AddCourses" />
+        <activity android:name=".Genarate_form"></activity>
+        <activity android:name=".View_Application" />
+        <activity
+            android:name=".AdminHomePage"
+            android:label="@string/title_activity_admin_home_page"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Addcourse" />
+        <activity android:name=".AddAssessment" />
         <activity
             android:name=".LectureHomePage"
             android:label="@string/title_activity_lecture_home_page"
@@ -33,7 +40,6 @@
         <activity android:name=".Scan_QR_Code" />
         <activity android:name=".Scan_QR_Code2" />
         <activity android:name=".View_profile" />
-        <activity android:name=".Genarate_form" />
         <activity android:name=".QR_Code" />
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -44,6 +50,11 @@
         </activity>
         <activity android:name=".Tutor_application" />
         <activity android:name=".Create_Profile" />
+        <activity android:name=".StudentSignUp" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
