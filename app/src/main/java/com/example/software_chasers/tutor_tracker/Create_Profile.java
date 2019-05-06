@@ -144,7 +144,7 @@ public class Create_Profile extends AppCompatActivity {
         if(email != null && Patterns.EMAIL_ADDRESS.matcher( email ).matches()){
             return true;
         }
-        return true;
+        return false;
     }
 
 }
