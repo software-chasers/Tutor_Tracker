@@ -74,6 +74,7 @@ mPrefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
                         switch (output) {
                             case "Student": {
                                 Intent intent = new Intent(MainActivity.this, Main2Activity.class);
+                                System.out.println("UserId sent : "+Userid);
                                 intent.putExtra("UserId", Userid);
                                 startActivity(intent);
                                 Toast.makeText(getApplicationContext(), "Sign in successfully", Toast.LENGTH_SHORT).show();
@@ -90,6 +91,75 @@ mPrefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
                                 Intent intent = new Intent(MainActivity.this, AdminHomePage.class);
                                 intent.putExtra("UserId", Userid);
                                 startActivity(intent);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //                                Toast.makeText(getApplicationContext(), "Sign in successfully", Toast.LENGTH_SHORT).show();
                                 break;
                             }

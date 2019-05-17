@@ -42,6 +42,7 @@ public class Main2Activity extends AppCompatActivity
         setSupportActionBar(toolbar);
         cardView = findViewById(R.id.card_view);
          final String user = getIntent().getStringExtra("UserId");
+        System.out.println("UserId received : "+user);
          courses = new ArrayList<Course>();
          ContentValues params = new ContentValues();
          params.put("code","COMS2003");
@@ -174,7 +175,7 @@ public void showPopUp(View v){
         int id = item.getItemId();
 
         if (id == R.id.generate_form) {
-            Intent intent = new Intent(Main2Activity.this, Genarate_form.class);
+            Intent intent = new Intent(Main2Activity.this, generateform.class);
             intent.putExtra("UserId",userid);
             startActivity(intent);
             return true;
