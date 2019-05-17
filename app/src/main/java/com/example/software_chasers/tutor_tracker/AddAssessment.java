@@ -60,7 +60,9 @@ public class AddAssessment extends AppCompatActivity implements View.OnClickList
                     @Override
                     protected void onPostExecute(String output) {
                         if (output.contains("true")) {
-                            Toast.makeText(getApplicationContext(), "ADDED CORSE!!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "ADDED ASSESSMENT TASK!!", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(getApplicationContext(), LectureHomePage.class);
+                            startActivity(intent);
                         } else {
                             Toast.makeText(getApplicationContext(), "UNSUCCESSFUL", Toast.LENGTH_SHORT).show();
                         }
