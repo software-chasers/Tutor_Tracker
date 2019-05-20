@@ -34,6 +34,9 @@ public class AdminHomePage extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar2);
         setSupportActionBar(toolbar);
 
+        final   String user = getIntent().getStringExtra( "UserId" );
+        userid = user;
+
        // userid = getIntent().getStringExtra("UserId");
         //admin11 = (TextView) findViewById(R.id.admin);
         //admin11.setText("UserId: "+userid);
@@ -609,7 +612,8 @@ public class AdminHomePage extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.view) {
-            Intent intent = new Intent(com.example.software_chasers.tutor_tracker.AdminHomePage.this, View_profile.class);
+            Intent intent = new Intent(com.example.software_chasers.tutor_tracker.AdminHomePage.this, viewAdmin.class);
+            intent.putExtra( "UserId" ,userid);
             startActivity(intent);
         }
 

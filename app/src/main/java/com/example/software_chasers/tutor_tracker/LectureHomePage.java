@@ -25,6 +25,7 @@ public class LectureHomePage extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     Button b;
+    String userid;
     RecyclerView recyclerView;
     InformationAdapter informationAdapter;
     List<Course> courses;
@@ -35,6 +36,8 @@ public class LectureHomePage extends AppCompatActivity
         setContentView(R.layout.activity_lecture_home_page);
         Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
+        final String user = getIntent().getStringExtra( "UserId" );
+        userid = user;
         courses = new ArrayList<Course>();
         ContentValues params = new ContentValues();
         params.put("id","123");
@@ -123,7 +126,8 @@ public class LectureHomePage extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.profile) {
-            Intent intent = new Intent(LectureHomePage.this, View_profile.class);
+            Intent intent = new Intent(LectureHomePage.this, viewLecture.class);
+            intent.putExtra( "UserId",userid );
             startActivity(intent);
             // Handle the camera action
         } else if (id == R.id.scan) {
