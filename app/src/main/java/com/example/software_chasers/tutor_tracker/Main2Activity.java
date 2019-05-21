@@ -42,7 +42,6 @@ public class Main2Activity extends AppCompatActivity
         setSupportActionBar(toolbar);
         cardView = findViewById(R.id.card_view);
          final String user = getIntent().getStringExtra("UserId");
-        System.out.println("UserId received : "+user);
          courses = new ArrayList<Course>();
          ContentValues params = new ContentValues();
          params.put("code","COMS2003");
@@ -70,6 +69,8 @@ public class Main2Activity extends AppCompatActivity
             }
         });
         userid = user;
+        System.out.println("UserId received in main2activity is : "+userid);
+        System.out.print( " ");
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -187,6 +188,7 @@ public void showPopUp(View v){
             return true;
         } else if (id == R.id.view_profile) {
             Intent intent = new Intent(Main2Activity.this, View_profile.class);
+            intent.putExtra("UserId",userid);
             startActivity(intent);
             return true;
         } else if (id == R.id.apply_to_be_a_tutor) {

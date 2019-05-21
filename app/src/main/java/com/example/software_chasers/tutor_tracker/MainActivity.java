@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         button2 = (Button) findViewById(R.id.signIn);
         editText = (EditText) findViewById(R.id.editpassword);
         editText2 = (EditText)findViewById( R.id.edituserid);
-mPrefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+        mPrefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
 
         mCheckBoxRemember = (CheckBox) findViewById(R.id.checkBox);
         getPreferencesData();
@@ -76,6 +76,8 @@ mPrefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
                                 Intent intent = new Intent(MainActivity.this, Main2Activity.class);
                                 System.out.println("UserId sent : "+Userid);
                                 intent.putExtra("UserId", Userid);
+                                System.out.print( "Passed Userid is: "+ Userid );
+                                System.out.print( " " );
                                 startActivity(intent);
                                 Toast.makeText(getApplicationContext(), "Sign in successfully", Toast.LENGTH_SHORT).show();
                                 break;
@@ -91,75 +93,6 @@ mPrefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
                                 Intent intent = new Intent(MainActivity.this, AdminHomePage.class);
                                 intent.putExtra("UserId", Userid);
                                 startActivity(intent);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //                                Toast.makeText(getApplicationContext(), "Sign in successfully", Toast.LENGTH_SHORT).show();
                                 break;
                             }
