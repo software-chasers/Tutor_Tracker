@@ -4,41 +4,43 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
-import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
-//Importing UploadService Package.
+//import UploadService Package;
 import net.gotev.uploadservice.MultipartUploadRequest;
 import net.gotev.uploadservice.UploadNotificationConfig;
 
-
-import java.io.IOException;
 import java.util.UUID;
+
 public class Tutor_application extends AppCompatActivity {
     // Creating Buttons.
-    Button SelectButton, UploadButton;
+    Button  UploadButton, SubmitApplication;
+
     // Creating URI .
     Uri uri;
     // Server URL.
-    public static final String PDF_UPLOAD_HTTP_URL = "";
-
+    public static final String PDF_UPLOAD_HTTP_URL = "http://lamp.ms.wits.ac.za/~s1741606/uploadTranscript.php";
+    Bitmap bitmap;
     private ImageView imageView;
 
-    // Creating EditText.
-    EditText PDF_Name_EditText_ID ;
+    // Creating TextView.
+    TextView PDF_Name_EditText_ID;
+        ImageView SelectButton;
 
     // Pdf upload request code.
     public int PDF_REQ_CODE = 1;
 
     // Define strings to hold given pdf name, path and ID.
-    String PdfNameHolder, PdfPathHolder, PdfID;
+    String PdfNameHolder, PdfPathHolder, PdfID, userid;
 
 
     @Override
@@ -46,22 +48,25 @@ public class Tutor_application extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tutor_application);
         // Method to enable runtime permission.
-        RequestRunTimePermission();
+        AllowRunTimePermission();
+
         // imageView = (ImageView) findViewById(R.id.iv);
         // Assign ID'S to button and EditText.
-        SelectButton = (Button) findViewById(R.id.Button_Select_PDF_ID);
+        userid = getIntent().getStringExtra("UserId");
+        SubmitApplication = (Button) findViewById(R.id.button2);
+        SelectButton = (ImageView) findViewById(R.id.Button_Select_PDF_ID);
         UploadButton = (Button) findViewById(R.id.Button_Upload_PDF_ID);
-
-        // Adding click listener to Button.
+        PDF_Name_EditText_ID = (TextView) findViewById(R.id.editText);
+        PDF_Name_EditText_ID.setText("Transcript Name: "+userid);
+        SelectButton.setBackgroundResource(R.drawable.ic_attachment_black_24dp);
         SelectButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
+
                 // PDF selection code start from here .
-                // Creating intent object.
                 Intent intent = new Intent();
 
-                // Setting up default file pickup time as PDF.
                 intent.setType("application/pdf");
 
                 intent.setAction(Intent.ACTION_GET_CONTENT);
@@ -70,59 +75,63 @@ public class Tutor_application extends AppCompatActivity {
 
             }
         });
+        SubmitApplication.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (PdfPathHolder == null || PDF_Name_EditText_ID == null) {
 
-        // Adding click listener to Upload PDF button.
+                    Toast.makeText(Tutor_application.this, "Please Upload Transcript.", Toast.LENGTH_LONG).show();
+
+                }
+                else {
+
+                    Intent intent = new Intent(Tutor_application.this, Main2Activity.class);
+                    startActivity(intent);
+                    Toast.makeText(Tutor_application.this, "Application Submitted.", Toast.LENGTH_LONG).show();
+
+                }
+            }
+        });
+
         UploadButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                // Calling method to upload PDF on server.
-                //PdfUploadFunction();
+                PdfUploadFunction();
 
             }
         });
 
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == PDF_REQ_CODE && resultCode == RESULT_OK && data != null && data.getData() != null) {
 
-            // Uri contentURI = data.getData();
-           /* try {
+            uri = data.getData();
+            SelectButton.setBackgroundResource(R.drawable.rr);
 
-                Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), contentURI);
-                imageView.setImageBitmap(bitmap);
-                PdfUploadFunction();
 
-            }catch (IOException e) {
-                e.printStackTrace();
-                Toast.makeText(Tutor_application.this, "Failed!", Toast.LENGTH_SHORT).show();
-            } */
-
-            // After selecting the PDF set PDF is Selected text inside Button.
-            SelectButton.setText("PDF is Selected");
+//            Bitmap scaledBitmap = Bitmap.createScaledBitmap(bitmap, 400, 400, false); //set the w x h as you want
+//            BitmapDrawable bit_background = new BitmapDrawable(getResources(), scaledBitmap);
+//            PdfID.setVisibility(View.VISIBLE);
+//            PdfID.setBackground(bit_background);
         }
     }
 
-    // PDF upload function starts from here.
     public void PdfUploadFunction() {
 
-        // Getting pdf name from EditText.
-        PdfNameHolder = PDF_Name_EditText_ID.getText().toString().trim();
+       PdfNameHolder =  PDF_Name_EditText_ID.getText().toString().trim();
 
-        // Getting file path using Filepath class.
         PdfPathHolder = Pdf_FilePath.getPath(this, uri);
 
-        // If file path object is null then showing toast message to move file into internal storage.
         if (PdfPathHolder == null) {
 
             Toast.makeText(this, "Please move your PDF file to internal storage & try again.", Toast.LENGTH_LONG).show();
 
-        }
-        // If file path is not null then PDF uploading file process will starts.
-        else {
+        } else {
 
             try {
 
@@ -143,8 +152,7 @@ public class Tutor_application extends AppCompatActivity {
     }
 
 
-    // Requesting run time permission method starts from here.
-    public void RequestRunTimePermission(){
+    public void AllowRunTimePermission(){
 
         if (ActivityCompat.shouldShowRequestPermissionRationale(Tutor_application.this, Manifest.permission.READ_EXTERNAL_STORAGE))
         {
@@ -179,6 +187,4 @@ public class Tutor_application extends AppCompatActivity {
     }
 
 
-
 }
-
