@@ -10,6 +10,7 @@ import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.MenuInflater;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -59,6 +60,8 @@ public class Main2Activity extends AppCompatActivity
                     @Override
                     protected void onPostExecute(String output) {
                         processCourses(output,courses);
+                        Log.d("Courses",courses.get(0).getType());
+                        showPopUp();
                     }
                 };
                 a.execute();
@@ -66,10 +69,6 @@ public class Main2Activity extends AppCompatActivity
         };
         asyncHTTPPost.execute();
 
-        recyclerView = (RecyclerView) findViewById(R.id.upcomingacts);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        informationAdapter = new InformationAdapter(this,courses);
-        recyclerView.setAdapter(informationAdapter);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -106,12 +105,13 @@ public class Main2Activity extends AppCompatActivity
         return null;
     }
 
-    public void showPopUp(View v){
-        PopupMenu popupMenu = new PopupMenu(this,v);
-    MenuInflater menuInflater = popupMenu.getMenuInflater();
-    menuInflater.inflate(R.menu.pop_up,popupMenu.getMenu());
-    popupMenu.show();
-}
+    public void showPopUp(){
+        recyclerView = (RecyclerView) findViewById(R.id.upcomingacts);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        informationAdapter = new InformationAdapter(this,courses);
+        recyclerView.setAdapter(informationAdapter);
+
+    }
 
     public  static  void processCourses(String output,List<Course> courses2) {
 
