@@ -12,6 +12,10 @@
             android:id="@+id/scan"
             android:icon="@drawable/ic_menu_camera"
             android:title="Scan QR Code" />
+        <item
+            android:id="@+id/addd"
+            android:icon="@drawable/ic_add_circle"
+            android:title="Add Assessment Activity"/>
 
     </group>
 

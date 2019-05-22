@@ -1,9 +1,16 @@
 package com.example.software_chasers.tutor_tracker;
 
+import android.annotation.SuppressLint;
+import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.widget.CardView;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.PopupMenu;
+import android.support.v7.widget.RecyclerView;
+import android.view.MenuInflater;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -14,16 +21,55 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main2Activity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
-        String userid;
+        implements NavigationView.OnNavigationItemSelectedListener{
+    private static
+    String userid;
+        RecyclerView recyclerView;
+        CardView cardView;
+        InformationAdapter informationAdapter;
+    List<Course> courses;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
+        cardView = findViewById(R.id.card_view);
          final String user = getIntent().getStringExtra("UserId");
+        ContentValues param = new ContentValues();
+        courses = new ArrayList<Course>();
+        param.put("userid",user);
+
+        @SuppressLint("StaticFieldLeak") AsyncHTTPPost asyncHTTPPost = new AsyncHTTPPost(
+                "http://lamp.ms.wits.ac.za/~s1741606/checkCourse.php",param) {
+            @Override
+            protected void onPostExecute(String output) {
+                String course =  getcCode(output);
+                ContentValues params = new ContentValues();
+                params.put("code",course);
+
+                @SuppressLint("StaticFieldLeak") AsyncHTTPPost a = new AsyncHTTPPost("http://lamp.ms.wits.ac.za/~s1741606/getCourse.php",params) {
+                    @Override
+                    protected void onPostExecute(String output) {
+                        processCourses(output,courses);
+                    }
+                };
+                a.execute();
+            }
+        };
+        asyncHTTPPost.execute();
+
+        recyclerView = (RecyclerView) findViewById(R.id.upcomingacts);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        informationAdapter = new InformationAdapter(this,courses);
+        recyclerView.setAdapter(informationAdapter);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -42,8 +88,75 @@ public class Main2Activity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+    }
+    public static String getcCode(String output){
+        String course;
+        try {
+            JSONArray ja = new JSONArray(output);
+            for (int i=0; i<ja.length(); i++){
+                JSONObject jo = (JSONObject)ja.get(i);
+                course = new String(jo.getString("CourseTutored"));
+              return course;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+        return null;
     }
 
+    public void showPopUp(View v){
+        PopupMenu popupMenu = new PopupMenu(this,v);
+    MenuInflater menuInflater = popupMenu.getMenuInflater();
+    menuInflater.inflate(R.menu.pop_up,popupMenu.getMenu());
+    popupMenu.show();
+}
+
+    public  static  void processCourses(String output,List<Course> courses2) {
+
+        try {
+            JSONArray ja = new JSONArray(output);
+            for (int i=0; i<ja.length(); i++){
+                JSONObject jo = (JSONObject)ja.get(i);
+                Course course = new Course(jo.getString("CourseCode"),jo.getString("TutDay"),
+                        jo.getString("LabDay"),jo.getString("TutVenue"), jo.getString("LabVenue"),
+                        jo.getString("TutTime"),jo.getString("LabTime"));
+                    modType(output,course,courses2);
+//                courses2.add(course);
+
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public static  void modType(String output,Course c,List<Course> courses1) {
+        String s = c.getType();
+        if (s.equals("BOTH")) {
+            try {
+                JSONArray ja = new JSONArray(output);
+                for (int i = 0; i < ja.length(); i++) {
+                    JSONObject jo = (JSONObject) ja.get(i);
+                    Course c1 = new Course(jo.getString("CourseCode"), jo.getString("TutDay"),
+                            "None", jo.getString("TutVenue"), jo.getString("LabVenue"),
+                            jo.getString("TutTime"), jo.getString("LabTime"));
+                    Course c2 =new Course(jo.getString("CourseCode"),"None",
+                            jo.getString("LabDay"), jo.getString("TutVenue"), jo.getString("LabVenue"),
+                            jo.getString("TutTime"), jo.getString("LabTime"));
+
+                    courses1.add(c1);
+                    courses1.add(c2);
+                }
+            }catch (Exception e){
+                e.getStackTrace();
+            }
+        }
+        else {
+            courses1.add(c);
+        }
+
+    }
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -79,6 +192,7 @@ public class Main2Activity extends AppCompatActivity
 
         return super.onOptionsItemSelected(item);
     }
+
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override

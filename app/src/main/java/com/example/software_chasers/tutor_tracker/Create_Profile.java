@@ -8,6 +8,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,7 +19,7 @@ import android.widget.Toast;
 public class Create_Profile extends AppCompatActivity {
     EditText FName,LName, UserID, Email, Password, ConfirmPassword, PhoneNumber;
     Button Submit;
-    RadioButton radioButton1,radioButton2;
+    RadioButton radioButton1,radioButton2,radioButton3;
     RadioGroup radioGroup;
     DatabaseHelper db;
     private boolean isNetworkAvailable() {
@@ -45,6 +46,9 @@ public class Create_Profile extends AppCompatActivity {
         final  int id1 = radioButton1.getId();
         radioButton2 = findViewById(R.id.radiobutton2);
         final int id2 = radioButton2.getId();
+        radioButton3 = findViewById(R.id.radioButton);
+        final int id3 = radioButton3.getId();
+
 
 
         db = new DatabaseHelper(this);
@@ -84,13 +88,16 @@ public class Create_Profile extends AppCompatActivity {
                     if(id == -1){
                         Toast.makeText(getApplicationContext(), "Please select user type", Toast.LENGTH_SHORT).show();
                     } else if (id == id1) {
-                        Toast.makeText(getApplicationContext(), "you are a lecturer", Toast.LENGTH_SHORT).show();
                         params.put("usertype","Lecturer");
 
-                    }else{
-                        if (id == id2) {
-                            Toast.makeText(getApplicationContext(), "you are a student", Toast.LENGTH_SHORT).show();
+                    }else  if (id == id2){
                             params.put("usertype", "Student");
+
+                    }
+                    else{
+                        if (id == id3) {
+
+                            params.put("usertype", "Admin");
                         }
                     }
 
@@ -100,16 +107,24 @@ public class Create_Profile extends AppCompatActivity {
                         protected void onPostExecute(String output) {
                             if (output.contains("true")) {
                                 if (id == id2) {
+                                    Toast.makeText(getApplicationContext(), "you are a student", Toast.LENGTH_SHORT).show();
                                     Intent intent = new Intent(Create_Profile.this, StudentSignUp.class);
                                     intent.putExtra("userId", userid);
                                     startActivity(intent);
-                                } else {
+                                } else if(id == id1) {
+                                    Toast.makeText(getApplicationContext(), "you are a lecturer", Toast.LENGTH_SHORT).show();
                                     Intent intent = new Intent(Create_Profile.this, MainActivity.class);
                                     intent.putExtra("userId", userid);
                                     startActivity(intent);
 
                                     Toast.makeText(getApplicationContext(), "Sign up successfully", Toast.LENGTH_SHORT).show();
+                                }else if (id == id3) {
+                                    Toast.makeText(getApplicationContext(), "you are an admin", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(Create_Profile.this, MainActivity.class);
+                                    intent.putExtra("userId", userid);
+                                    startActivity(intent);
                                 }
+
                             }
                             else Toast.makeText(getApplicationContext(),"could register you", Toast.LENGTH_SHORT).show();
                         }
@@ -123,6 +138,13 @@ public class Create_Profile extends AppCompatActivity {
             }
 
         });
+    }
+
+    public boolean isValidEmail(String email){
+        if(email != null && Patterns.EMAIL_ADDRESS.matcher( email ).matches()){
+            return true;
+        }
+        return false;
     }
 
 }

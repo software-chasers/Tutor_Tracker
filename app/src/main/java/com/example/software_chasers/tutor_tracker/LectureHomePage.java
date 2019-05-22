@@ -1,9 +1,12 @@
 package com.example.software_chasers.tutor_tracker;
 
+import android.annotation.SuppressLint;
+import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -13,22 +16,53 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class LectureHomePage extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    Button b;
+    RecyclerView recyclerView;
+    InformationAdapter informationAdapter;
+    List<Course> courses;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lecture_home_page);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
+        courses = new ArrayList<Course>();
+        ContentValues params = new ContentValues();
+        params.put("id","123");
+
+        @SuppressLint("StaticFieldLeak") AsyncHTTPPost asyncHTTPPost = new AsyncHTTPPost("http://lamp.ms.wits.ac.za/~s1741606/getCourseLecturer.php",params) {
+            @Override
+            protected void onPostExecute(String output) {
+                Main2Activity.processCourses(output,courses);
+            }
+        };
+        asyncHTTPPost.execute();
+
+
+        recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        informationAdapter = new InformationAdapter(this,courses);
+        recyclerView.setAdapter(informationAdapter);
+
+        courses.add(new Course("COMS3003","MONDAY","NO LABS",
+                "MSL004","NONE","12:30-13:15","12:30-13:15"));
+        courses.add(new Course("COMS2014","WEDNESDAY","NO LABS",
+                "MSL004","NONE","12:30-13:15","12:30-13:15"));
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(LectureHomePage.this, AddCourses.class);
+                Intent intent = new Intent(LectureHomePage.this, Addcourse.class);
                 startActivity(intent);
             }
         });
@@ -41,6 +75,11 @@ public class LectureHomePage extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+    }
+
+    public void OnSubmit(View view){
+        Intent intent = new Intent(getApplicationContext(), LectureHomePage.class);
+        startActivity(intent);
     }
 
     @Override
@@ -91,6 +130,9 @@ public class LectureHomePage extends AppCompatActivity
             Intent intent = new Intent(LectureHomePage.this, Scan_QR_Code.class);
             startActivity(intent);
 
+        }else if (id == R.id.addd){
+            Intent intent = new Intent(getApplicationContext(), AddAssessment.class);
+            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
