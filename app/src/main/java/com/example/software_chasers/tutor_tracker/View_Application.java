@@ -2,6 +2,9 @@ package com.example.software_chasers.tutor_tracker;
 
 import android.Manifest;
 import android.app.ProgressDialog;
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Environment;
 import android.support.annotation.NonNull;
@@ -173,7 +176,7 @@ public class View_Application extends AppCompatActivity {
             } catch (Exception e) {
                 Log.e("Error: ", e.getMessage());
             }
-
+            openPDF();
             return "Something went wrong";
         }
 
@@ -186,6 +189,25 @@ public class View_Application extends AppCompatActivity {
         }
 
 
+        private void openPDF(){
+            File file = new File("/sdcard/TutorClaimForm.pdf");
+            if (file.exists())
+            {
+                Intent intent=new Intent(Intent.ACTION_VIEW);
+                Uri uri = Uri.fromFile(file);
+                intent.setDataAndType(uri, "application/pdf");
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+                try
+                {
+                    startActivity(intent);
+                }
+                catch(ActivityNotFoundException e)
+                {
+                    Toast.makeText(View_Application.this, "No Application available to view pdf", Toast.LENGTH_LONG).show();
+                }
+            }
+        }
         @Override
         protected void onPostExecute(String message) {
             // dismiss the dialog after the file was downloaded
