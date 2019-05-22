@@ -11,7 +11,7 @@ android:
   - tools
   - android-27
   - platform-tools
-  - build-tools-27.0.0
+  - build-tools-27.0.3
   - tools
   - add-on
   - extra
@@ -33,22 +33,21 @@ after_success:
 - bash <(curl -s https://codecov.io/bash)
 
 
-    #  before_install:
-    #  - mkdir "$ANDROID_HOME/licenses" || true
-    #  - echo -e "\n8933bad161af4178b1185d1a37fbf41ea5269c55" > "$ANDROID_HOME/licenses/android-sdk-license"
-    #  - echo -e "\n84831b9409646a918e30573bab4c9c91346d8abd" > "$ANDROID_HOME/licenses/android-sdk-preview-license"
-    #  before_script:
-    #  - echo no | android create avd --force -n test -t android-22 --abi armeabi-v7a
-    #  - emulator -avd test -no-audio -no-window -no-skin -no-window &
-    #  - android-wait-for-emulator
-    #  - adb shell settings put global window_animation_scale 0 &
-    #  - adb shell settings put global transition_animation_scale 0 &
-    #  - adb shell settings put global animator_duration_scale 0 &
-    #  - adb shell input keyevent 82 &
+#  before_install:
+#  - mkdir "$ANDROID_HOME/licenses" || true
+#  - echo -e "\n8933bad161af4178b1185d1a37fbf41ea5269c55" > "$ANDROID_HOME/licenses/android-sdk-license"
+#  - echo -e "\n84831b9409646a918e30573bab4c9c91346d8abd" > "$ANDROID_HOME/licenses/android-sdk-preview-license"
+#  before_script:
+#  - echo no | android create avd --force -n test -t android-22 --abi armeabi-v7a
+#  - emulator -avd test -no-audio -no-window -no-skin -no-window &
+#  - android-wait-for-emulator
+#  - adb shell settings put global window_animation_scale 0 &
+#  - adb shell settings put global transition_animation_scale 0 &
+#  - adb shell settings put global animator_duration_scale 0 &
+#  - adb shell input keyevent 82 &
 
-
-    #
-  #  #Emulator Management: Create, Start and Wait
+#
+#  #Emulator Management: Create, Start and Wait
 #
 #  before_cache:
 #    - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
@@ -62,5 +61,3 @@ after_success:
 #
 #  after_failure:
 #    - ./gradlew clean check --debug
-    
-
