@@ -29,7 +29,8 @@ import java.util.List;
 
 public class Main2Activity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener{
-        String userid;
+    private static
+    String userid;
         RecyclerView recyclerView;
         CardView cardView;
         InformationAdapter informationAdapter;
@@ -42,20 +43,20 @@ public class Main2Activity extends AppCompatActivity
         setSupportActionBar(toolbar);
         cardView = findViewById(R.id.card_view);
          final String user = getIntent().getStringExtra("UserId");
-         courses = new ArrayList<Course>();
-         ContentValues params = new ContentValues();
-         params.put("code","COMS2003");
+        ContentValues param = new ContentValues();
+        courses = new ArrayList<Course>();
+        param.put("userid",user);
 
-         @SuppressLint("StaticFieldLeak") AsyncHTTPPost asyncHTTPPost = new AsyncHTTPPost("http://lamp.ms.wits.ac.za/~s1741606/getCourse.php",params) {
-             @Override
-             protected void onPostExecute(String output) {
-                 processCourses(output,courses);
-             }
-         };
-        asyncHTTPPost.execute(); 
+        @SuppressLint("StaticFieldLeak") AsyncHTTPPost asyncHTTPPost = new AsyncHTTPPost(
+                "http://lamp.ms.wits.ac.za/~s1741606/checkCourse.php",param) {
+            @Override
+            protected void onPostExecute(String output) {
+              getcCode(output,courses);
+            }
+        };
+        asyncHTTPPost.execute();
 
         recyclerView = (RecyclerView) findViewById(R.id.upcomingacts);
-        //recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         informationAdapter = new InformationAdapter(this,courses);
         recyclerView.setAdapter(informationAdapter);
@@ -79,7 +80,30 @@ public class Main2Activity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
     }
-public void showPopUp(View v){
+    public static void getcCode(String output, final List<Course> courses){
+        try {
+            JSONArray ja = new JSONArray(output);
+            for (int i=0; i<ja.length(); i++){
+                JSONObject jo = (JSONObject)ja.get(i);
+                String course = new String(jo.getString("CourseTutored"));
+               ContentValues params = new ContentValues();
+               params.put("code",course);
+
+                @SuppressLint("StaticFieldLeak") AsyncHTTPPost a = new AsyncHTTPPost("http://lamp.ms.wits.ac.za/~s1741606/getCourse.php",params) {
+                    @Override
+                    protected void onPostExecute(String output) {
+                        processCourses(output,courses);
+                    }
+                };
+                a.execute();
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+    }
+
+    public void showPopUp(View v){
         PopupMenu popupMenu = new PopupMenu(this,v);
     MenuInflater menuInflater = popupMenu.getMenuInflater();
     menuInflater.inflate(R.menu.pop_up,popupMenu.getMenu());
