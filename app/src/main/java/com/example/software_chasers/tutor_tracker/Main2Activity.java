@@ -51,7 +51,17 @@ public class Main2Activity extends AppCompatActivity
                 "http://lamp.ms.wits.ac.za/~s1741606/checkCourse.php",param) {
             @Override
             protected void onPostExecute(String output) {
-              getcCode(output,courses);
+                String course =  getcCode(output);
+                ContentValues params = new ContentValues();
+                params.put("code",course);
+
+                @SuppressLint("StaticFieldLeak") AsyncHTTPPost a = new AsyncHTTPPost("http://lamp.ms.wits.ac.za/~s1741606/getCourse.php",params) {
+                    @Override
+                    protected void onPostExecute(String output) {
+                        processCourses(output,courses);
+                    }
+                };
+                a.execute();
             }
         };
         asyncHTTPPost.execute();
@@ -80,27 +90,20 @@ public class Main2Activity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
     }
-    public static void getcCode(String output, final List<Course> courses){
+    public static String getcCode(String output){
+        String course;
         try {
             JSONArray ja = new JSONArray(output);
             for (int i=0; i<ja.length(); i++){
                 JSONObject jo = (JSONObject)ja.get(i);
-                String course = new String(jo.getString("CourseTutored"));
-               ContentValues params = new ContentValues();
-               params.put("code",course);
-
-                @SuppressLint("StaticFieldLeak") AsyncHTTPPost a = new AsyncHTTPPost("http://lamp.ms.wits.ac.za/~s1741606/getCourse.php",params) {
-                    @Override
-                    protected void onPostExecute(String output) {
-                        processCourses(output,courses);
-                    }
-                };
-                a.execute();
+                course = new String(jo.getString("CourseTutored"));
+              return course;
             }
         }catch (Exception e){
             e.printStackTrace();
+            return null;
         }
-
+        return null;
     }
 
     public void showPopUp(View v){
@@ -120,7 +123,7 @@ public class Main2Activity extends AppCompatActivity
                         jo.getString("LabDay"),jo.getString("TutVenue"), jo.getString("LabVenue"),
                         jo.getString("TutTime"),jo.getString("LabTime"));
                     modType(output,course,courses2);
-                courses2.add(course);
+//                courses2.add(course);
 
             }
         }catch (Exception e){
