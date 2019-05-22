@@ -143,6 +143,7 @@ public class Tutor_application extends AppCompatActivity {
                         .setNotificationConfig(new UploadNotificationConfig())
                         .setMaxRetries(5)
                         .startUpload();
+                Toast.makeText(this, "Upload successful", Toast.LENGTH_SHORT).show();
 
             } catch (Exception exception) {
 
