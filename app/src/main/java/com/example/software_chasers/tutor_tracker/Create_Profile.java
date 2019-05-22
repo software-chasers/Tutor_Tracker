@@ -76,7 +76,9 @@ public class Create_Profile extends AppCompatActivity {
 
                             //Toast.makeText(getApplicationContext(),"PasswordS do not match",Toast.LENGTH_SHORT).show();
                         }
-
+                        else if(!isValidEmail( email )){
+                            Email.setError( "Please enter a valid email" );
+                        }
                     }
                     ContentValues params = new ContentValues();
                     params.put("userfname", fname);
