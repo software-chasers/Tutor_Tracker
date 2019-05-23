@@ -20,7 +20,7 @@ $ cd Tutor-Tracker
 ```
 ## Usage
 Students can register to be users and/or login to the app as existing users.
-![Login Page](https://github.com/KhanyileBN/dummy-repo/blob/master/tutor-land.jpg)
+![Login Page](https://github.com/KhanyileBN/dummy-repo/blob/master/landing-page.png)
 
 If students would like to sign up they are taken to the signup page.
 ![Sign Up Page](https://github.com/KhanyileBN/dummy-repo/blob/master/tutor-reg.jpg)
