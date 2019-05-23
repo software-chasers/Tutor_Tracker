@@ -39,6 +39,7 @@ mPrefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
         mCheckBoxRemember = (CheckBox) findViewById(R.id.checkBox);
         getPreferencesData();
 
+
        // editText2.addTextChangedListener( loginWatcher );
         //editText.addTextChangedListener( loginWatcher );
 

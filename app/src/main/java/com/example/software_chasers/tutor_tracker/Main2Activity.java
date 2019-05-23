@@ -3,6 +3,7 @@ package com.example.software_chasers.tutor_tracker;
 import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -44,6 +45,9 @@ public class Main2Activity extends AppCompatActivity
         setSupportActionBar(toolbar);
         cardView = findViewById(R.id.card_view);
          final String user = getIntent().getStringExtra("UserId");
+        SharedPreferences.Editor editor = getSharedPreferences("myPref",0).edit();
+        editor.putString("userid",user);
+        editor.commit();
         ContentValues param = new ContentValues();
         courses = new ArrayList<Course>();
         param.put("userid",user);
