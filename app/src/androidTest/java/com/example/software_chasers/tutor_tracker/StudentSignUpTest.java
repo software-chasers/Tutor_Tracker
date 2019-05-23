@@ -7,8 +7,15 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 
+import androidx.test.espresso.ViewAction;
+import androidx.test.espresso.ViewInteraction;
+import androidx.test.espresso.action.ViewActions;
 import androidx.test.rule.ActivityTestRule;
 
+import static androidx.test.espresso.Espresso.closeSoftKeyboard;
+import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static org.junit.Assert.*;
 
 public class StudentSignUpTest {
@@ -31,6 +38,20 @@ public class StudentSignUpTest {
         assertNotNull(views);
         View viewss = studentSignUp.findViewById(R.id.degree);
         assertNotNull(viewss);
+    }
+
+    @Test
+    public void StudentSignUp()
+    {
+        ViewInteraction fac = onView(withId(R.id.faculty));
+        fac.perform( ViewActions.typeText( "Science" ) , ViewActions.closeSoftKeyboard());
+        ViewInteraction ys = onView(withId(R.id.yos));
+        ys.perform(ViewActions.typeText("3"),ViewActions.closeSoftKeyboard());
+        ViewInteraction de = onView(withId(R.id.degree));
+        de.perform(ViewActions.typeText("Computer Science"),ViewActions.closeSoftKeyboard());
+        ViewInteraction pr = onView(withId(R.id.proceed));
+        pr.perform(click());
+
     }
 
     @After

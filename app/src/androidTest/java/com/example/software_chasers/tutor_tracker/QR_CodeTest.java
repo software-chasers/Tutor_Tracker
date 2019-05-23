@@ -22,18 +22,18 @@ public class QR_CodeTest {
         qr_code = activityTestRule.getActivity();
     }
 
-//    @Test
-//    public void qrCodeLaunched()
-//    {
-//        View view = qr_code.findViewById(R.id.etqr);
-//        assertNotNull(view);
-//        View views = qr_code.findViewById(R.id.btn);
-//        assertNotNull(views);
-//        View views1 = qr_code.findViewById(R.id.imag);
-//        assertNotNull(views1);
-//        View views2 = qr_code.findViewById(R.id.progressBar);
-//        assertNotNull(views2);
-//    }
+    @Test
+    public void qrCodeLaunched()
+    {
+        View view = qr_code.findViewById(R.id.etqr);
+        assertNotNull(view);
+        View views = qr_code.findViewById(R.id.btn);
+        assertNotNull(views);
+        View views1 = qr_code.findViewById(R.id.imag);
+        assertNotNull(views1);
+        View views2 = qr_code.findViewById(R.id.progressBar);
+        assertNotNull(views2);
+    }
 
     @After
     public void tearDown() throws Exception {

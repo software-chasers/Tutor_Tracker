@@ -75,7 +75,7 @@ public class Create_ProfileTest {
         ViewInteraction Userid = onView( withId( R.id.userid ) );
         Userid.perform( ViewActions.typeText( "123" ) ,closeSoftKeyboard());
         ViewInteraction Email = onView( withId( R.id.email ) );
-        Email.perform( ViewActions.typeText( "maccauleymakgonye@gmail.com" ) ,closeSoftKeyboard());
+        Email.perform( ViewActions.typeText( "macc@gmail.com" ) ,closeSoftKeyboard());
         ViewInteraction Pass = onView( withId( R.id.password ) );
         Pass.perform( ViewActions.typeText( "mmmm" ) ,closeSoftKeyboard());
         ViewInteraction ConPass = onView( withId( R.id.confirmpassword ) );
@@ -83,6 +83,52 @@ public class Create_ProfileTest {
         ViewInteraction Phone = onView( withId( R.id.phonenumber ) );
         Phone.perform( ViewActions.typeText( "0794511580" ) ,closeSoftKeyboard());
         ViewInteraction Radiobutton = onView( withId( R.id.radiobutton ) );
+        Radiobutton.perform( click() );
+        ViewInteraction button = onView( withId( R.id.submit ) );
+        button.perform( click() );
+    }
+
+    @Test
+    public void createUserS()
+    {
+        ViewInteraction userid = onView( withId( R.id.fname ) );
+        userid.perform( ViewActions.typeText( "Potego" ) ,closeSoftKeyboard());
+        ViewInteraction Lname = onView( withId( R.id.lname ) );
+        Lname.perform( ViewActions.typeText( "Nkosi" ) ,closeSoftKeyboard());
+        ViewInteraction Userid = onView( withId( R.id.userid ) );
+        Userid.perform( ViewActions.typeText( "111" ) ,closeSoftKeyboard());
+        ViewInteraction Email = onView( withId( R.id.email ) );
+        Email.perform( ViewActions.typeText( "maccauley@gmail.com" ) ,closeSoftKeyboard());
+        ViewInteraction Pass = onView( withId( R.id.password ) );
+        Pass.perform( ViewActions.typeText( "mama" ) ,closeSoftKeyboard());
+        ViewInteraction ConPass = onView( withId( R.id.confirmpassword ) );
+        ConPass.perform( ViewActions.typeText( "mama" ) ,closeSoftKeyboard());
+        ViewInteraction Phone = onView( withId( R.id.phonenumber ) );
+        Phone.perform( ViewActions.typeText( "0794511580" ) ,closeSoftKeyboard());
+        ViewInteraction Radiobutton = onView( withId( R.id.radiobutton2 ) );
+        Radiobutton.perform( click() );
+        ViewInteraction button = onView( withId( R.id.submit ) );
+        button.perform( click() );
+    }
+
+    @Test
+    public void createUserA()
+    {
+        ViewInteraction userid = onView( withId( R.id.fname ) );
+        userid.perform( ViewActions.typeText( "karabo" ) ,closeSoftKeyboard());
+        ViewInteraction Lname = onView( withId( R.id.lname ) );
+        Lname.perform( ViewActions.typeText( "njabulo" ) ,closeSoftKeyboard());
+        ViewInteraction Userid = onView( withId( R.id.userid ) );
+        Userid.perform( ViewActions.typeText( "33" ) ,closeSoftKeyboard());
+        ViewInteraction Email = onView( withId( R.id.email ) );
+        Email.perform( ViewActions.typeText( "makgonye@gmail.com" ) ,closeSoftKeyboard());
+        ViewInteraction Pass = onView( withId( R.id.password ) );
+        Pass.perform( ViewActions.typeText( "meme" ) ,closeSoftKeyboard());
+        ViewInteraction ConPass = onView( withId( R.id.confirmpassword ) );
+        ConPass.perform( ViewActions.typeText( "meme" ) ,closeSoftKeyboard());
+        ViewInteraction Phone = onView( withId( R.id.phonenumber ) );
+        Phone.perform( ViewActions.typeText( "0794511580" ) ,closeSoftKeyboard());
+        ViewInteraction Radiobutton = onView( withId( R.id.radioButton ) );
         Radiobutton.perform( click() );
         ViewInteraction button = onView( withId( R.id.submit ) );
         button.perform( click() );
