@@ -90,7 +90,7 @@ public class QR_Code extends AppCompatActivity {
                 progress.show();*/
                 try {
                     proBar.setVisibility(ProgressBar.VISIBLE);
-                    bitmap = TextToImageEncode(userid);
+                    bitmap = TextToImageEncode(togenerate);
                    //bitmap = TextToImageEncode();
                     /*progressStatus=0;
                     progressBar.setVisibility(View.VISIBLE);
