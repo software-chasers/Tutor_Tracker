@@ -515,122 +515,122 @@
 
                 <!--<TableRow>-->
 
-                    <!--<TextView-->
-                        <!--android:id="@+id/textView53"-->
-                        <!--android:layout_width="59dp"-->
-                        <!--android:layout_height="40dp"-->
-                        <!--android:layout_marginStart="8dp"-->
-                        <!--android:text="Date of Task" />-->
+                <!--<TextView-->
+                <!--android:id="@+id/textView53"-->
+                <!--android:layout_width="59dp"-->
+                <!--android:layout_height="40dp"-->
+                <!--android:layout_marginStart="8dp"-->
+                <!--android:text="Date of Task" />-->
 
-                    <!--<TextView-->
-                        <!--android:id="@+id/textView54"-->
-                        <!--android:layout_width="59dp"-->
-                        <!--android:layout_height="40dp"-->
-                        <!--android:text="Times of Task" />-->
+                <!--<TextView-->
+                <!--android:id="@+id/textView54"-->
+                <!--android:layout_width="59dp"-->
+                <!--android:layout_height="40dp"-->
+                <!--android:text="Times of Task" />-->
 
-                    <!--<TextView-->
-                        <!--android:id="@+id/textView55"-->
-                        <!--android:layout_width="59dp"-->
-                        <!--android:layout_height="40dp"-->
-                        <!--android:text="Duration of Task" />-->
+                <!--<TextView-->
+                <!--android:id="@+id/textView55"-->
+                <!--android:layout_width="59dp"-->
+                <!--android:layout_height="40dp"-->
+                <!--android:text="Duration of Task" />-->
 
-                    <!--<TextView-->
-                        <!--android:id="@+id/textView56"-->
-                        <!--android:layout_width="77dp"-->
-                        <!--android:layout_height="40dp"-->
-                        <!--android:text="Description of Task" />-->
+                <!--<TextView-->
+                <!--android:id="@+id/textView56"-->
+                <!--android:layout_width="77dp"-->
+                <!--android:layout_height="40dp"-->
+                <!--android:text="Description of Task" />-->
 
-                    <!--<TextView-->
-                        <!--android:id="@+id/textView57"-->
-                        <!--android:layout_width="70dp"-->
-                        <!--android:layout_height="40dp"-->
-                        <!--android:text="Name of Supervisor" />-->
+                <!--<TextView-->
+                <!--android:id="@+id/textView57"-->
+                <!--android:layout_width="70dp"-->
+                <!--android:layout_height="40dp"-->
+                <!--android:text="Name of Supervisor" />-->
 
-                    <!--<TextView-->
-                        <!--android:id="@+id/textView58"-->
-                        <!--android:layout_width="78dp"-->
-                        <!--android:layout_height="40dp"-->
-                        <!--android:text="Signature of Supervisor" />-->
+                <!--<TextView-->
+                <!--android:id="@+id/textView58"-->
+                <!--android:layout_width="78dp"-->
+                <!--android:layout_height="40dp"-->
+                <!--android:text="Signature of Supervisor" />-->
                 <!--</TableRow>-->
 
                 <!--<TableRow>-->
 
-                    <!--<TextView-->
-                        <!--android:id="@+id/textView59"-->
-                        <!--android:layout_width="59dp"-->
-                        <!--android:layout_height="40dp"-->
-                        <!--android:layout_marginStart="8dp"-->
-                        <!--android:text="Date of Task" />-->
+                <!--<TextView-->
+                <!--android:id="@+id/textView59"-->
+                <!--android:layout_width="59dp"-->
+                <!--android:layout_height="40dp"-->
+                <!--android:layout_marginStart="8dp"-->
+                <!--android:text="Date of Task" />-->
 
-                    <!--<TextView-->
-                        <!--android:id="@+id/textView60"-->
-                        <!--android:layout_width="59dp"-->
-                        <!--android:layout_height="40dp"-->
-                        <!--android:text="Times of Task" />-->
+                <!--<TextView-->
+                <!--android:id="@+id/textView60"-->
+                <!--android:layout_width="59dp"-->
+                <!--android:layout_height="40dp"-->
+                <!--android:text="Times of Task" />-->
 
-                    <!--<TextView-->
-                        <!--android:id="@+id/textView70"-->
-                        <!--android:layout_width="59dp"-->
-                        <!--android:layout_height="40dp"-->
-                        <!--android:text="Duration of Task" />-->
+                <!--<TextView-->
+                <!--android:id="@+id/textView70"-->
+                <!--android:layout_width="59dp"-->
+                <!--android:layout_height="40dp"-->
+                <!--android:text="Duration of Task" />-->
 
-                    <!--<TextView-->
-                        <!--android:id="@+id/textView61"-->
-                        <!--android:layout_width="77dp"-->
-                        <!--android:layout_height="40dp"-->
-                        <!--android:text="Description of Task" />-->
+                <!--<TextView-->
+                <!--android:id="@+id/textView61"-->
+                <!--android:layout_width="77dp"-->
+                <!--android:layout_height="40dp"-->
+                <!--android:text="Description of Task" />-->
 
-                    <!--<TextView-->
-                        <!--android:id="@+id/textView62"-->
-                        <!--android:layout_width="70dp"-->
-                        <!--android:layout_height="40dp"-->
-                        <!--android:text="Name of Supervisor" />-->
+                <!--<TextView-->
+                <!--android:id="@+id/textView62"-->
+                <!--android:layout_width="70dp"-->
+                <!--android:layout_height="40dp"-->
+                <!--android:text="Name of Supervisor" />-->
 
-                    <!--<TextView-->
-                        <!--android:id="@+id/textView63"-->
-                        <!--android:layout_width="78dp"-->
-                        <!--android:layout_height="40dp"-->
-                        <!--android:text="Signature of Supervisor" />-->
+                <!--<TextView-->
+                <!--android:id="@+id/textView63"-->
+                <!--android:layout_width="78dp"-->
+                <!--android:layout_height="40dp"-->
+                <!--android:text="Signature of Supervisor" />-->
                 <!--</TableRow>-->
 
                 <!--<TableRow>-->
 
-                    <!--<TextView-->
-                        <!--android:id="@+id/textView64"-->
-                        <!--android:layout_width="59dp"-->
-                        <!--android:layout_height="40dp"-->
-                        <!--android:layout_marginStart="8dp"-->
-                        <!--android:text="Date of Task" />-->
+                <!--<TextView-->
+                <!--android:id="@+id/textView64"-->
+                <!--android:layout_width="59dp"-->
+                <!--android:layout_height="40dp"-->
+                <!--android:layout_marginStart="8dp"-->
+                <!--android:text="Date of Task" />-->
 
-                    <!--<TextView-->
-                        <!--android:id="@+id/textView65"-->
-                        <!--android:layout_width="59dp"-->
-                        <!--android:layout_height="40dp"-->
-                        <!--android:text="Times of Task" />-->
+                <!--<TextView-->
+                <!--android:id="@+id/textView65"-->
+                <!--android:layout_width="59dp"-->
+                <!--android:layout_height="40dp"-->
+                <!--android:text="Times of Task" />-->
 
-                    <!--<TextView-->
-                        <!--android:id="@+id/textView66"-->
-                        <!--android:layout_width="59dp"-->
-                        <!--android:layout_height="40dp"-->
-                        <!--android:text="Duration of Task" />-->
+                <!--<TextView-->
+                <!--android:id="@+id/textView66"-->
+                <!--android:layout_width="59dp"-->
+                <!--android:layout_height="40dp"-->
+                <!--android:text="Duration of Task" />-->
 
-                    <!--<TextView-->
-                        <!--android:id="@+id/textView67"-->
-                        <!--android:layout_width="77dp"-->
-                        <!--android:layout_height="40dp"-->
-                        <!--android:text="Description of Task" />-->
+                <!--<TextView-->
+                <!--android:id="@+id/textView67"-->
+                <!--android:layout_width="77dp"-->
+                <!--android:layout_height="40dp"-->
+                <!--android:text="Description of Task" />-->
 
-                    <!--<TextView-->
-                        <!--android:id="@+id/textView68"-->
-                        <!--android:layout_width="70dp"-->
-                        <!--android:layout_height="40dp"-->
-                        <!--android:text="Name of Supervisor" />-->
+                <!--<TextView-->
+                <!--android:id="@+id/textView68"-->
+                <!--android:layout_width="70dp"-->
+                <!--android:layout_height="40dp"-->
+                <!--android:text="Name of Supervisor" />-->
 
-                    <!--<TextView-->
-                        <!--android:id="@+id/textView69"-->
-                        <!--android:layout_width="78dp"-->
-                        <!--android:layout_height="40dp"-->
-                        <!--android:text="Signature of Supervisor" />-->
+                <!--<TextView-->
+                <!--android:id="@+id/textView69"-->
+                <!--android:layout_width="78dp"-->
+                <!--android:layout_height="40dp"-->
+                <!--android:text="Signature of Supervisor" />-->
                 <!--</TableRow>-->
 
                 <TableRow>

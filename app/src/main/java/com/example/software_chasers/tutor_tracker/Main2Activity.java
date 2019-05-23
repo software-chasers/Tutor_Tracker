@@ -74,14 +74,14 @@ public class Main2Activity extends AppCompatActivity
         asyncHTTPPost.execute();
 
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+//            }
+//        });
         userid = user;
         System.out.println("UserId received in main2activity is : "+userid);
         System.out.print( " ");
@@ -212,8 +212,8 @@ public class Main2Activity extends AppCompatActivity
             startActivity(intent);
             return true;
 
-        } else if (id == R.id.generate_qr_code) {
-            Intent intent = new Intent(Main2Activity.this, QR_Code.class);
+        } else if (id == R.id.application_status) {
+            Intent intent = new Intent(Main2Activity.this, ViewApplicationStatus.class);
             intent.putExtra("UserId",userid);
             startActivity(intent);
             return true;

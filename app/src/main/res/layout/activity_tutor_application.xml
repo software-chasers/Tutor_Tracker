@@ -7,148 +7,160 @@
     tools:context=".Tutor_application">
 
     <CheckBox
-        android:id="@+id/checkBox13"
+        android:id="@+id/COMS2014"
         android:layout_width="183dp"
         android:layout_height="36dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:hint="Course Code"
-        app:layout_constraintEnd_toStartOf="@+id/checkBox16"
+        android:text="COMS2014"
+        app:layout_constraintEnd_toStartOf="@+id/COMS3010"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox15" />
+        app:layout_constraintTop_toBottomOf="@+id/COMS2013" />
 
     <CheckBox
-        android:id="@+id/checkBox17"
+        android:id="@+id/COMS2015"
         android:layout_width="183dp"
         android:layout_height="37dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:hint="Course Code"
-        app:layout_constraintEnd_toStartOf="@+id/checkBox18"
+        android:text="COMS2015"
+        app:layout_constraintEnd_toStartOf="@+id/COMS3011"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox13" />
+        app:layout_constraintTop_toBottomOf="@+id/COMS2014" />
 
     <CheckBox
-        android:id="@+id/checkBox15"
+        android:id="@+id/COMS2013"
         android:layout_width="183dp"
         android:layout_height="34dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:hint="Course Code"
-        app:layout_constraintEnd_toStartOf="@+id/checkBox14"
+        android:text="COMS2013"
+        app:layout_constraintEnd_toStartOf="@+id/COMS3009"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox9" />
+        app:layout_constraintTop_toBottomOf="@+id/COMS2002" />
 
     <CheckBox
-        android:id="@+id/checkBox12"
+        android:id="@+id/COMS3008"
         android:layout_width="165dp"
         android:layout_height="35dp"
         android:hint="Course Code"
+        android:text="COMS3008"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox10" />
+        app:layout_constraintTop_toBottomOf="@+id/COMS3007" />
 
     <CheckBox
-        android:id="@+id/checkBox14"
+        android:id="@+id/COMS3009"
         android:layout_width="165dp"
         android:layout_height="34dp"
         android:hint="Course Code"
+        android:text="COMS3009"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox12" />
+        app:layout_constraintTop_toBottomOf="@+id/COMS3008" />
 
     <CheckBox
-        android:id="@+id/checkBox16"
+        android:id="@+id/COMS3010"
         android:layout_width="163dp"
         android:layout_height="31dp"
         android:layout_marginEnd="4dp"
-        android:layout_marginRight="4dp"
         android:hint="Course Code"
+        android:text="COMS3010"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox14" />
+        app:layout_constraintTop_toBottomOf="@+id/COMS3009" />
 
     <CheckBox
-        android:id="@+id/checkBox18"
+        android:id="@+id/COMS3011"
         android:layout_width="163dp"
         android:layout_height="38dp"
         android:layout_marginEnd="4dp"
-        android:layout_marginRight="4dp"
         android:hint="Course Code"
+        android:text="COMS3011"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox16" />
+        app:layout_constraintTop_toBottomOf="@+id/COMS3010" />
 
     <CheckBox
-        android:id="@+id/checkBox10"
+        android:id="@+id/COMS3007"
         android:layout_width="165dp"
         android:layout_height="37dp"
         android:hint="Course Code"
+        android:text="COMS3007"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox7" />
+        app:layout_constraintTop_toBottomOf="@+id/COMS3006" />
 
     <CheckBox
-        android:id="@+id/checkBox8"
+        android:id="@+id/COMS1017"
         android:layout_width="183dp"
         android:layout_height="32dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:hint="Course Code"
-        app:layout_constraintEnd_toStartOf="@+id/checkBox7"
+        android:text="COMS1017"
+        app:layout_constraintEnd_toStartOf="@+id/COMS3006"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox5" />
+        app:layout_constraintTop_toBottomOf="@+id/COMS1016" />
 
     <CheckBox
-        android:id="@+id/checkBox9"
+        android:id="@+id/COMS2002"
         android:layout_width="183dp"
         android:layout_height="39dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:hint="Course Code"
-        app:layout_constraintEnd_toStartOf="@+id/checkBox12"
+        android:text="COMS2002"
+        app:layout_constraintEnd_toStartOf="@+id/COMS3008"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox11" />
+        app:layout_constraintTop_toBottomOf="@+id/COMS1018" />
 
     <CheckBox
-        android:id="@+id/checkBox11"
+        android:id="@+id/COMS1018"
         android:layout_width="183dp"
         android:layout_height="34dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:hint="Course Code"
-        app:layout_constraintEnd_toStartOf="@+id/checkBox10"
+        android:text="COMS1018"
+        app:layout_constraintEnd_toStartOf="@+id/COMS3007"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox8" />
+        app:layout_constraintTop_toBottomOf="@+id/COMS1017" />
 
     <CheckBox
-        android:id="@+id/checkBox7"
+        android:id="@+id/COMS3006"
         android:layout_width="165dp"
         android:layout_height="37dp"
         android:hint="Course Code"
+        android:text="COMS3006"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox6" />
+        app:layout_constraintTop_toBottomOf="@+id/COMS3005" />
 
     <CheckBox
-        android:id="@+id/checkBox6"
+        android:id="@+id/COMS3005"
         android:layout_width="164dp"
         android:layout_height="34dp"
         android:hint="Course Code"
+        android:text="COMS3005"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox4" />
+        app:layout_constraintTop_toBottomOf="@+id/COMS3003" />
 
     <CheckBox
-        android:id="@+id/checkBox5"
+        android:id="@+id/COMS1016"
         android:layout_width="183dp"
         android:layout_height="35dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:hint="Course Code"
-        app:layout_constraintEnd_toStartOf="@+id/checkBox6"
+        android:text="COMS1016"
+        app:layout_constraintEnd_toStartOf="@+id/COMS3005"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox3" />
+        app:layout_constraintTop_toBottomOf="@+id/COMS1015" />
 
     <Button
         android:id="@+id/Button_Upload_PDF_ID"
@@ -207,24 +219,26 @@
         app:layout_constraintTop_toBottomOf="@+id/PDF_Name_EditText_ID" />
 
     <CheckBox
-        android:id="@+id/checkBox3"
+        android:id="@+id/COMS1015"
         android:layout_width="183dp"
         android:layout_height="29dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:hint="Course Code"
-        app:layout_constraintEnd_toStartOf="@+id/checkBox4"
+        android:text="COMS1015"
+        app:layout_constraintEnd_toStartOf="@+id/COMS3003"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
     <CheckBox
-        android:id="@+id/checkBox4"
+        android:id="@+id/COMS3003"
         android:layout_width="164dp"
         android:layout_height="30dp"
         android:layout_marginTop="8dp"
         android:hint="Course Code"
+        android:text="COMS3003"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
