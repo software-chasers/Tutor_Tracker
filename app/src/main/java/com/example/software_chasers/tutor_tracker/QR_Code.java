@@ -64,7 +64,7 @@ public class QR_Code extends AppCompatActivity {
 
         etqr = (TextView) findViewById(R.id.etqr);
        // etqr2 = (EditText) findViewById(R.id.etqr);
-        togenerate = "PayrollNo: " + "12345"+ " UserId: "+userid + " Time: " + time + " Date: "
+        togenerate = "UserId: "+userid + " Time: " + time + " Date: "
                 + date + " Task: " + type + " CourseCode: " + code;
         etqr.setText(togenerate);
         //etqr3.setText(completed);
