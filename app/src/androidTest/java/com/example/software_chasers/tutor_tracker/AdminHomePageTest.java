@@ -26,6 +26,13 @@ public class AdminHomePageTest {
     public void AdminHomePageLaunched(){
         View nav = adminHomePage.findViewById( R.id.nav_view );
         assertNotNull( nav );
+        View im = adminHomePage.findViewById(R.id.textView);
+        assertNotNull(im);
+        //View text = adminHomePage.findViewById(R.id.textView15);
+        //assertNotNull(text);
+        //View adm = adminHomePage.findViewById(R.id.textView17);
+        //assertNotNull(adm);
+
     }
 
     @After
