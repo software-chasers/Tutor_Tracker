@@ -25,6 +25,9 @@ Students can register to be users and/or login to the app as existing users.
 If students would like to sign up they are taken to the signup page.
 ![Sign Up Page](https://github.com/KhanyileBN/dummy-repo/blob/master/tutor-reg.jpg)
 
+Tutors can see activities that they must attend to.
+![Tutor Main](https://github.com/KhanyileBN/dummy-repo/blob/master/main-tutor.png)
+
 ## Framework Used
 <b>Built with:</b>
 [Android](https://developer.android.com/studio)
