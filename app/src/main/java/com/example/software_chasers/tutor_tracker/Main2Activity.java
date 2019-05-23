@@ -74,15 +74,17 @@ public class Main2Activity extends AppCompatActivity
         asyncHTTPPost.execute();
 
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+//            }
+//        });
         userid = user;
+        System.out.println("UserId received in main2activity is : "+userid);
+        System.out.print( " ");
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -205,18 +207,19 @@ public class Main2Activity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.generate_form) {
-            Intent intent = new Intent(Main2Activity.this, Genarate_form.class);
+            Intent intent = new Intent(Main2Activity.this, generateform.class);
             intent.putExtra("UserId",userid);
             startActivity(intent);
             return true;
 
-        } else if (id == R.id.generate_qr_code) {
-            Intent intent = new Intent(Main2Activity.this, QR_Code.class);
+        } else if (id == R.id.application_status) {
+            Intent intent = new Intent(Main2Activity.this, ViewApplicationStatus.class);
             intent.putExtra("UserId",userid);
             startActivity(intent);
             return true;
         } else if (id == R.id.view_profile) {
             Intent intent = new Intent(Main2Activity.this, View_profile.class);
+            intent.putExtra("UserId",userid);
             startActivity(intent);
             return true;
         } else if (id == R.id.apply_to_be_a_tutor) {

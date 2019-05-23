@@ -1,8 +1,5 @@
 package com.example.software_chasers.tutor_tracker;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
@@ -20,43 +17,41 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class Genarate_form extends AppCompatActivity {
-
+public class generateform extends AppCompatActivity {
     private Button btn ;//btnScroll;
-    private LinearLayout llPdf;
+    private ScrollView LLPdf;
     private Bitmap bitmap;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_genarate_form);
+        setContentView(R.layout.activity_generateform);
 
         btn = findViewById(R.id.btn);
-        //btnScroll = findViewById(R.id.btnScroll);
-        llPdf = findViewById(R.id.llPdf);
+      //  btnScroll = findViewById(R.id.btnScroll);
+        LLPdf = findViewById(R.id.LLPDF);
 
-/*
-        btnScroll.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Genarate_form.this,ScrollActivity.class);
-                startActivity(intent);
-            }
-        });
-*/
+//        btnScroll.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(MainActivity.this,ScrollActivity.class);
+//                startActivity(intent);
+//            }
+//        });
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                btn.setText("TUTOR FORM");
-                Log.d("size"," "+llPdf.getWidth() +"  "+llPdf.getWidth());
-                bitmap = loadBitmapFromView(llPdf, llPdf.getWidth(), llPdf.getHeight());
+                btn.setText("School of Computer Science & Applied Maths" +
+                        " Tutors Claim form");
+                Log.d("size"," "+LLPdf.getWidth() +"  "+LLPdf.getWidth());
+                bitmap = loadBitmapFromView(LLPdf, LLPdf.getWidth(), LLPdf.getHeight());
                 createPdf();
             }
         });
@@ -100,7 +95,7 @@ public class Genarate_form extends AppCompatActivity {
         document.finishPage(page);
 
         // write the document content
-        String targetPdf = "/sdcard/tutorform.pdf";
+        String targetPdf = "/sdcard/TutorClaimForm.pdf";
         File filePath;
         filePath = new File(targetPdf);
         try {
@@ -113,14 +108,14 @@ public class Genarate_form extends AppCompatActivity {
 
         // close the document
         document.close();
-        Toast.makeText(this, "PDF Saved As 'tutorform.pdf' In The Internal Storage", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "PDF Saved As 'TutorClaimForm.pdf' In The Internal Storage", Toast.LENGTH_SHORT).show();
 
         openGeneratedPDF();
 
     }
 
     private void openGeneratedPDF(){
-        File file = new File("/sdcard/tutorform.pdf");
+        File file = new File("/sdcard/TutorClaimForm.pdf");
         if (file.exists())
         {
             Intent intent=new Intent(Intent.ACTION_VIEW);
@@ -134,7 +129,7 @@ public class Genarate_form extends AppCompatActivity {
             }
             catch(ActivityNotFoundException e)
             {
-                Toast.makeText(Genarate_form.this, "No Application available to view pdf ", Toast.LENGTH_LONG).show();
+                Toast.makeText(generateform.this, "No Application available to view pdf", Toast.LENGTH_LONG).show();
             }
         }
     }

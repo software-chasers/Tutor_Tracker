@@ -64,8 +64,8 @@ public class QR_Code extends AppCompatActivity {
 
         etqr = (TextView) findViewById(R.id.etqr);
        // etqr2 = (EditText) findViewById(R.id.etqr);
-        togenerate = "PayrollNo: " + "12345"+ " UserId: "+userid + " Time: " + time + " Date: "
-                + date + " Task: " + type + " CourseCode: " + code;
+        togenerate = "PayrollNo: " + "12345\n"+ "UserId: "+userid+ " \nTime: " + time + " \nDate: "
+                + date + " \nTask: " + type + " \nCourseCode: " + code + "\n\nscanned from tutor tracker app";
         etqr.setText(togenerate);
         //etqr3.setText(completed);
         btn = (Button) findViewById(R.id.btn);
@@ -90,7 +90,7 @@ public class QR_Code extends AppCompatActivity {
                 progress.show();*/
                 try {
                     proBar.setVisibility(ProgressBar.VISIBLE);
-                    bitmap = TextToImageEncode(userid);
+                    bitmap = TextToImageEncode(togenerate);
                    //bitmap = TextToImageEncode();
                     /*progressStatus=0;
                     progressBar.setVisibility(View.VISIBLE);

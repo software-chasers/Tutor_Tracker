@@ -9,9 +9,9 @@
             android:icon="@drawable/ic_action_name"
             android:title="View Profile" />
         <item
-            android:id="@+id/generate_qr_code"
-            android:icon="@drawable/ic_select_all_black_24dp"
-            android:title="Generate Qr Code" />
+            android:id="@+id/application_status"
+            android:icon="@drawable/ic_remove_red_eye_black_24dp"
+            android:title="View Application Status" />
         <item
             android:id="@+id/apply_to_be_a_tutor"
             android:icon="@drawable/ic_arrow_forward_black_24dp"
