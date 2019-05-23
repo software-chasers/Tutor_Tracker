@@ -29,6 +29,6 @@ Tutors can see activities that they must attend to.
 ![Tutor Main](https://github.com/software-chasers/Tutor_Tracker/wiki/Usages#tutor-main-page)
 
 ## Framework Used
-[![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://github.com/software-chasers/Tutor_Tracker/)  by [![GitHub contributors](https://img.shields.io/github/contributors/Naereen/StrapDown.js.svg)](https://github.com/software-chasers/Tutor_Tracker/graphs/contributors)
+[![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://github.com/software-chasers/Tutor_Tracker/) on [Android](https://developer.android.com/studio)  by [![GitHub contributors](https://img.shields.io/badge/contributors-5-green.svg)](https://github.com/software-chasers/Tutor_Tracker/graphs/contributors) licensed on 
 [![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/software-chasers/Tutor_Tracker/blob/master/LICENSE)
-[Android](https://developer.android.com/studio)
+
