@@ -1,77 +1,94 @@
 package com.example.software_chasers.tutor_tracker;
 
+import android.view.View;
+
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.runner.RunWith;
+
+import java.nio.channels.AcceptPendingException;
 
 import androidx.test.espresso.ViewInteraction;
-import androidx.test.ext.junit.runners.AndroidJUnit4;
+import androidx.test.espresso.action.ViewActions;
 import androidx.test.rule.ActivityTestRule;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
+import static org.junit.Assert.*;
 
-@RunWith(AndroidJUnit4.class)
-public class MainActivityTest/* extends ActivityInstrumentationTestCase2<MainActivity> */{
-
-//    MainActivity activity;
-//    public  MainActivityTest(){
-//        super(MainActivity.class);
-//    }
-//
-//    @Override
-//    protected void setUp() throws Exception{
-//        super.setUp();
-//        activity = getActivity();
-//    }
+public class MainActivityTest {
 
     @Rule
-    public ActivityTestRule<MainActivity> mainActivityActivityRule = new ActivityTestRule<>( MainActivity.class );
+    public ActivityTestRule<MainActivity> activityActivityTestRule = new ActivityTestRule<>(MainActivity.class);
+    private MainActivity mainActivity = null;
+
+    @Before
+    public void setUp() throws Exception {
+        mainActivity = activityActivityTestRule.getActivity();
+    }
 
     @Test
-    public void Visibility(){
-
-//        ViewInteraction button2 = onView(withId(R.id.button2));
-//        button2.perform( click() );
-//        button2.check(doesNotExist());
-//        ViewInteraction button = onView(withId(R.id.button));
-//        button.perform( click() );
-//        button.check(doesNotExist());
-        ViewInteraction image = onView(withId(R.id.imageView));
-        image.check(matches(isDisplayed()));
-        ViewInteraction userName = onView(withId(R.id.edituserid));
-        userName.check(matches(isDisplayed()));
-        ViewInteraction Password = onView(withId(R.id.editpassword));
-        Password.check(matches(isDisplayed()));
-        ViewInteraction checkbox = onView( withId( R.id.checkBox ) );
-        checkbox.perform( click() );
-        checkbox.check( matches( isDisplayed() ) );
+    public void MainActivityLaunched(){
+        View button2 = mainActivity.findViewById(R.id.signup);
+        assertNotNull( button2 );
+        View button = mainActivity.findViewById(R.id.signIn);
+        assertNotNull( button );
+        View image = mainActivity.findViewById(R.id.imageView);
+        assertNotNull( image );
+        View userName = mainActivity.findViewById(R.id.edituserid);
+        assertNotNull( userName );
+        View Password = mainActivity.findViewById(R.id.editpassword);
+        assertNotNull( Password );
+        View checkbox = mainActivity.findViewById( R.id.checkBox );
+        assertNotNull( checkbox );
     }
-//    private String user,pass;
-//
-//    @Rule
-//    public ActivityTestRule<MainActivity> activityRule = new ActivityTestRule<>(MainActivity.class);
-//
-//    @Before
-//    public void intStrings(){
-//        user = "SiphoSpontaneousNkosi";
-//        pass = "spontaneous";
-//    }
-//
-//    @Test
-//    public void login(){
-//
-//        ViewInteraction username = onView(withId(R.id.editText2));
-//        username.perform(typeText(user),closeSoftKeyboard());
-//        ViewInteraction password = onView(withId(R.id.editText));
-//        password.perform(typeText(pass),closeSoftKeyboard());
-////        ViewInteraction button = onView(withId(R.id.button2));
-////        button.perform(click());
-////        button.check(doesNotExist());
-////        assertThat( ,example_menu);
-//    }
-}
 
+//    @Test
+//    public void stringcheck(){
+//        assertFalse(mainActivity.strcmp("someString" ,null ));
+//        assertFalse( mainActivity.strcmp(null ,null ));
+//        assertTrue(mainActivity.strcmp("someString" ,"someString"));
+//        assertFalse( mainActivity.strcmp( "","someString"  )  );
+//    }
+
+    @Test
+    public void Sudent_login(){
+        ViewInteraction userid = onView( withId( R.id.edituserid ) );
+        userid.perform( ViewActions.typeText( "456" ) ,closeSoftKeyboard());
+        ViewInteraction Pass = onView( withId( R.id.editpassword ) );
+        Pass.perform( ViewActions.typeText( "0000" ) ,closeSoftKeyboard());
+        ViewInteraction button = onView( withId( R.id.signIn ) );
+        button.perform( click() );
+    }
+
+    @Test
+    public void Lecture_login(){
+        ViewInteraction userid = onView( withId( R.id.edituserid ) );
+        userid.perform( ViewActions.typeText( "11" ) ,closeSoftKeyboard());
+        ViewInteraction Pass = onView( withId( R.id.editpassword ) );
+        Pass.perform( ViewActions.typeText( "1111" ) ,closeSoftKeyboard());
+        ViewInteraction button = onView( withId( R.id.signIn ) );
+        button.perform( click() );
+    }
+
+    @Test
+    public void Admin_login(){
+        ViewInteraction userid = onView( withId( R.id.edituserid ) );
+        userid.perform( ViewActions.typeText( "33" ) ,closeSoftKeyboard());
+        ViewInteraction Pass = onView( withId( R.id.editpassword ) );
+        Pass.perform( ViewActions.typeText( "33" ) ,closeSoftKeyboard());
+        ViewInteraction button = onView( withId( R.id.signIn ) );
+        button.perform( click() );
+    }
+
+
+    @After
+    public void tearDown() throws Exception {
+        mainActivity = null;
+    }
+}

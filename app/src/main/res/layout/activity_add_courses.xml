@@ -34,7 +34,8 @@
         android:layout_marginTop="20dp"
         android:layout_marginBottom="-107dp"
         android:layout_toEndOf="@+id/course"
-        android:layout_toRightOf="@+id/course" />
+        android:layout_toRightOf="@+id/course"
+        android:layout_alignParentLeft="true" />
 
     <Button
         android:id="@+id/btn_date"
@@ -45,7 +46,9 @@
         android:layout_marginTop="20dp"
         android:layout_marginBottom="-3dp"
         android:layout_toEndOf="@+id/in_date"
-        android:text="@string/select_date" />
+        android:text="@string/select_date"
+        android:layout_marginLeft="33dp"
+        android:layout_toRightOf="@+id/in_date" />
 
     <EditText
         android:id="@+id/in_time"
@@ -54,7 +57,9 @@
         android:layout_below="@+id/in_date"
         android:layout_alignParentStart="true"
         android:layout_marginStart="0dp"
-        android:layout_marginTop="168dp" />
+        android:layout_marginTop="168dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="0dp" />
 
     <EditText
         android:id="@+id/duration"
@@ -74,7 +79,9 @@
         android:layout_alignStart="@+id/btn_date"
         android:layout_marginStart="12dp"
         android:layout_marginTop="59dp"
-        android:text="select time" />
+        android:text="select time"
+        android:layout_marginLeft="12dp"
+        android:layout_alignLeft="@+id/btn_date" />
 
     <Button
         android:id="@+id/done"
@@ -85,7 +92,9 @@
         android:layout_marginTop="525dp"
         android:layout_marginEnd="26dp"
         android:onClick="goHomeLecturer"
-        android:text="done" />
+        android:text="done"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="26dp" />
 
     <EditText
         android:id="@+id/asstype"
@@ -99,6 +108,10 @@
         android:layout_marginBottom="326dp"
         android:ems="10"
         android:hint="assessment type"
-        android:inputType="text" />
+        android:inputType="text"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="195dp" />
 
 </RelativeLayout>
