@@ -1,6 +1,7 @@
 package com.example.software_chasers.tutor_tracker;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -13,7 +14,10 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.zip.Inflater;
 
 public class InformationAdapter extends RecyclerView.Adapter<InformationAdapter.InformationViewHolder> {
@@ -48,7 +52,21 @@ public class InformationAdapter extends RecyclerView.Adapter<InformationAdapter.
                 public boolean onMenuItemClick(MenuItem menuItem) {
                     switch(menuItem.getItemId()){
                         case R.id.gen:
-                            Toast.makeText(context,"Generate QR Code",Toast.LENGTH_SHORT).show();
+                         String day1= holder.day.getText().toString();
+                         String type1= holder.type.getText().toString();
+                         String code1= holder.code.getText().toString();
+                         String time1= holder.time.getText().toString();
+                         String venue1= holder.venue.getText().toString();
+                         String date =  new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
+
+                            Intent intent = new Intent(context,QR_Code.class);
+                            intent.putExtra("Code",code1);
+                            intent.putExtra("Day",day1);
+                            intent.putExtra("Type",type1);
+                            intent.putExtra("Time",time1);
+                            intent.putExtra("Venue",venue1);
+                            intent.putExtra("Date",date);
+                            context.startActivity(intent);
                             break;
                     }
                     return false;

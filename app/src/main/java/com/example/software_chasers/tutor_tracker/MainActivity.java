@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         mCheckBoxRemember = (CheckBox) findViewById(R.id.checkBox);
         getPreferencesData();
 
+
        // editText2.addTextChangedListener( loginWatcher );
         //editText.addTextChangedListener( loginWatcher );
 

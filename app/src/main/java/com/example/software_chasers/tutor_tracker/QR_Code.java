@@ -1,5 +1,6 @@
 package com.example.software_chasers.tutor_tracker;
 
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.opengl.Visibility;
 import android.os.Handler;
@@ -31,7 +32,7 @@ public class QR_Code extends AppCompatActivity {
     private ImageView imag;
     private Button btn;
     String userid;
-    String completed;
+    String completed,togenerate;
     ProgressBar proBar;
     private int progressStatus;
     private Handler handler = new Handler();
@@ -42,10 +43,15 @@ public class QR_Code extends AppCompatActivity {
         setContentView(R.layout.activity_qr__code);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled( true );
+        SharedPreferences preferences = getSharedPreferences("myPref",0);
+        userid = preferences.getString("userid",null);
 
-        //Intent intent = getIntent();
-        userid = getIntent().getStringExtra("UserId");
-        completed = getIntent().getStringExtra("Completed");
+       // userid = "456";
+        //completed = getIntent().getStringExtra("Completed");
+        final String code = getIntent().getStringExtra("Code");
+        final String type = getIntent().getStringExtra("Type");
+        final String time = getIntent().getStringExtra("Time");
+        final String date = getIntent().getStringExtra("Date");
 
         //Create the text View
        // TextView textView = new EditText(this);
@@ -58,7 +64,9 @@ public class QR_Code extends AppCompatActivity {
 
         etqr = (TextView) findViewById(R.id.etqr);
        // etqr2 = (EditText) findViewById(R.id.etqr);
-        etqr.setText("UserId: "+userid);
+        togenerate = "PayrollNo: " + "12345"+ " UserId: "+userid + " Time: " + time + " Date: "
+                + date + " Task: " + type + " CourseCode: " + code;
+        etqr.setText(togenerate);
         //etqr3.setText(completed);
         btn = (Button) findViewById(R.id.btn);
         proBar = findViewById(R.id.progressBar);
