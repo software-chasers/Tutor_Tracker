@@ -20,13 +20,13 @@ $ cd Tutor-Tracker
 ```
 ## Usage
 Students can register to be users and/or login to the app as existing users.
-![Login Page](https://github.com/KhanyileBN/dummy-repo/blob/master/landing-page.png)
+![Login Page](https://github.com/software-chasers/Tutor_Tracker/wiki/Usages#login-page)
 
 If students would like to sign up they are taken to the signup page.
-![Sign Up Page](https://github.com/KhanyileBN/dummy-repo/blob/master/tutor-reg.jpg)
+![Sign Up Page](https://github.com/software-chasers/Tutor_Tracker/wiki/Usages#sign-up-page)
 
 Tutors can see activities that they must attend to.
-![Tutor Main](https://github.com/KhanyileBN/dummy-repo/blob/master/main-tutor.png)
+![Tutor Main](https://github.com/software-chasers/Tutor_Tracker/wiki/Usages#tutor-main-page)
 
 ## Framework Used
 <b>Built with:</b>
