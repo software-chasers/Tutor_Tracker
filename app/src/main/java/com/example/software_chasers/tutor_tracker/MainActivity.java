@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     Button button2;
     EditText editText;
     EditText editText2;
+    String r;
     private CheckBox mCheckBoxRemember;
     private SharedPreferences mPrefs;
     private static final String PREFS_NAME = "PrefsFile";
