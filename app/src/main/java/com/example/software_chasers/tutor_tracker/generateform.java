@@ -1,6 +1,8 @@
 package com.example.software_chasers.tutor_tracker;
 
+import android.annotation.SuppressLint;
 import android.content.ActivityNotFoundException;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -18,7 +20,11 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -28,10 +34,56 @@ public class generateform extends AppCompatActivity {
     private Button btn ;//btnScroll;
     private ScrollView LLPdf;
     private Bitmap bitmap;
+    private TextView textView106,textView107,textView103,textView111;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_generateform);
+
+        String useid = getIntent().getStringExtra( "UserId" );
+        textView106 = (TextView)findViewById(R.id.textView106); //student no
+        textView107 = (TextView)findViewById( R.id.textView107 ); //tful names
+        textView103 = (TextView)findViewById( R.id.textView103 ); //email address
+        textView111 = (TextView)findViewById( R.id.textView111 ); //phone number
+        textView106.setText( useid );
+        ContentValues params = new ContentValues( );
+        params.put( "userId",useid );
+
+        @SuppressLint("StaticFieldLeak") AsyncHTTPPost asyncHTTPPost = new AsyncHTTPPost( "http://lamp.ms.wits.ac.za/~s1741606/viewStudent.php",params ) {
+            @Override
+            protected void onPostExecute(String output){
+                try {
+                    JSONArray ja = new JSONArray( output );
+                    JSONObject jo = (JSONObject)ja.get(0);
+                    textView107.setText(jo.getString( "UserFname" ));
+                    textView103.setText( jo.getString( "Email" ) );
+                    textView111.setText( jo.getString( "PhonNo" ) );
+                    //textView4.setText("Last Name: "+jo.getString( "UserLname" ));
+                    } catch (Exception e){
+                    e.printStackTrace();
+                }
+
+            }
+
+        };
+        asyncHTTPPost.execute( );
+
+
+        @SuppressLint("StaticFieldLeak") AsyncHTTPPost asyncHTTPPost1 = new AsyncHTTPPost( "http://lamp.ms.wits.ac.za/~s1741606/viewStudent.php",params ) {
+            @Override
+            protected void onPostExecute(String output){
+                try {
+                    JSONArray ja = new JSONArray( output );
+                    JSONObject jo = (JSONObject)ja.get(0);
+                    //textView4.setText("Last Name: "+jo.getString( "UserLname" ));
+                } catch (Exception e){
+                    e.printStackTrace();
+                }
+
+            }
+
+        };
+        asyncHTTPPost1.execute( );
 
         btn = findViewById(R.id.btn);
       //  btnScroll = findViewById(R.id.btnScroll);

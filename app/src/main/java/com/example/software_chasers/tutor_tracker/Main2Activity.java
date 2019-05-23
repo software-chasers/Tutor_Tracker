@@ -83,8 +83,8 @@ public class Main2Activity extends AppCompatActivity
 //            }
 //        });
         userid = user;
-        System.out.println("UserId received in main2activity is : "+userid);
-        System.out.print( " ");
+        //System.out.println("UserId received in main2activity is : "+userid);
+        //System.out.print( " ");
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
