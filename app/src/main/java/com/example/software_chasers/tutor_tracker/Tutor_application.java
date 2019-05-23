@@ -58,7 +58,7 @@ public class Tutor_application extends AppCompatActivity {
         UploadButton = (Button) findViewById(R.id.Button_Upload_PDF_ID);
         PDF_Name_EditText_ID = (TextView) findViewById(R.id.editText);
         PDF_Name_EditText_ID.setText("Transcript Name: "+userid);
-        SelectButton.setBackgroundResource(R.drawable.ic_attachment_black_24dp);
+        SelectButton.setBackgroundResource(R.drawable.attachmentpdf);
         SelectButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
