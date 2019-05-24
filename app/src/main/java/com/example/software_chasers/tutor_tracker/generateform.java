@@ -34,7 +34,7 @@ public class generateform extends AppCompatActivity {
     private Button btn ;//btnScroll;
     private ScrollView LLPdf;
     private Bitmap bitmap;
-    private TextView textView106,textView107,textView103,textView111;
+    private TextView textView103,textView104,textView106,textView107,textView111;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +45,7 @@ public class generateform extends AppCompatActivity {
         textView107 = (TextView)findViewById( R.id.textView107 ); //tful names
         textView103 = (TextView)findViewById( R.id.textView103 ); //email address
         textView111 = (TextView)findViewById( R.id.textView111 ); //phone number
+        textView104 = (TextView)findViewById( R.id.textView104 ); //YOS
         textView106.setText( useid );
         ContentValues params = new ContentValues( );
         params.put( "userId",useid );
@@ -58,7 +59,6 @@ public class generateform extends AppCompatActivity {
                     textView107.setText(jo.getString( "UserFname" ));
                     textView103.setText( jo.getString( "Email" ) );
                     textView111.setText( jo.getString( "PhonNo" ) );
-                    //textView4.setText("Last Name: "+jo.getString( "UserLname" ));
                     } catch (Exception e){
                     e.printStackTrace();
                 }
@@ -69,13 +69,13 @@ public class generateform extends AppCompatActivity {
         asyncHTTPPost.execute( );
 
 
-        @SuppressLint("StaticFieldLeak") AsyncHTTPPost asyncHTTPPost1 = new AsyncHTTPPost( "http://lamp.ms.wits.ac.za/~s1741606/viewStudent.php",params ) {
+        @SuppressLint("StaticFieldLeak") AsyncHTTPPost asyncHTTPPost1 = new AsyncHTTPPost( "http://lamp.ms.wits.ac.za/~s1741606/getStudent.php",params ) {
             @Override
             protected void onPostExecute(String output){
                 try {
                     JSONArray ja = new JSONArray( output );
                     JSONObject jo = (JSONObject)ja.get(0);
-                    //textView4.setText("Last Name: "+jo.getString( "UserLname" ));
+                    textView104.setText( jo.getString( "YoS" ));
                 } catch (Exception e){
                     e.printStackTrace();
                 }
