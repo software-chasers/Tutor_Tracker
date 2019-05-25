@@ -24,7 +24,7 @@ import java.util.UUID;
 public class Tutor_application extends AppCompatActivity {
     // Creating Buttons.
     Button  UploadButton, SubmitApplication;
-
+String message;
     // Creating URI .
     Uri uri;
     // Server URL.
@@ -33,7 +33,7 @@ public class Tutor_application extends AppCompatActivity {
     private ImageView imageView;
 
     // Creating TextView.
-    TextView PDF_Name_EditText_ID;
+    TextView PDF_Name_EditText_ID,textView55;
         ImageView SelectButton;
 
     // Pdf upload request code.
@@ -57,6 +57,7 @@ public class Tutor_application extends AppCompatActivity {
         SelectButton = (ImageView) findViewById(R.id.Button_Select_PDF_ID);
         UploadButton = (Button) findViewById(R.id.Button_Upload_PDF_ID);
         PDF_Name_EditText_ID = (TextView) findViewById(R.id.editText);
+       textView55 = (TextView) findViewById(R.id.textView55);
         PDF_Name_EditText_ID.setText("Transcript Name: "+userid);
         SelectButton.setBackgroundResource(R.drawable.attachmentpdf);
         SelectButton.setOnClickListener(new View.OnClickListener() {
@@ -78,19 +79,21 @@ public class Tutor_application extends AppCompatActivity {
         SubmitApplication.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (PdfPathHolder == null || PDF_Name_EditText_ID == null) {
+               if (PdfPathHolder == null || PDF_Name_EditText_ID == null) {
 
                     Toast.makeText(Tutor_application.this, "Please Upload Transcript.", Toast.LENGTH_LONG).show();
 
                 }
-                else {
+              else {
 
                     Intent intent = new Intent(Tutor_application.this, Main2Activity.class);
+                    intent.putExtra("message", "Application Status Pending");
                     startActivity(intent);
-                    Toast.makeText(Tutor_application.this, "Application Submitted.", Toast.LENGTH_LONG).show();
+                   Toast.makeText(Tutor_application.this, "Application Submitted.", Toast.LENGTH_LONG).show();
+                    //textView55.setText("Application Pending");
 
                 }
-            }
+           }
         });
 
         UploadButton.setOnClickListener(new View.OnClickListener() {

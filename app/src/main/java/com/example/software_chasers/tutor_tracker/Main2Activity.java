@@ -214,6 +214,7 @@ public class Main2Activity extends AppCompatActivity
 
         } else if (id == R.id.application_status) {
             Intent intent = new Intent(Main2Activity.this, ViewApplicationStatus.class);
+            intent.putExtra("message", "Application Status Pending");
             intent.putExtra("UserId",userid);
             startActivity(intent);
             return true;
