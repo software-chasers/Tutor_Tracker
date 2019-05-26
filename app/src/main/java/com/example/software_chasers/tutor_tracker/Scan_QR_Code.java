@@ -10,6 +10,7 @@ import android.widget.TextView;
 public class Scan_QR_Code extends AppCompatActivity {
     public static TextView tvresult;
     private Button btn;
+    public static Button verify;
    // private TextView tvresult;
     //private var btn = Button ? = null;
 
@@ -18,7 +19,9 @@ public class Scan_QR_Code extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan__qr__code);
         btn = (Button) findViewById(R.id.btn);
+        verify = (Button) findViewById(R.id.verify);
         tvresult = (TextView) findViewById(R.id.tvresult);
+
 
         btn.setOnClickListener(new View.OnClickListener() {
 

@@ -60,7 +60,8 @@ public class Main2Activity extends AppCompatActivity
                 ContentValues params = new ContentValues();
                 params.put("code",course);
 
-                @SuppressLint("StaticFieldLeak") AsyncHTTPPost a = new AsyncHTTPPost("http://lamp.ms.wits.ac.za/~s1741606/getCourse.php",params) {
+                @SuppressLint("StaticFieldLeak") AsyncHTTPPost a = new AsyncHTTPPost(
+                        "http://lamp.ms.wits.ac.za/~s1741606/getCourse.php",params) {
                     @Override
                     protected void onPostExecute(String output) {
                         processCourses(output,courses);

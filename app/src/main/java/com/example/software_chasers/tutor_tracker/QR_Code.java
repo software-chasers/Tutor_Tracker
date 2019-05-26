@@ -64,8 +64,8 @@ public class QR_Code extends AppCompatActivity {
 
         etqr = (TextView) findViewById(R.id.etqr);
        // etqr2 = (EditText) findViewById(R.id.etqr);
-        togenerate = "PayrollNo: " + "12345\n"+ "UserId: "+userid+ " \nTime: " + time + " \nDate: "
-                + date + " \nTask: " + type + " \nCourseCode: " + code + "\n\nscanned from tutor tracker app";
+        togenerate = "UserId: "+userid+ " Time: " + time + " Date: "
+                + date + " Task: " + type + " CourseCode: " + code;
         etqr.setText(togenerate);
         //etqr3.setText(completed);
         btn = (Button) findViewById(R.id.btn);
