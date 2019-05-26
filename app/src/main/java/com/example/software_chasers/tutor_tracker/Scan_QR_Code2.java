@@ -1,7 +1,9 @@
 package com.example.software_chasers.tutor_tracker;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.content.ContentValues;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
@@ -74,6 +76,11 @@ public class Scan_QR_Code2 extends AppCompatActivity implements ZXingScannerView
                         Toast.makeText(getApplicationContext(),"Task verified",Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(getApplicationContext(),LectureHomePage.class);
                         startActivity(intent);
+                    }
+                    else if (output.equals("false")){
+
+                         Scan_QR_Code.alertDialog.show();
+
                     }
 
                     }
