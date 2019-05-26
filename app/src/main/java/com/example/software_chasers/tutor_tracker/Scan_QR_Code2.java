@@ -50,7 +50,9 @@ public class Scan_QR_Code2 extends AppCompatActivity implements ZXingScannerView
         // Log.v("tag", rawResult.getText()); // Prints scan results
         // Log.v("tag", rawResult.getBarcodeFormat().toString()); // Prints the scan format (qrcode, pdf417 etc.)
         final String[] result = rawResult.getText().split(" ");
-        Scan_QR_Code.tvresult.setText(rawResult.getText());
+        String s= result[0]+" "+result[1]+"\n"+result[2]+" "+result[3]+"\n"+result[4]+" "+result[5]
+                +"\n"+result[6]+" "+result[7]+"\n"+result[8]+" "+result[9];
+        Scan_QR_Code.tvresult.setText(s);
         Scan_QR_Code.verify.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
