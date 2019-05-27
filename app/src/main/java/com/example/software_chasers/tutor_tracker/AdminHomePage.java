@@ -40,9 +40,8 @@ public class AdminHomePage extends AppCompatActivity
        // userid = getIntent().getStringExtra("UserId");
         //admin11 = (TextView) findViewById(R.id.admin);
         //admin11.setText("UserId: "+userid);
-
-         textView = (TextView) findViewById(R.id.textView15);
-       textview1 = (TextView) findViewById(R.id.textView18);
+        textView = (TextView) findViewById(R.id.textView15);
+        textview1 = (TextView) findViewById(R.id.textView18);
         textview2 = (TextView) findViewById(R.id.textView19);
         textview3 = (TextView) findViewById(R.id.textView20);
         textview4 = (TextView) findViewById(R.id.textView17);
