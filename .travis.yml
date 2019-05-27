@@ -2,8 +2,8 @@ sudo: false
 language: android
 env:
   global:
-    - ANDROID_TARGET=android-22
-    - ANDROID_ABI=armeabi-v7a
+    #- ANDROID_TARGET=android-28
+    - ANDROID_ABI=armeabi-v7a-28
 android:
   components:
   # Uncomment the lines below if you want to
