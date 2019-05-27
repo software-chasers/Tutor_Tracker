@@ -2,7 +2,7 @@ sudo: false
 language: android
 env:
   global:
-    - ANDROID_TARGET=android-22
+    - ANDROID_TARGET=android-27
     - ANDROID_ABI=armeabi-v7a
 android:
   components:
@@ -11,7 +11,7 @@ android:
   - tools
   - android-27
   - platform-tools
-  - build-tools-27.0.3
+  - build-tools-28.0.3
   - tools
   - add-on
   - extra
