@@ -75,6 +75,15 @@ android.testOptions {
         }
     }
 }
+android {
+
+    lintOptions {
+
+        abortOnError false
+
+    }
+
+}
 task jacocoTestReport(type: JacocoReport, dependsOn: ['testDebugUnitTest', 'createDebugCoverageReport']) {
     reports {
         xml.enabled = true
