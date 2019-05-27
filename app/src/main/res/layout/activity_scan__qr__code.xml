@@ -13,7 +13,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:background="@color/colorPrimary"
+        android:background="@color/colorAccent"
         android:text="Scan QR code"
         android:textAllCaps="true"
         android:textSize="18sp"
