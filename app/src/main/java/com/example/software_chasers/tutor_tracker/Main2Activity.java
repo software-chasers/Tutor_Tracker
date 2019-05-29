@@ -226,6 +226,7 @@ public class Main2Activity extends AppCompatActivity
             return true;
         } else if (id == R.id.apply_to_be_a_tutor) {
             Intent intent = new Intent(Main2Activity.this, Tutor_application.class);
+            intent.putExtra("UserId",userid);
             startActivity(intent);
             return true;
         }
