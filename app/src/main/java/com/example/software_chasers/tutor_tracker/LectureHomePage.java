@@ -65,8 +65,8 @@ public class LectureHomePage extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(LectureHomePage.this, Addcourse.class);
-                startActivity(intent);
+//                Intent intent = new Intent(LectureHomePage.this, Addcourse.class);
+//                startActivity(intent);
             }
         });
 
