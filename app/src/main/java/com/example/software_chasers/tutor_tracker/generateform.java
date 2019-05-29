@@ -58,7 +58,7 @@ public class generateform extends AppCompatActivity {
                     JSONObject jo = (JSONObject)ja.get(0);
                     textView107.setText(jo.getString( "UserFname" ));
                     textView103.setText( jo.getString( "Email" ) );
-                    textView111.setText( jo.getString( "PhonNo" ) );
+                    textView111.setText("0"+ jo.getString( "PhonNo" ) );
                     } catch (Exception e){
                     e.printStackTrace();
                 }

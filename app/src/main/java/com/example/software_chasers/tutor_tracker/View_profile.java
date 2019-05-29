@@ -41,7 +41,7 @@ private TextView textView3, textView4, textView5, textView8, textView11;
                     textView3.setText("First Names: "+jo.getString( "UserFname" ));
                     textView4.setText("Last Name: "+jo.getString( "UserLname" ));
                     textView5.setText("UserId: "+userid);
-                    textView8.setText("Phone Number: "+jo.getString( "PhonNo" ));
+                    textView8.setText("Phone Number: 0"+jo.getString( "PhonNo" ));
                     textView11.setText("Email: "+jo.getString( "Email" ));
                 } catch (Exception e){
                     e.printStackTrace();

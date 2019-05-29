@@ -77,7 +77,7 @@ public class Create_Profile extends AppCompatActivity {
                             //Toast.makeText(getApplicationContext(),"PasswordS do not match",Toast.LENGTH_SHORT).show();
                         }
                         else if(!isValidEmail( email )){
-                            Email.setError( "Please enter a valid email" );
+                            Email.setError( "Please enter a valid Wits email" );
                         }
                     }
                     ContentValues params = new ContentValues();
@@ -144,7 +144,14 @@ public class Create_Profile extends AppCompatActivity {
 
     public boolean isValidEmail(String email){
         if(email != null && Patterns.EMAIL_ADDRESS.matcher( email ).matches()){
+//            int i = email.indexOf( '@' );
+//            int n = email.length();
+//            String sub_string = email.substring( i, n );
+//            System.out.println( "THE SUB EMAIL IS: " + sub_string );
             return true;
+//            if ( ){
+//                return true;
+//            }
         }
         return false;
     }

@@ -35,7 +35,7 @@ public class viewAdmin extends AppCompatActivity {
                     textView3.setText( "First Names: " + jo.getString( "UserFname" ) );
                     textView4.setText( "Last Name: " + jo.getString( "UserLname" ) );
                     textView5.setText( "UserId: " + userid );
-                    textView8.setText( "Phone Number: " + jo.getString( "PhonNo" ) );
+                    textView8.setText( "Phone Number: 0" + jo.getString( "PhonNo" ) );
                     textView11.setText( "Email: " + jo.getString( "Email" ) );
                 } catch (Exception e) {
                     e.printStackTrace();
