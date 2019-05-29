@@ -207,29 +207,28 @@ public class Main2Activity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-//        if (id == R.id.generate_form) {
-//            Intent intent = new Intent(Main2Activity.this, generateform.class);
-//            intent.putExtra("UserId",userid);
-//            startActivity(intent);
-//            return true;
-//
-//        } else if (id == R.id.application_status) {
-//            Intent intent = new Intent(Main2Activity.this, ViewApplicationStatus.class);
-//            intent.putExtra("message", "Application Status Pending");
-//            intent.putExtra("UserId",userid);
-//            startActivity(intent);
-//            return true;} else
-         if (id == R.id.view_profile) {
+        if (id == R.id.generate_form) {
+            Intent intent = new Intent(Main2Activity.this, generateform.class);
+            intent.putExtra("UserId",userid);
+            startActivity(intent);
+            return true;
+
+        } else if (id == R.id.application_status) {
+            Intent intent = new Intent(Main2Activity.this, ViewApplicationStatus.class);
+            intent.putExtra("message", "Application Status Pending");
+            intent.putExtra("UserId",userid);
+            startActivity(intent);
+            return true;
+        } else if (id == R.id.view_profile) {
             Intent intent = new Intent(Main2Activity.this, View_profile.class);
-            intent.putExtra("UserId", userid);
+            intent.putExtra("UserId",userid);
+            startActivity(intent);
+            return true;
+        } else if (id == R.id.apply_to_be_a_tutor) {
+            Intent intent = new Intent(Main2Activity.this, Tutor_application.class);
             startActivity(intent);
             return true;
         }
-//        else if (id == R.id.apply_to_be_a_tutor) {
-//            Intent intent = new Intent(Main2Activity.this, Tutor_application.class);
-//            startActivity(intent);
-//            return true;
-//        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

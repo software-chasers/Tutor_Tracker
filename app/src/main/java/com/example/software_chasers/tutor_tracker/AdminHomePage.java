@@ -76,480 +76,480 @@ public class AdminHomePage extends AppCompatActivity
         textview33 = (TextView) findViewById(R.id.textView49);
 
 
-//        textView.setOnClickListener(new View.OnClickListener() {
-//    @Override
-//    public void onClick(View view) {
-//        textView.setText("Application Checked");
-//        int id = textView.getId();
-//        if (id == R.id.textView15) {
-//            Intent intent = new Intent(AdminHomePage.this, View_Application.class);
-//            startActivity(intent);
-//
-//
-//        }
-//
-//    }
-//});
-//       textview1.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                textview1.setText("Application Checked");
-//                int id1 = textview1.getId();
-//                if (id1 == R.id.textView18) {
-//                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
-//                    startActivity(intent);
-//
-//
-//                }
-//
-//            }
-//        });
-//        textview2.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                textview2.setText("Application Checked");
-//                int id2 = textview2.getId();
-//                if (id2 == R.id.textView19) {
-//                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
-//                    startActivity(intent);
-//
-//
-//                }
-//
-//            }
-//        });
-//        textview3.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                textview3.setText("Application Checked");
-//                int id3 = textview3.getId();
-//                if (id3 == R.id.textView20) {
-//                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
-//                    startActivity(intent);
-//
-//
-//                }
-//
-//            }
-//        });
-//        textview4.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                textview4.setText("Application Checked");
-//                int id4 = textview4.getId();
-//                if (id4 == R.id.textView17) {
-//                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
-//                    startActivity(intent);
-//
-//
-//                }
-//
-//            }
-//        });
-//        textview5.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                textview6.setText("Application Checked");
-//                int id5 = textview5.getId();
-//                if (id5 == R.id.textView21) {
-//                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
-//                    startActivity(intent);
-//
-//
-//                }
-//
-//            }
-//        });
-//        textview6.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                textview6.setText("Application Checked");
-//                int id6 = textview6.getId();
-//                if (id6 == R.id.textView22) {
-//                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
-//                    startActivity(intent);
-//
-//
-//                }
-//
-//            }
-//        });
-//        textview7.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                int id6 = textview7.getId();
-//                if (id6 == R.id.textView23) {
-//                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
-//                    startActivity(intent);
-//
-//
-//                }
-//
-//            }
-//        });
-//        textview8.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                textview8.setText("Application Checked");
-//                int id6 = textview8.getId();
-//                if (id6 == R.id.textView24) {
-//                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
-//                    startActivity(intent);
-//
-//
-//                }
-//
-//            }
-//        });
-//        textview9.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                int id6 = textview9.getId();
-//                if (id6 == R.id.textView25) {
-//                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
-//                    startActivity(intent);
-//
-//
-//                }
-//
-//            }
-//        });
-//        textview10.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                textview10.setText("Application Checked");
-//                int id6 = textview10.getId();
-//                if (id6 == R.id.textView26) {
-//                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
-//                    startActivity(intent);
-//
-//
-//                }
-//
-//            }
-//        });
-//        textview11.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                textview11.setText("Application Checked");
-//                int id6 = textview11.getId();
-//                if (id6 == R.id.textView27) {
-//                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
-//                    startActivity(intent);
-//
-//
-//                }
-//
-//            }
-//        });
-//        textview12.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                textview12.setText("Application Checked");
-//                int id6 = textview12.getId();
-//                if (id6 == R.id.textView28) {
-//                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
-//                    startActivity(intent);
-//
-//
-//                }
-//
-//            }
-//        });
-//        textview13.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                textview13.setText("Application Checked");
-//                int id6 = textview13.getId();
-//                if (id6 == R.id.textView29) {
-//                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
-//                    startActivity(intent);
-//
-//
-//                }
-//
-//            }
-//        });
-//        textview14.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                textview14.setText("Application Checked");
-//                int id6 = textview14.getId();
-//                if (id6 == R.id.textView30) {
-//                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
-//                    startActivity(intent);
-//
-//
-//                }
-//
-//            }
-//        });
-//        textview15.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                textview15.setText("Application Checked");
-//                int id6 = textview15.getId();
-//                if (id6 == R.id.textView31) {
-//                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
-//                    startActivity(intent);
-//
-//
-//                }
-//
-//            }
-//        });
-//        textview16.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                textview16.setText("Application Checked");
-//                int id6 = textview16.getId();
-//                if (id6 == R.id.textView32) {
-//                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
-//                    startActivity(intent);
-//
-//
-//                }
-//
-//            }
-//        });
-//        textview17.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                textview17.setText("Application Checked");
-//                int id6 = textview17.getId();
-//                if (id6 == R.id.textView33) {
-//                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
-//                    startActivity(intent);
-//
-//
-//                }
-//
-//            }
-//        });
-//        textview18.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                textview18.setText("Application Checked");
-//                int id6 = textview18.getId();
-//                if (id6 == R.id.textView34) {
-//                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
-//                    startActivity(intent);
-//
-//
-//                }
-//
-//            }
-//        });
-//        textview19.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                textview19.setText("Application Checked");
-//                int id6 = textview19.getId();
-//                if (id6 == R.id.textView35) {
-//                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
-//                    startActivity(intent);
-//
-//
-//                }
-//
-//            }
-//        });
-//        textview20.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                textview20.setText("Application Checked");
-//                int id6 = textview20.getId();
-//                if (id6 == R.id.textView36) {
-//                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
-//                    startActivity(intent);
-//
-//
-//                }
-//
-//            }
-//        });
-//        textview21.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                textview21.setText("Application Checked");
-//                int id6 = textview21.getId();
-//                if (id6 == R.id.textView37) {
-//                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
-//                    startActivity(intent);
-//
-//
-//                }
-//
-//            }
-//        });
-//        textview22.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                textview22.setText("Application Checked");
-//                int id6 = textview22.getId();
-//                if (id6 == R.id.textView38) {
-//                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
-//                    startActivity(intent);
-//
-//
-//                }
-//
-//            }
-//        });
-//        textview23.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                textview23.setText("Application Checked");
-//                int id6 = textview23.getId();
-//                if (id6 == R.id.textView39) {
-//                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
-//                    startActivity(intent);
-//
-//
-//                }
-//
-//            }
-//        });
-//        textview24.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                textview24.setText("Application Checked");
-//                int id6 = textview24.getId();
-//                if (id6 == R.id.textView40) {
-//                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
-//                    startActivity(intent);
-//
-//
-//                }
-//
-//            }
-//        });
-//        textview25.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                textview25.setText("Application Checked");
-//                int id6 = textview25.getId();
-//                if (id6 == R.id.textView41) {
-//                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
-//                    startActivity(intent);
-//
-//
-//                }
-//
-//            }
-//        });
-//        textview26.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                textview26.setText("Application Checked");
-//                int id6 = textview26.getId();
-//                if (id6 == R.id.textView42) {
-//                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
-//                    startActivity(intent);
-//
-//
-//                }
-//
-//            }
-//        });
-//        textview27.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                textview27.setText("Application Checked");
-//                int id6 = textview27.getId();
-//                if (id6 == R.id.textView43) {
-//                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
-//                    startActivity(intent);
-//
-//
-//                }
-//
-//            }
-//        });
-//        textview28.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                textview28.setText("Application Checked");
-//                int id6 = textview28.getId();
-//                if (id6 == R.id.textView44) {
-//                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
-//                    startActivity(intent);
-//
-//
-//                }
-//
-//            }
-//        });
-//        textview29.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                textview29.setText("Application Checked");
-//                int id6 = textview29.getId();
-//                if (id6 == R.id.textView45) {
-//                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
-//                    startActivity(intent);
-//
-//
-//                }
-//
-//            }
-//        });
-//        textview30.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                textview30.setText("Application Checked");
-//                int id6 = textview30.getId();
-//                if (id6 == R.id.textView46) {
-//                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
-//                    startActivity(intent);
-//
-//
-//                }
-//
-//            }
-//        });
-//        textview31.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                textview31.setText("Application Checked");
-//                int id6 = textview31.getId();
-//                if (id6 == R.id.textView47) {
-//                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
-//                    startActivity(intent);
-//
-//
-//                }
-//
-//            }
-//        });
-//        textview32.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                textview32.setText("Application Checked");
-//                int id6 = textview32.getId();
-//                if (id6 == R.id.textView48) {
-//                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
-//                    startActivity(intent);
-//
-//
-//                }
-//
-//            }
-//        });
-//        textview33.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                textview33.setText("Application Checked");
-//                int id6 = textview33.getId();
-//                if (id6 == R.id.textView49) {
-//                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
-//                    startActivity(intent);
-//
-//
-//                }
-//
-//            }
-//        });
+        textView.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View view) {
+        textView.setText("Application Checked");
+        int id = textView.getId();
+        if (id == R.id.textView15) {
+            Intent intent = new Intent(AdminHomePage.this, View_Application.class);
+            startActivity(intent);
+
+
+        }
+
+    }
+});
+       textview1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                textview1.setText("Application Checked");
+                int id1 = textview1.getId();
+                if (id1 == R.id.textView18) {
+                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
+                    startActivity(intent);
+
+
+                }
+
+            }
+        });
+        textview2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                textview2.setText("Application Checked");
+                int id2 = textview2.getId();
+                if (id2 == R.id.textView19) {
+                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
+                    startActivity(intent);
+
+
+                }
+
+            }
+        });
+        textview3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                textview3.setText("Application Checked");
+                int id3 = textview3.getId();
+                if (id3 == R.id.textView20) {
+                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
+                    startActivity(intent);
+
+
+                }
+
+            }
+        });
+        textview4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                textview4.setText("Application Checked");
+                int id4 = textview4.getId();
+                if (id4 == R.id.textView17) {
+                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
+                    startActivity(intent);
+
+
+                }
+
+            }
+        });
+        textview5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                textview6.setText("Application Checked");
+                int id5 = textview5.getId();
+                if (id5 == R.id.textView21) {
+                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
+                    startActivity(intent);
+
+
+                }
+
+            }
+        });
+        textview6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                textview6.setText("Application Checked");
+                int id6 = textview6.getId();
+                if (id6 == R.id.textView22) {
+                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
+                    startActivity(intent);
+
+
+                }
+
+            }
+        });
+        textview7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int id6 = textview7.getId();
+                if (id6 == R.id.textView23) {
+                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
+                    startActivity(intent);
+
+
+                }
+
+            }
+        });
+        textview8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                textview8.setText("Application Checked");
+                int id6 = textview8.getId();
+                if (id6 == R.id.textView24) {
+                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
+                    startActivity(intent);
+
+
+                }
+
+            }
+        });
+        textview9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int id6 = textview9.getId();
+                if (id6 == R.id.textView25) {
+                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
+                    startActivity(intent);
+
+
+                }
+
+            }
+        });
+        textview10.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                textview10.setText("Application Checked");
+                int id6 = textview10.getId();
+                if (id6 == R.id.textView26) {
+                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
+                    startActivity(intent);
+
+
+                }
+
+            }
+        });
+        textview11.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                textview11.setText("Application Checked");
+                int id6 = textview11.getId();
+                if (id6 == R.id.textView27) {
+                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
+                    startActivity(intent);
+
+
+                }
+
+            }
+        });
+        textview12.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                textview12.setText("Application Checked");
+                int id6 = textview12.getId();
+                if (id6 == R.id.textView28) {
+                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
+                    startActivity(intent);
+
+
+                }
+
+            }
+        });
+        textview13.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                textview13.setText("Application Checked");
+                int id6 = textview13.getId();
+                if (id6 == R.id.textView29) {
+                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
+                    startActivity(intent);
+
+
+                }
+
+            }
+        });
+        textview14.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                textview14.setText("Application Checked");
+                int id6 = textview14.getId();
+                if (id6 == R.id.textView30) {
+                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
+                    startActivity(intent);
+
+
+                }
+
+            }
+        });
+        textview15.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                textview15.setText("Application Checked");
+                int id6 = textview15.getId();
+                if (id6 == R.id.textView31) {
+                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
+                    startActivity(intent);
+
+
+                }
+
+            }
+        });
+        textview16.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                textview16.setText("Application Checked");
+                int id6 = textview16.getId();
+                if (id6 == R.id.textView32) {
+                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
+                    startActivity(intent);
+
+
+                }
+
+            }
+        });
+        textview17.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                textview17.setText("Application Checked");
+                int id6 = textview17.getId();
+                if (id6 == R.id.textView33) {
+                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
+                    startActivity(intent);
+
+
+                }
+
+            }
+        });
+        textview18.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                textview18.setText("Application Checked");
+                int id6 = textview18.getId();
+                if (id6 == R.id.textView34) {
+                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
+                    startActivity(intent);
+
+
+                }
+
+            }
+        });
+        textview19.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                textview19.setText("Application Checked");
+                int id6 = textview19.getId();
+                if (id6 == R.id.textView35) {
+                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
+                    startActivity(intent);
+
+
+                }
+
+            }
+        });
+        textview20.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                textview20.setText("Application Checked");
+                int id6 = textview20.getId();
+                if (id6 == R.id.textView36) {
+                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
+                    startActivity(intent);
+
+
+                }
+
+            }
+        });
+        textview21.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                textview21.setText("Application Checked");
+                int id6 = textview21.getId();
+                if (id6 == R.id.textView37) {
+                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
+                    startActivity(intent);
+
+
+                }
+
+            }
+        });
+        textview22.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                textview22.setText("Application Checked");
+                int id6 = textview22.getId();
+                if (id6 == R.id.textView38) {
+                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
+                    startActivity(intent);
+
+
+                }
+
+            }
+        });
+        textview23.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                textview23.setText("Application Checked");
+                int id6 = textview23.getId();
+                if (id6 == R.id.textView39) {
+                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
+                    startActivity(intent);
+
+
+                }
+
+            }
+        });
+        textview24.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                textview24.setText("Application Checked");
+                int id6 = textview24.getId();
+                if (id6 == R.id.textView40) {
+                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
+                    startActivity(intent);
+
+
+                }
+
+            }
+        });
+        textview25.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                textview25.setText("Application Checked");
+                int id6 = textview25.getId();
+                if (id6 == R.id.textView41) {
+                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
+                    startActivity(intent);
+
+
+                }
+
+            }
+        });
+        textview26.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                textview26.setText("Application Checked");
+                int id6 = textview26.getId();
+                if (id6 == R.id.textView42) {
+                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
+                    startActivity(intent);
+
+
+                }
+
+            }
+        });
+        textview27.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                textview27.setText("Application Checked");
+                int id6 = textview27.getId();
+                if (id6 == R.id.textView43) {
+                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
+                    startActivity(intent);
+
+
+                }
+
+            }
+        });
+        textview28.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                textview28.setText("Application Checked");
+                int id6 = textview28.getId();
+                if (id6 == R.id.textView44) {
+                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
+                    startActivity(intent);
+
+
+                }
+
+            }
+        });
+        textview29.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                textview29.setText("Application Checked");
+                int id6 = textview29.getId();
+                if (id6 == R.id.textView45) {
+                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
+                    startActivity(intent);
+
+
+                }
+
+            }
+        });
+        textview30.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                textview30.setText("Application Checked");
+                int id6 = textview30.getId();
+                if (id6 == R.id.textView46) {
+                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
+                    startActivity(intent);
+
+
+                }
+
+            }
+        });
+        textview31.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                textview31.setText("Application Checked");
+                int id6 = textview31.getId();
+                if (id6 == R.id.textView47) {
+                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
+                    startActivity(intent);
+
+
+                }
+
+            }
+        });
+        textview32.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                textview32.setText("Application Checked");
+                int id6 = textview32.getId();
+                if (id6 == R.id.textView48) {
+                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
+                    startActivity(intent);
+
+
+                }
+
+            }
+        });
+        textview33.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                textview33.setText("Application Checked");
+                int id6 = textview33.getId();
+                if (id6 == R.id.textView49) {
+                    Intent intent = new Intent(AdminHomePage.this, View_Application.class);
+                    startActivity(intent);
+
+
+                }
+
+            }
+        });
        /* FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override

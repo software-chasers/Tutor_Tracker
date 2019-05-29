@@ -59,15 +59,15 @@ public class InformationAdapter extends RecyclerView.Adapter<InformationAdapter.
                          String venue1= holder.venue.getText().toString();
                          String date =  new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
 
-                          //  Intent intent = new Intent(context,QR_Code.class);
-//                            intent.putExtra("Code",code1);
-//                            intent.putExtra("Day",day1);
-//                            intent.putExtra("Type",type1);
-//                            intent.putExtra("Time",time1);
-//                            intent.putExtra("Venue",venue1);
-//                            intent.putExtra("Date",date);
-//                            context.startActivity(intent);
-//                            break;
+                            Intent intent = new Intent(context,QR_Code.class);
+                            intent.putExtra("Code",code1);
+                            intent.putExtra("Day",day1);
+                            intent.putExtra("Type",type1);
+                            intent.putExtra("Time",time1);
+                            intent.putExtra("Venue",venue1);
+                            intent.putExtra("Date",date);
+                            context.startActivity(intent);
+                            break;
                     }
                     return false;
                 }
