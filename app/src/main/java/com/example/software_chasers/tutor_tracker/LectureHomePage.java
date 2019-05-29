@@ -127,17 +127,18 @@ public class LectureHomePage extends AppCompatActivity
 
         if (id == R.id.profile) {
             Intent intent = new Intent(LectureHomePage.this, viewLecture.class);
-            intent.putExtra( "UserId",userid );
+            intent.putExtra("UserId", userid);
             startActivity(intent);
             // Handle the camera action
-        } else if (id == R.id.scan) {
-            Intent intent = new Intent(LectureHomePage.this, Scan_QR_Code.class);
-            startActivity(intent);
-
-        }else if (id == R.id.addd){
-            Intent intent = new Intent(getApplicationContext(), AddAssessment.class);
-            startActivity(intent);
         }
+//         else if (id == R.id.scan) {
+//            Intent intent = new Intent(LectureHomePage.this, Scan_QR_Code.class);
+//            startActivity(intent);
+//
+//        }else if (id == R.id.addd){
+//            Intent intent = new Intent(getApplicationContext(), AddAssessment.class);
+//            startActivity(intent);
+//        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

@@ -18,25 +18,25 @@ public class Addcourse extends Activity {
     private Spinner spinner1;
     private Button btnSubmit;
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_addcourse);
-        spinner1 = (Spinner) findViewById(R.id.spinner1);
-        addListenerOnButton();
-
-/*        spinner1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-               // addListenerOnSpinnerItemSelection(spinner1);
-            }
-        });*/
-       addListenerOnSpinnerItemSelection(spinner1);
-    }
-
-    public void addListenerOnSpinnerItemSelection(Spinner spinner) {
-        spinner.setOnItemSelectedListener(new CustomOnItemSelectedListener());
-    }
+//    @Override
+//    public void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.activity_addcourse);
+//        spinner1 = (Spinner) findViewById(R.id.spinner1);
+//        addListenerOnButton();
+//
+///*        spinner1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//               // addListenerOnSpinnerItemSelection(spinner1);
+//            }
+//        });*/
+//       addListenerOnSpinnerItemSelection(spinner1);
+//    }
+//
+//    public void addListenerOnSpinnerItemSelection(Spinner spinner) {
+//        spinner.setOnItemSelectedListener(new CustomOnItemSelectedListener());
+//    }
 
 
 
