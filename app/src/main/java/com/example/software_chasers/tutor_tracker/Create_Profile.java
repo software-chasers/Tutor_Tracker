@@ -128,7 +128,7 @@ public class Create_Profile extends AppCompatActivity {
                                 }
 
                             }
-                            else Toast.makeText(getApplicationContext(),"could register you", Toast.LENGTH_SHORT).show();
+                            else Toast.makeText(getApplicationContext(),"couldn't register you", Toast.LENGTH_SHORT).show();
                         }
                     };
                     asyncHTTPPost.execute();
