@@ -62,6 +62,7 @@ public class Create_ProfileTest {
     public void checkEmail(){
         assertFalse( create_profile.isValidEmail( null ) );
         assertFalse( create_profile.isValidEmail( "" ) );
+        assertFalse( create_profile.isValidEmail( "potegokgaphola@gmail.com" ) );
         assertTrue(create_profile.isValidEmail( "1661233@students.wits.ac.za" )  );
     }
 
