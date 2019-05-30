@@ -21,14 +21,18 @@ $ git clone https://github.com/software-chasers/Tutor_Tracker.git
 $ cd Tutor-Tracker
 ```
 ## Usage
-Students can register to be users and/or login to the app as existing users.
-![Login Page](https://github.com/software-chasers/Tutor_Tracker/wiki/Usages#login-page)
-
+* Sign Up
 If students would like to sign up they are taken to the signup page.
-![Sign Up Page](https://github.com/software-chasers/Tutor_Tracker/wiki/Usages#sign-up-page)
+![Sign Up](https://github.com/KhanyileBN/dummy-repo/blob/master/create-profile.jpeg)
 
+* Login
+Students can register to be users and/or login to the app as existing users.
+![Login Page](https://github.com/KhanyileBN/dummy-repo/blob/master/login.jpeg)
+
+* Generate QR Code
 Tutors can see activities that they must attend to.
-![Tutor Main](https://github.com/software-chasers/Tutor_Tracker/wiki/Usages#tutor-main-page)
+![QR](https://github.com/KhanyileBN/dummy-repo/blob/master/qr-code.jpeg)
+
 
 ## Framework Used
 [![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://github.com/software-chasers/Tutor_Tracker/) by [![GitHub contributors](https://img.shields.io/badge/contributors-5-green.svg)](https://github.com/software-chasers/Tutor_Tracker/graphs/contributors) using [Android Studio](https://developer.android.com/studio).
