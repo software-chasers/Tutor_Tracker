@@ -33,6 +33,7 @@ Students can register to be users and/or login to the app as existing users.
 Tutors can see activities that they must attend to.
 ![QR](https://github.com/KhanyileBN/dummy-repo/blob/master/qr-code.jpeg)
 
+* Other snaps on how users can interact with the application are found [Here](https://github.com/software-chasers/Tutor_Tracker/wiki/Usages)
 
 ## Framework Used
 [![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://github.com/software-chasers/Tutor_Tracker/) by [![GitHub contributors](https://img.shields.io/badge/contributors-5-green.svg)](https://github.com/software-chasers/Tutor_Tracker/graphs/contributors) using [Android Studio](https://developer.android.com/studio).
