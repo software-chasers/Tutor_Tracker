@@ -144,14 +144,13 @@ public class Create_Profile extends AppCompatActivity {
 
     public boolean isValidEmail(String email){
         if(email != null && Patterns.EMAIL_ADDRESS.matcher( email ).matches()){
-//            int i = email.indexOf( '@' );
-//            int n = email.length();
-//            String sub_string = email.substring( i, n );
-//            System.out.println( "THE SUB EMAIL IS: " + sub_string );
-            return true;
-//            if ( ){
-//                return true;
-//            }
+            int i = email.indexOf( '@' );
+            int n = email.length();
+            String sub_string = email.substring( i+1, n );
+            //System.out.println( "THE SUB EMAIL IS: " + sub_string );
+            if (sub_string.equals( "students.wits.ac.za" ) || sub_string.equals( "STUDENTS.WITS.AC.ZA" ) ){
+                return true;
+            }
         }
         return false;
     }
