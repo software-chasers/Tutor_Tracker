@@ -21,7 +21,7 @@ public class Create_Profile extends AppCompatActivity {
     Button Submit;
     RadioButton radioButton1,radioButton2,radioButton3;
     RadioGroup radioGroup;
-    DatabaseHelper db;
+   // DatabaseHelper db;
     private boolean isNetworkAvailable() {
         ConnectivityManager connectivityManager
                 = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -51,7 +51,7 @@ public class Create_Profile extends AppCompatActivity {
 
 
 
-        db = new DatabaseHelper(this);
+       // db = new DatabaseHelper(this);
         Submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

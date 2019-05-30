@@ -31,12 +31,12 @@ public class Addcourse extends Activity {
                // addListenerOnSpinnerItemSelection(spinner1);
             }
         });*/
-       addListenerOnSpinnerItemSelection(spinner1);
+      // addListenerOnSpinnerItemSelection(spinner1);
     }
 
-    public void addListenerOnSpinnerItemSelection(Spinner spinner) {
-        spinner.setOnItemSelectedListener(new CustomOnItemSelectedListener());
-    }
+//    public void addListenerOnSpinnerItemSelection(Spinner spinner) {
+//        spinner.setOnItemSelectedListener(new CustomOnItemSelectedListener());
+//    }
 
 
 

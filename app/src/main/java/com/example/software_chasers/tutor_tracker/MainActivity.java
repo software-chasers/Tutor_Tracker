@@ -92,11 +92,11 @@ public class MainActivity extends AppCompatActivity {
                                 break;
                             }
                             case "Admin": {
-                                Intent intent = new Intent(MainActivity.this, AdminHomePage.class);
-                                intent.putExtra("UserId", Userid);
-                                startActivity(intent);
-//                                Toast.makeText(getApplicationContext(), "Sign in successfully", Toast.LENGTH_SHORT).show();
-                                break;
+//                                Intent intent = new Intent(MainActivity.this, AdminHomePage.class);
+//                                intent.putExtra("UserId", Userid);
+//                                startActivity(intent);
+////                                Toast.makeText(getApplicationContext(), "Sign in successfully", Toast.LENGTH_SHORT).show();
+//                                break;
                             }
                             default:
                                 Toast.makeText(getApplicationContext(), "Sign in Unsuccessful", Toast.LENGTH_SHORT).show();
